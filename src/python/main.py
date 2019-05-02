@@ -1,6 +1,6 @@
 """
 Stable version of the shape and colour detection.
-This script uses a webcam connected to the computer and detects the three primary colours.
+This script uses a web-cam connected to the computer and detects the three primary colours.
 """
 
 # TODO: Use a class to avoid having to use the global statement
@@ -12,11 +12,12 @@ import math
 
 import cv2
 import imutils
+
 # import numpy as np
 
 ######################################### Global variables #########################################
 
-__author__ = 'P. Cassiman'
+__author__ = "P. Cassiman"
 __version__ = '1.5.0'
 
 # Vision variables are placed here for easy tuning.
@@ -53,6 +54,7 @@ LAP_TIMES = []
 START_TIME = time.time()
 CURRENT_LAP = 0
 
+
 ############################################# Classes ##############################################
 
 class Finish(object):
@@ -60,6 +62,7 @@ class Finish(object):
     * To implement
     """
     # TODO: implement finish line class, to avoid using global variables.
+
 
 ############################################ Functions #############################################
 
@@ -161,7 +164,7 @@ def print_message():
     """
     # Variables for the message.
     message_width = 120
-    message_1 = "Vision system for linefollowers"
+    message_1 = "Vision system for line-followers"
     message_2 = "Based on OpenCV"
     message_3 = "Written by P. Cassiman"
 
@@ -170,7 +173,7 @@ def print_message():
     print()
     # Starting with the border around the message.
     print("#" * message_width)
-    print("#" + " "*(message_width - 2) + "#")
+    print("#" + " " * (message_width - 2) + "#")
 
     # Call the function to correctly format the message lines.
     print(create_line(message_width, message_1))
@@ -179,7 +182,7 @@ def print_message():
     print(create_line(message_width, message_3))
 
     # Ending with the border around the screen.
-    print("#" + " "*(message_width - 2) + "#")
+    print("#" + " " * (message_width - 2) + "#")
     print("#" * message_width)
     # Adding more whitespace at the end.
     print()
@@ -205,9 +208,9 @@ def create_line(width: int = 80, message: str = "Hello world!") -> str:
     line += "#"
     # Calculate the needed whitespace.
     space = (width - 2 - len(message)) / 2
-    # The left white space is floored and converted to an int.
+    # The left white space is rounded down and converted to an int.
     space_left = int(math.floor(space))
-    # The right white spae is ceiled and converted to an int.
+    # The right white space is rounded up and converted to an int.
     space_right = int(math.ceil(space))
 
     # Add the left white space.
@@ -220,6 +223,7 @@ def create_line(width: int = 80, message: str = "Hello world!") -> str:
     line += "#"
     # Return the line.
     return line
+
 
 ############################################### Main ###############################################
 
@@ -275,46 +279,39 @@ if __name__ == "__main__":
            cv2.getWindowProperty('canny', 0) or
            cv2.getWindowProperty('threshold', 0)) >= 0:
 
-        # Read a frame from the webcam.
+        # Read a frame from the web-cam.
         _, FRAME = CAP.read()
-        if SAVE_FRAMES:
-            # Create a copy of the frame
-            INPUT_FRAME = FRAME.copy()
-        FRAME_COPY = FRAME.copy()
+        # Create a copy of the frame
+        INPUT_FRAME = FRAME.copy()
         # Fill the sides with white rectangles
         # Left side of the screen
-        cv2.rectangle(FRAME_COPY, (0, 0), (150, 1200), (255, 255, 255), -1)
+        cv2.rectangle(FRAME, (0, 0), (150, 1200), (255, 255, 255), -1)
         # Bottom of the screen
-        cv2.rectangle(FRAME_COPY, (0, 1100), (1600, 1200), (255, 255, 255), -1)
+        cv2.rectangle(FRAME, (0, 1100), (1600, 1200), (255, 255, 255), -1)
         # Right side of the screen
-        cv2.rectangle(FRAME_COPY, (1560, 0), (1600, 1200), (255, 255, 255), -1)
+        cv2.rectangle(FRAME, (1560, 0), (1600, 1200), (255, 255, 255), -1)
         # top of the screen
-        cv2.rectangle(FRAME_COPY, (0, 0), (1600, 78), (255, 255, 255), -1)
+        cv2.rectangle(FRAME, (0, 0), (1600, 78), (255, 255, 255), -1)
         # Covering the black square on the track.
-        cv2.rectangle(FRAME_COPY, (0, 1200), (400, 800), (255, 255, 255), -1)
-
+        cv2.rectangle(FRAME, (0, 1200), (400, 800), (255, 255, 255), -1)
 
         # convert the image to greyscale.
-        GRAY = cv2.cvtColor(FRAME_COPY, cv2.COLOR_BGR2GRAY)
+        GRAY = cv2.cvtColor(FRAME, cv2.COLOR_BGR2GRAY)
         # Use a gaussian blur to reduce noise in the image.
         KERNEL = (9, 9)
         GRAY = cv2.GaussianBlur(GRAY, KERNEL, 0)
 
         # use a binary threshold on the image.
         _, THRESHOLD = cv2.threshold(GRAY, 85, 255, cv2.THRESH_BINARY)
-
-        if SAVE_FRAMES:
-            # Create a colour copy of the threshold image
-            THRESHOLD_COPY = cv2.cvtColor(THRESHOLD, cv2.COLOR_GRAY2BGR)
+        # Create a colour copy of the threshold image
+        THRESHOLD_COPY = cv2.cvtColor(THRESHOLD, cv2.COLOR_GRAY2BGR)
 
         # Detect the edges in the image.
         EDGED = cv2.Canny(THRESHOLD, 25, 145)
         # Reduce noise on the detected edges.
         # EDGED = cv2.GaussianBlur(EDGED, (3, 3), 0)
-
-        if SAVE_FRAMES:
-            # Create a colour copy of the edge frame.
-            EDGED_COPY = cv2.cvtColor(EDGED, cv2.COLOR_GRAY2BGR)
+        # Create a colour copy of the edge frame.
+        EDGED_COPY = cv2.cvtColor(EDGED, cv2.COLOR_GRAY2BGR)
 
         # Find the contours in the image.
         CONTOURS = cv2.findContours(
@@ -352,18 +349,16 @@ if __name__ == "__main__":
                                 # Draw the contour on the frame.
                                 cv2.drawContours(FRAME, [c], -1, (0, 0, 255), 2)
                                 # Write text on the resulting frame.
-                                cv2.putText(FRAME, 'Car', (cX-16, cY-16), cv2.FONT_HERSHEY_SIMPLEX,
-                                            1, TXT_COLOUR, 2)
+                                cv2.putText(FRAME, 'Car', (cX - 16, cY - 16),
+                                            cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                                 # TODO: Implement lap times
                                 cv2.putText(FRAME, 'Lap time', (cX - 16, cY + 16),
                                             cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
 
                                 # Draw the bounding box on the edged frame.
-                                cv2.rectangle(EDGED_COPY, (x-8, y-8),
-                                              (x+w+8, y+h+8), (0, 0, 255), 2)
+                                cv2.rectangle(EDGED_COPY, (x - 8, y - 8), (x + w + 8, y + h + 8), (0, 0, 255), 2)
                                 # Draw the bounding box on the threshold frame.
-                                cv2.rectangle(THRESHOLD_COPY, (x-8, y-8),
-                                              (x+w+8, y+h+8), (0, 0, 255), 2)
+                                cv2.rectangle(THRESHOLD_COPY, (x - 8, y - 8), (x + w + 8, y + h + 8), (0, 0, 255), 2)
 
                                 # Check for a finish line crossing.
                                 if (FL_X1 <= cX <= FL_X2) and (FL_Y1 <= cY <= FL_Y2):
@@ -407,7 +402,7 @@ if __name__ == "__main__":
         cv2.putText(FRAME, 'FINISH', (FL_X1 - 32, FL_Y2 + 32),
                     cv2.FONT_HERSHEY_SIMPLEX, 1, FINISH_LINE_COLOUR, 2)
 
-        # Draw the parametres on the screen.
+        # Draw the parameters on the screen.
         cv2.rectangle(FRAME, (0, 0), (300, 100), (255, 255, 255), -1)
         cv2.putText(FRAME, 'parameter 1:', (2, 24),
                     cv2.FONT_HERSHEY_SIMPLEX, .75, (0, 0, 0), 2)
@@ -418,13 +413,11 @@ if __name__ == "__main__":
 
         # Put the title on canny edge detection.
         cv2.rectangle(EDGED_COPY, (0, 0), (450, 50), (255, 255, 255), -1)
-        cv2.putText(EDGED_COPY, 'Canny edge detection', (4, 32),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 0, 0), 2)
+        cv2.putText(EDGED_COPY, 'Canny edge detection', (4, 32), cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 0, 0), 2)
 
         # Put the title on threshold.
         cv2.rectangle(THRESHOLD_COPY, (0, 0), (350, 50), (255, 255, 255), -1)
-        cv2.putText(THRESHOLD_COPY, 'Binary threshold', (4, 32),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 0, 0), 2)
+        cv2.putText(THRESHOLD_COPY, 'Binary threshold', (4, 32), cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 0, 0), 2)
 
         # Show the resulting frames.
         cv2.imshow('frame', FRAME)
