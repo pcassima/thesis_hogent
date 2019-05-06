@@ -5,7 +5,7 @@ This script uses a web-cam connected to the computer and detects the three prima
 
 # TODO: Use a class to avoid having to use the global statement
 
-############################################# Imports ##############################################
+# ------------------------------------------- Imports ----------------------------------------------
 
 import time
 import math
@@ -21,7 +21,7 @@ except ImportError:
 
 # import numpy as np
 
-######################################### Global variables #########################################
+# --------------------------------------- Global variables -----------------------------------------
 
 __author__ = "P. Cassiman"
 __version__ = '1.5.0'
@@ -63,7 +63,7 @@ CURRENT_LAP = 0
 # broker_address = 192.168.1.5
 
 
-############################################# Classes ##############################################
+# ------------------------------------------- Classes ----------------------------------------------
 
 class Finish(object):
     """
@@ -89,7 +89,7 @@ class WebCam(cv2.VideoCapture):
         self.set(cv2.CAP_PROP_FPS, framerate)
 
 
-############################################ Functions #############################################
+# ------------------------------------------ Functions ---------------------------------------------
 
 
 def name_colour(pixel_colour: tuple = (0, 0, 0)) -> str:
@@ -308,7 +308,7 @@ def order_66():
         print("Oops")
 
 
-############################################### Main ###############################################
+# --------------------------------------------- Main -----------------------------------------------
 
 
 if __name__ == "__main__":
@@ -479,7 +479,6 @@ if __name__ == "__main__":
                     cv2.FONT_HERSHEY_SIMPLEX, 1, FINISH_LINE_COLOUR, 2)
 
         # Draw the parameters on the screen.
-        # TODO: Implement actual parameters.
         cv2.rectangle(FRAME, (0, 0), (300, 100), (255, 255, 255), -1)
         cv2.putText(FRAME, 'Threshold: {}'.format(THRESHOLD_VALUE), (2, 24),
                     cv2.FONT_HERSHEY_SIMPLEX, .75, (0, 0, 0), 2)
