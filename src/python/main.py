@@ -9,9 +9,15 @@ This script uses a web-cam connected to the computer and detects the three prima
 
 import time
 import math
+import sys
 
-import cv2
-import imutils
+try:
+    import cv2
+    import imutils
+    import lib.paho.mqtt.client as mqtt
+except ImportError:
+    print("Required modules not found")
+    sys.exit()
 
 # import numpy as np
 
@@ -54,6 +60,8 @@ LAP_TIMES = []
 START_TIME = time.time()
 CURRENT_LAP = 0
 
+# broker_address = 192.168.1.5
+
 
 ############################################# Classes ##############################################
 
@@ -62,6 +70,23 @@ class Finish(object):
     * To implement
     """
     # TODO: implement finish line class, to avoid using global variables.
+
+
+class WebCam(cv2.VideoCapture):
+    """
+    WebCam class to act and deal with usb webcams. Class is an extension on the OpenCV VideoCapture class.
+    """
+
+    def __init__(self, resolution: tuple = (1440, 1080), exposure: int = -2, framerate: int = 40):
+        # Call the super class to generate a video capture object.
+        super(WebCam, self).__init__(0)
+        # Set the capture resolution, works best with 4:3 aspect ratio.
+        self.set(cv2.CAP_PROP_FRAME_WIDTH, resolution[0])
+        self.set(cv2.CAP_PROP_FRAME_HEIGHT, resolution[1])
+        # Set the exposure of the camera
+        self.set(cv2.CAP_PROP_EXPOSURE, exposure)
+        # Set the framerate on the webcam.
+        self.set(cv2.CAP_PROP_FPS, framerate)
 
 
 ############################################ Functions #############################################
@@ -145,6 +170,8 @@ def finished():
                 CURRENT_LAP -= 1
     # If the current lap is the maximum (or last) lap.
     if CURRENT_LAP == max_laps + 1:
+        # Disable controls to the car.
+        order_66()
         # Print finished to the terminal.
         print('Finished')
         # Calculate the average and fastest lap times.
@@ -225,6 +252,62 @@ def create_line(width: int = 80, message: str = "Hello world!") -> str:
     return line
 
 
+def mask_sides(window):
+    # Fill the sides with white rectangles
+    # Left side of the screen
+    cv2.rectangle(window, (0, 0), (150, 1200), (255, 255, 255), -1)
+    # Bottom of the screen
+    cv2.rectangle(window, (0, 1100), (1600, 1200), (255, 255, 255), -1)
+    # Right side of the screen
+    cv2.rectangle(window, (1560, 0), (1600, 1200), (255, 255, 255), -1)
+    # top of the screen
+    cv2.rectangle(window, (0, 0), (1600, 78), (255, 255, 255), -1)
+    # Covering the black square on the track.
+    cv2.rectangle(window, (0, 1200), (400, 800), (255, 255, 255), -1)
+
+
+def order_66():
+    """
+    Command to disable controls to the car.
+    :return:
+    """
+    try:
+        # Create a delay here before sending the command
+        # ?Not the right way to do it, but oh well...
+        time.sleep(0.5)
+        print("Creating mqtt object")
+        mqtt_client = mqtt.Client()
+
+        # setting the mqtt broker address and port
+        print("Connecting to broker")
+        mqtt_client.connect("192.168.1.5", 1881)
+
+        # starting the mqtt loop
+        print("Starting mqtt loop")
+        mqtt_client.loop_start()
+
+        # making the array to send
+        arr = bytearray([20, 61, 0, 0, 11, 0, 0, 0])
+
+        arr[0] = 20  # stop the car
+        print("Sending message to the car")
+        mqtt_client.publish("vroom", arr)
+
+        arr[0] = 21  # reset the lights
+        print("Sending message to the lights")
+        mqtt_client.publish("vroom", arr)
+
+        arr[0] = 60  # disable the controls
+        print("Sending message to the controls")
+        mqtt_client.publish("vroom", arr)
+        print("Stop the mqtt loop")
+        mqtt_client.loop_stop(force=False)
+        print("Disconnect from the loop")
+        mqtt_client.disconnect()
+    except:
+        print("Oops")
+
+
 ############################################### Main ###############################################
 
 
@@ -233,17 +316,12 @@ if __name__ == "__main__":
     print_message()
     print("Starting vision")
 
-    print("Creating capture object")
-    # Enable the video capture on channel 0
-    CAP = cv2.VideoCapture(0)
+    print("Number of CPU's: {}".format(cv2.getNumberOfCPUs()))
+    print("Number of threads: {}".format(cv2.getNumThreads()))
 
-    print("Setting video resolution")
-    # Set the capture resolution, works best with 4:3 aspect ratio.
-    CAP.set(cv2.CAP_PROP_FRAME_WIDTH, 1440)
-    CAP.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-    print("Setting and locking video exposure")
-    # Set the exposure of the camera
-    CAP.set(cv2.CAP_PROP_EXPOSURE, -2)
+    print("Creating capture object")
+    # Creating a webcam object.
+    CAP = WebCam()
 
     print("Creating result window")
     # Create a window to show the results
@@ -268,35 +346,32 @@ if __name__ == "__main__":
     print("Setting font")
     # Chose the font to be used
     FONT = cv2.FONT_HERSHEY_SIMPLEX
-    TXT_COLOUR = (0, 255, 255)
+    TXT_COLOUR = (0, 150, 150)
 
     # As long as the window is opened keep running.
     # This allows the windows close button ('X') to be functional.
     print("Starting main loop")
     print()
     print()
-    while (cv2.getWindowProperty('frame', 0) or
-           cv2.getWindowProperty('canny', 0) or
-           cv2.getWindowProperty('threshold', 0)) >= 0:
+    # while (cv2.getWindowProperty('frame', 0) or
+    #        cv2.getWindowProperty('canny', 0) or
+    #        cv2.getWindowProperty('threshold', 0)) >= 0:
+    while True:
+
+        # Set the finish line colour.
+        FINISH_LINE_COLOUR = (0, 0, 255)
+        # Set the finished variable to false.
+        FINISHED = False
 
         # Read a frame from the web-cam.
         _, FRAME = CAP.read()
         # Create a copy of the frame
         INPUT_FRAME = FRAME.copy()
-        # Fill the sides with white rectangles
-        # Left side of the screen
-        cv2.rectangle(FRAME, (0, 0), (150, 1200), (255, 255, 255), -1)
-        # Bottom of the screen
-        cv2.rectangle(FRAME, (0, 1100), (1600, 1200), (255, 255, 255), -1)
-        # Right side of the screen
-        cv2.rectangle(FRAME, (1560, 0), (1600, 1200), (255, 255, 255), -1)
-        # top of the screen
-        cv2.rectangle(FRAME, (0, 0), (1600, 78), (255, 255, 255), -1)
-        # Covering the black square on the track.
-        cv2.rectangle(FRAME, (0, 1200), (400, 800), (255, 255, 255), -1)
 
+        # Mask the sides of the screen
+        mask_sides(INPUT_FRAME)
         # convert the image to greyscale.
-        GRAY = cv2.cvtColor(FRAME, cv2.COLOR_BGR2GRAY)
+        GRAY = cv2.cvtColor(INPUT_FRAME, cv2.COLOR_BGR2GRAY)
         # Use a gaussian blur to reduce noise in the image.
         KERNEL = (9, 9)
         GRAY = cv2.GaussianBlur(GRAY, KERNEL, 0)
@@ -352,8 +427,12 @@ if __name__ == "__main__":
                                 cv2.putText(FRAME, 'Car', (cX - 16, cY - 16),
                                             cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                                 # TODO: Implement lap times
-                                cv2.putText(FRAME, 'Lap time', (cX - 16, cY + 16),
-                                            cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+                                if CURRENT_LAP != 0:
+                                    current_time = time.time() - START_TIME
+                                    float_time, int_time = math.modf(current_time)
+                                    time_str = "{}:{:03d}".format(int(int_time), int(float_time * 1000))
+                                    cv2.putText(FRAME, time_str, (cX - 16, cY + 16),
+                                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
 
                                 # Draw the bounding box on the edged frame.
                                 cv2.rectangle(EDGED_COPY, (x - 8, y - 8), (x + w + 8, y + h + 8), (0, 0, 255), 2)
@@ -362,13 +441,10 @@ if __name__ == "__main__":
 
                                 # Check for a finish line crossing.
                                 if (FL_X1 <= cX <= FL_X2) and (FL_Y1 <= cY <= FL_Y2):
-                                    FINISH_LINE_COLOUR = (0, 255, 0)
+                                    FINISH_LINE_COLOUR = (0, 150, 0)
                                     if not FINISHED:
                                         finished()
                                         FINISHED = True
-                                else:
-                                    FINISH_LINE_COLOUR = (0, 0, 255)
-                                    FINISHED = False
 
                 elif len(approx) == 4:
                     # squares and rectangles.
@@ -403,12 +479,13 @@ if __name__ == "__main__":
                     cv2.FONT_HERSHEY_SIMPLEX, 1, FINISH_LINE_COLOUR, 2)
 
         # Draw the parameters on the screen.
+        # TODO: Implement actual parameters.
         cv2.rectangle(FRAME, (0, 0), (300, 100), (255, 255, 255), -1)
-        cv2.putText(FRAME, 'parameter 1:', (2, 24),
+        cv2.putText(FRAME, 'Threshold: {}'.format(THRESHOLD_VALUE), (2, 24),
                     cv2.FONT_HERSHEY_SIMPLEX, .75, (0, 0, 0), 2)
-        cv2.putText(FRAME, 'parameter 2:', (2, 48),
+        cv2.putText(FRAME, 'Canny lower: {}'.format(EDGE_LOWER_VALUE), (2, 48),
                     cv2.FONT_HERSHEY_SIMPLEX, .75, (0, 0, 0), 2)
-        cv2.putText(FRAME, 'parameter 3:', (2, 72),
+        cv2.putText(FRAME, 'Canny upper: {}'.format(EDGE_UPPER_VALUE), (2, 72),
                     cv2.FONT_HERSHEY_SIMPLEX, .75, (0, 0, 0), 2)
 
         # Put the title on canny edge detection.
@@ -444,8 +521,8 @@ if __name__ == "__main__":
                 cv2.imwrite('threshold.png', THRESHOLD_COPY)
                 # Save the canny edge detection result.
                 cv2.imwrite('canny.png', EDGED_COPY)
-            print('saved frames')
-            NOT_SAVED = False
+                print('saved frames')
+                NOT_SAVED = False
 
     # Release the capture object.
     CAP.release()
