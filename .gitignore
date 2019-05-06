@@ -1,5 +1,4 @@
 # Folders
-.ropeproject
 .idea
 
 # Byte-compiled / optimized / DLL files
@@ -125,6 +124,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-*.pyc
-*.pyc
-src/python/lib/paho/mqtt/__pycache__/client.cpython-37.pyc
