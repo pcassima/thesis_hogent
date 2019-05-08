@@ -77,9 +77,9 @@ class WebCam(cv2.VideoCapture):
     WebCam class to act and deal with usb webcams. Class is an extension on the OpenCV VideoCapture class.
     """
 
-    def __init__(self, resolution: tuple = (1440, 1080), exposure: int = -2, framerate: int = 40):
+    def __init__(self, channel: int = 0, resolution: tuple = (1440, 1080), exposure: int = -2, framerate: int = 40):
         # Call the super class to generate a video capture object.
-        super(WebCam, self).__init__(0)
+        super(WebCam, self).__init__(channel)
         # Set the capture resolution, works best with 4:3 aspect ratio.
         self.set(cv2.CAP_PROP_FRAME_WIDTH, resolution[0])
         self.set(cv2.CAP_PROP_FRAME_HEIGHT, resolution[1])
@@ -87,6 +87,21 @@ class WebCam(cv2.VideoCapture):
         self.set(cv2.CAP_PROP_EXPOSURE, exposure)
         # Set the framerate on the webcam.
         self.set(cv2.CAP_PROP_FPS, framerate)
+
+    def adjust_exposure(self):
+        """
+        Function to take a frame and auto adjust the exposure according to average brightness of the whole image.
+        """
+        while True:
+            frame = self.read()
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            brightness = cv2.mean(frame)
+            if brightness < 127:
+                exposure = self.get(cv2.CAP_PROP_EXPOSURE)
+                if exposure == -1:
+                    break
+                self.set(exposure + 1)
+                break
 
 
 # ------------------------------------------ Functions ---------------------------------------------
