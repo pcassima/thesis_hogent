@@ -27,6 +27,7 @@ __author__ = "P. Cassiman"
 __version__ = '1.5.0'
 
 # Vision variables are placed here for easy tuning.
+# These should be changed; currently they are global variables (not prefered).
 
 THRESHOLD_VALUE = 90
 EDGE_LOWER_VALUE = 25
@@ -60,7 +61,7 @@ LAP_TIMES = []
 START_TIME = time.time()
 CURRENT_LAP = 0
 
-# broker_address = 192.168.1.5
+broker_address = '192.168.1.5'
 
 
 # ------------------------------------------- Classes ----------------------------------------------
@@ -269,6 +270,10 @@ def create_line(width: int = 80, message: str = "Hello world!") -> str:
 
 
 def mask_sides(window):
+    """
+    Function to mask off the side of the screen. Since the field of view for the camera is larger than the board,
+    the 'overflow' is masked so that it's ignored by the rest of the program.
+    """
     # Fill the sides with white rectangles
     # Left side of the screen
     cv2.rectangle(window, (0, 0), (150, 1200), (255, 255, 255), -1)
@@ -287,16 +292,17 @@ def order_66():
     Command to disable controls to the car.
     :return:
     """
-    try:
-        # Create a delay here before sending the command
-        # ?Not the right way to do it, but oh well...
-        time.sleep(0.5)
-        print("Creating mqtt object")
-        mqtt_client = mqtt.Client()
+    # Create a delay here before sending the command
+    # Not the right way to do it, but oh well...
+    time.sleep(0.5)
+    print("Creating mqtt object")
+    mqtt_client = mqtt.Client()
 
-        # setting the mqtt broker address and port
-        print("Connecting to broker")
-        mqtt_client.connect("192.168.1.5", 1881)
+    # setting the mqtt broker address and port
+    print("Connecting to broker")
+    RC = mqtt_client.connect(broker_address, 1881)
+
+    if RC == 0:
 
         # starting the mqtt loop
         print("Starting mqtt loop")
@@ -320,8 +326,12 @@ def order_66():
         mqtt_client.loop_stop(force=False)
         print("Disconnect from the loop")
         mqtt_client.disconnect()
-    except:
-        print("Oops")
+
+    elif RC == 3:
+        print('Server is unreachable')
+
+    else:
+        print('something went wrong when trying to connect to MQTT')
 
 
 # --------------------------------------------- Main -----------------------------------------------
