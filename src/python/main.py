@@ -92,6 +92,7 @@ class WebCam(cv2.VideoCapture):
         """
         Function to take a frame and auto adjust the exposure according to average brightness of the whole image.
         """
+        # TODO: Test method
         while True:
             frame = self.read()
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -404,8 +405,7 @@ if __name__ == "__main__":
         EDGED_COPY = cv2.cvtColor(EDGED, cv2.COLOR_GRAY2BGR)
 
         # Find the contours in the image.
-        CONTOURS = cv2.findContours(
-            EDGED.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        CONTOURS = cv2.findContours(EDGED.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # Get the contours (to deal with different versions of OpenCV).
         CNTS = imutils.grab_contours(CONTOURS)
 
@@ -415,6 +415,8 @@ if __name__ == "__main__":
 
             if PERIMETER_LOWER_BOUND <= PERIMETER <= PERIMETER_UPPER_BOUND:
                 # Approximate the shape based on the perimeter (with a margin; here 3%).
+                # If two adjacent points in the contour have a distance that is less than 3% of the perimeter, they
+                # will be treated as a single point.
                 approx = cv2.approxPolyDP(c, 0.03 * PERIMETER, True)
                 # Draw the contour.
                 if len(approx) == 3:
@@ -433,8 +435,8 @@ if __name__ == "__main__":
                             (x, y, w, h) = cv2.boundingRect(approx)
                             # Calculate the aspect ratio of the bounding box.
                             ar = w / float(h)
-                            # Our triangles are half a square (diagonally) use this to further
-                            # filter out noise.
+                            # Our triangles are half a square (diagonally) and have a bounding rectangle with an
+                            # aspect ratio of 0.5 to 2 use this to further filter out noise.
                             if 0.45 <= ar <= 2.05:
                                 # Draw the contour on the frame.
                                 cv2.drawContours(FRAME, [c], -1, (0, 0, 255), 2)
