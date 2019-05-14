@@ -1,5 +1,7 @@
-
 # Our bachelor's thesis at HoGent
+The complete documentation can be found at: pcassima.github.io/thesis_hogent.
+
+Our project was presented at the Mini MakerFaire 2019 in Gent.
 
 ## What is it?
 It is our thesis to achieve a Bachelor's degree in **Industrial automation**.
