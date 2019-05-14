@@ -2,7 +2,7 @@
 this program controlls the car with inputs from a keyboard
 """
 # import libraries that are needed
-import paho.mqtt.client as mqtt
+import lib.paho.mqtt.client as mqtt
 from pynput.keyboard import Key, Listener
 
 # set mqttc as the client
@@ -217,7 +217,7 @@ def pressed(letter):
         # check if already pressed
         if u_pressed == False:
 
-            # setting the target, function and 
+            # setting the target, function and delay
             arr[0] = 21
             arr[2] = 1
             arr[6] = 225
@@ -229,9 +229,13 @@ def pressed(letter):
             print("pressed u")
             u_pressed = True
 
+    # button k (lights out)
     elif letter == "k":
+
+        # check if already pressed
         if k_pressed == False:
 
+            # setting the target, function and delay
             arr[0] = 21
             arr[2] = 0
             arr[6] = 0
@@ -243,10 +247,22 @@ def pressed(letter):
             print("pressed k")
             k_pressed = True
 
+    # button l (lights out and disable driving and stop car)
     elif letter == "l":
+
+        # check if already pressed
         if l_pressed == False:
 
+            # setting the target, function and delay
             arr[0] = 21
+            arr[2] = 0
+            arr[6] = 0
+
+            # send the array
+            mqttc.publish("vroom",  arr)
+
+            # setting the target, function and speed
+            arr[0] = 20
             arr[2] = 0
             arr[6] = 0
 
@@ -256,28 +272,36 @@ def pressed(letter):
             # print what is pressed
             print("pressed l")
 
+            # disable driving input
             l_pressed = True
             drive_enabled = False
 
             print("not enabled")
 
+    # button p (to kill the program)
     if letter == "p":
 
+        # setting the target, function and speed
+        arr[0] = 20
         arr[2] = 0
         arr[6] = 0
 
         # send the array
         mqttc.publish("vroom",  arr)
 
-        print('kill me!')
+        # print out exiting and then leave the program
+        print('exiting')
         exit()
 
 
+# if the button is released
 def released(letter):
 
+    # making sure it is a string then you get 'n' so we wand n
     letter = str(letter)
     letter = letter[1]
 
+    # using the global variables
     global z_pressed
     global s_pressed
     global q_pressed
@@ -292,10 +316,16 @@ def released(letter):
     global target
     global Iam
 
+    # making the array to send
     arr = bytearray([target, Iam, 0, 0, 11, 0, 255, 0])
 
+    # if drive is enabled than you can drive
     if drive_enabled == True:
+
+        # check if z is pressed
         if z_pressed == True:
+
+            # button z released
             if letter == "z":
 
                 # setting the destination and the speed
@@ -309,7 +339,10 @@ def released(letter):
                 print("released z")
                 z_pressed = False
 
+        # check if s is pressed
         if s_pressed == True:
+
+            # button z released
             if letter == "s":
 
                 # setting the destination and the speed
@@ -323,7 +356,10 @@ def released(letter):
                 print("released s")
                 s_pressed = False
 
+        # check if q is pressed
         if q_pressed == True:
+
+            # button z released
             if letter == "q":
 
                 # setting the destination and the speed
@@ -337,7 +373,10 @@ def released(letter):
                 print("released q")
                 q_pressed = False
 
+        # check if d is pressed
         if d_pressed == True:
+
+            # button z released
             if letter == "d":
 
                 # setting the destination and the speed
@@ -351,39 +390,58 @@ def released(letter):
                 print("released d")
                 d_pressed = False
 
+    # check if u is pressed
     if u_pressed == True:
+
+        # button z released
         if letter == "u":
 
             # print what is released
             print("released u")
             u_pressed = False
 
+    # check if k is pressed
     if k_pressed == True:
+
+        # button z released
         if letter == "k":
 
             # print what is released
             print("released k")
             k_pressed = False
 
+    # check if l is pressed
     if l_pressed == True:
+
+        # button z released
         if letter == "l":
 
             # print what is released
             print("released l")
             l_pressed = False
 
+
+# when a press input do ...
 def on_press(key):
 
+    # for debug
+    # print("a button was pressed")
+
+    # do this function
     pressed(key)
 
-
+# when a release input do ...
 def on_release(key):
 
+    # for debug
+    # print("a button was pressed")
+
+    # do this function
     released(key)
 
 
 if __name__ == "__main__":
 
-    # Collect events until released
+    # check if the buttons are pressed or released
     with Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()

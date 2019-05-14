@@ -108,7 +108,7 @@ def on_press(key):
     letter = str(letter)
     letter = letter[1]
 
-    # check if the letter is p
+    # button p (kill the program)
     if letter == "p":
 
         # print out exiting and then leave the program
@@ -117,6 +117,6 @@ def on_press(key):
 
 if __name__ == "__main__":
 
-    # check if the buttons are pressed (this is to quite the program)
+    # check if the buttons are pressed or released (this is to quite the program)
     with Listener(on_press=on_press) as listener:
         listener.join()
