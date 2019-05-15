@@ -7,16 +7,18 @@ This script uses a web-cam connected to the computer and detects the three prima
 
 # ------------------------------------------- Imports ----------------------------------------------
 
-import time
-import math
 import sys
+import time
+
+import math
 
 try:
     import cv2
     import imutils
     import lib.paho.mqtt.client as mqtt
-except ImportError:
+except ImportError as e:
     print("Required modules not found")
+    print(e)
     sys.exit()
 
 # import numpy as np
@@ -89,20 +91,35 @@ class WebCam(cv2.VideoCapture):
         # Set the framerate on the webcam.
         self.set(cv2.CAP_PROP_FPS, framerate)
 
-    def adjust_exposure(self):
+    def adjust_exposure(self, target: int = 127):
         """
         Function to take a frame and auto adjust the exposure according to average brightness of the whole image.
         """
         # TODO: Test method
         while True:
-            frame = self.read()
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            brightness = cv2.mean(frame)
-            if brightness < 127:
-                exposure = self.get(cv2.CAP_PROP_EXPOSURE)
-                if exposure == -1:
+            brightness = 0
+            for i in range(5):
+                # Read 5 frames and take the brightness from those.
+                _, frame = self.read()
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                brightness += cv2.mean(frame)[0]
+            # Average out the brightness
+            brightness /= 5
+            # If the brightness is not within a certain margin from the target adjust the exposure.
+            if not ((target - 32) < brightness < (target + 32)):
+                if brightness < target:
+                    exposure = self.get(cv2.CAP_PROP_EXPOSURE)
+                    if exposure == -1:
+                        break
+                    self.set(cv2.CAP_PROP_EXPOSURE, exposure + 1)
+                elif target < brightness:
+                    exposure = self.get(cv2.CAP_PROP_EXPOSURE)
+                    if exposure == -15:
+                        break
+                    self.set(cv2.CAP_PROP_EXPOSURE, (exposure - 1))
+                else:
                     break
-                self.set(exposure + 1)
+            else:
                 break
 
 
@@ -289,8 +306,7 @@ def mask_sides(window):
 
 def order_66():
     """
-    Command to disable controls to the car.
-    :return:
+    Command to disable all controls to the car.
     """
     # Create a delay here before sending the command
     # Not the right way to do it, but oh well...
@@ -300,9 +316,8 @@ def order_66():
 
     # setting the mqtt broker address and port
     print("Connecting to broker")
-    RC = mqtt_client.connect(broker_address, 1881)
-
-    if RC == 0:
+    try:
+        mqtt_client.connect(broker_address, 1881)
 
         # starting the mqtt loop
         print("Starting mqtt loop")
@@ -326,12 +341,9 @@ def order_66():
         mqtt_client.loop_stop(force=False)
         print("Disconnect from the loop")
         mqtt_client.disconnect()
-
-    elif RC == 3:
-        print('Server is unreachable')
-
-    else:
-        print('something went wrong when trying to connect to MQTT')
+    except ConnectionRefusedError:
+        print("Connection was refused by server")
+        print("Can the server be found on the same network?")
 
 
 # --------------------------------------------- Main -----------------------------------------------
@@ -347,7 +359,7 @@ if __name__ == "__main__":
 
     print("Creating capture object")
     # Creating a webcam object.
-    CAP = WebCam()
+    CAP = WebCam(channel=1)
 
     print("Creating result window")
     # Create a window to show the results
@@ -374,6 +386,9 @@ if __name__ == "__main__":
     FONT = cv2.FONT_HERSHEY_SIMPLEX
     TXT_COLOUR = (0, 150, 150)
 
+    print("Performing exposure adjust")
+    CAP.adjust_exposure(150)
+
     # As long as the window is opened keep running.
     # This allows the windows close button ('X') to be functional.
     print("Starting main loop")
@@ -382,6 +397,7 @@ if __name__ == "__main__":
     # while (cv2.getWindowProperty('frame', 0) or
     #        cv2.getWindowProperty('canny', 0) or
     #        cv2.getWindowProperty('threshold', 0)) >= 0:
+    count = 0
     while True:
 
         # Set the finish line colour.
@@ -390,7 +406,12 @@ if __name__ == "__main__":
         FINISHED = False
 
         # Read a frame from the web-cam.
+        if count == 150:
+            # Every 150 frames (or 5 seconds) perform auto adjust for the exposure
+            count = 0
+            CAP.adjust_exposure(150)
         _, FRAME = CAP.read()
+        count += 1
         # Create a copy of the frame
         INPUT_FRAME = FRAME.copy()
 
