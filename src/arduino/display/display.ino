@@ -5,7 +5,7 @@
 
    Written by J. Sarrazyn
 
-   Based on the 
+   Based on the NHD-1.5-AU-SHIELD.ino from Newhaven Display
 */
 
 // Setting the pins for the display
