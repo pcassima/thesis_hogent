@@ -93,9 +93,13 @@ class WebCam(cv2.VideoCapture):
 
     def adjust_exposure(self, target: int = 127):
         """
-        Function to take a frame and auto adjust the exposure according to average brightness of the whole image.
+        This method will read 5 frames and calculate the brightness from each.
+        The brightness is averaged out between the 5 frames and used to adjust
+        the exposure of the webcam.
+        The desired exposure (target) has a margin, as the webcam's exposure
+        can only be adjusted in increments. This is to avoid having the
+        exposure bounce between two values.
         """
-        # TODO: Test method
         while True:
             brightness = 0
             for i in range(5):
