@@ -1,5 +1,5 @@
 # Our bachelor's thesis at HoGent
-The complete documentation can be found at: [full documentation](https://www.pcassima.github.io/thesis_hogent "Thesis documentation").
+The complete documentation can be found at: [full documentation](https://pcassima.github.io/thesis_hogent "Thesis documentation").
 
 Our project was presented at the Mini MakerFaire 2019 in Gent.
 
