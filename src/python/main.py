@@ -29,7 +29,7 @@ __author__ = "P. Cassiman"
 __version__ = '1.5.0'
 
 # Vision variables are placed here for easy tuning.
-# These should be changed; currently they are global variables (not prefered).
+# These should be changed; currently they are global variables (not preferred).
 
 THRESHOLD_VALUE = 90
 EDGE_LOWER_VALUE = 25
@@ -110,7 +110,7 @@ class WebCam(cv2.VideoCapture):
             # Average out the brightness
             brightness /= 5
             # If the brightness is not within a certain margin from the target adjust the exposure.
-            if not ((target - 32) < brightness < (target + 32)):
+            if not (target - 32) < brightness < (target + 32):
                 if brightness < target:
                     exposure = self.get(cv2.CAP_PROP_EXPOSURE)
                     if exposure == -1:
