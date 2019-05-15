@@ -51,7 +51,7 @@ byte PWMright = 46;
 
 void setup() {
   // Start serial port (for debug)
-   // Serial.begin(115200);
+  // Serial.begin(115200);
 
   // Setting the pins for the WiFi
   WiFi.setPins(22, 23, 24);
@@ -150,16 +150,6 @@ void loop() {
 
   // Keep reading all incomming messages
   client.loop();
-
-  /* Show the incomming messages (for debug)
-
-      for (int i = 0; i<9; i++){
-        Serial.print(byte(MessageByte[i]), BIN);
-        Serial.print("//");
-      }
-      Serial.println();
-      Serial.println("-----------------------");
-  */
 
   // Check if the message is for this car
   if (MessageByte[0] == thisCar) {
