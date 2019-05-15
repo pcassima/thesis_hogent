@@ -1,8 +1,11 @@
-/* Car
-   This program is for controlling the car from a mqtt network.
-   If you use this program make sure their is only one client with this name.
-   The speed of the car isn't  controlled by a max PWM in this program.
-   To change the speed use the controller program.
+/* Car (written for arduino mega)
+ *  
+ * This program is for controlling the car from a mqtt network.
+ * If you use this program make sure their is only one client with this name.
+ * The speed of the car isn't  controlled by a max PWM in this program.
+ * To change the speed use the controller program.   
+ * 
+ * Written by J. Sarrazyn
 */
 
 // Libraries
@@ -48,7 +51,7 @@ byte PWMright = 46;
 
 void setup() {
   // Start serial port (for debug)
-  // Serial.begin(115200);
+   // Serial.begin(115200);
 
   // Setting the pins for the WiFi
   WiFi.setPins(22, 23, 24);
@@ -79,7 +82,7 @@ void ConnectWiFi() {
   status = WiFi.begin(ssid, password);
 
   // Connecting to the WiFi (for debug)
-  // Serial.print("Connecting to WiFi");
+   // Serial.print("Connecting to WiFi");
 
   // While not connected to WiFi
   while (WiFi.status() != WL_CONNECTED) {
@@ -88,16 +91,16 @@ void ConnectWiFi() {
     delay(500);
 
     // Connecting (for debug)
-    // Serial.print(".");
+     // Serial.print(".");
   }
 
   // Connected (for debug)
-  // Serial.println("");
-  // Serial.println("Connected to the WiFi network");
+   // Serial.println("");
+   // Serial.println("Connected to the WiFi network");
 
   // Connected with (for debug)
-  // Serial.print("With ip: ");
-  // Serial.println(WiFi.localIP());
+   // Serial.print("With ip: ");
+   // Serial.println(WiFi.localIP());
 
 
   // Set mqtt server (port) and calback
@@ -111,13 +114,13 @@ void ConnectWiFi() {
     delay(500);
 
     // Connecting (for debug)
-    // Serial.println("Connecting to MQTT...");
+     // Serial.println("Connecting to MQTT...");
 
     // If connected to the mqtt
     if (client.connect(thisCar)) {
 
       // Connected to the mqtt (for debug)
-      // Serial.println("Connected");
+       // Serial.println("Connected");
 
       // Wait 200 ms
       delay(200);
@@ -127,8 +130,8 @@ void ConnectWiFi() {
     else {
 
       // Error (for debug)
-      // Serial.print("failed with state ");
-      // Serial.println(client.state());
+       // Serial.print("failed with state ");
+       // Serial.println(client.state());
 
       // Wait 2000 ms
       delay(2000);
@@ -139,8 +142,8 @@ void ConnectWiFi() {
   client.subscribe(Topic);
 
   // Subscribed to the topic:... (for debug)
-  // Serial.print("Subscribed to the topic ");
-  // Serial.println(Topic);
+   // Serial.print("Subscribed to the topic ");
+   // Serial.println(Topic);
 }
 
 void loop() {
@@ -162,7 +165,7 @@ void loop() {
   if (MessageByte[0] == thisCar) {
 
     // Making sure the message is only read ones
-    MessageByte[0] == 0;
+    MessageByte[0] = 0;
 
     // Checking what the function number is
     if (MessageByte[2] == 0) {
@@ -172,7 +175,7 @@ void loop() {
       Stop();
 
       // (for debug)
-      // Serial.println("Stop");
+       // Serial.println("Stop");
     }
     else if (MessageByte[2] == 1) {
 
@@ -181,7 +184,7 @@ void loop() {
       Forward(currentSpeed);
 
       // (for debug)
-      // Serial.println("Forward");
+       // Serial.println("Forward");
     }
     else if (MessageByte[2] == 2) {
 
@@ -190,7 +193,7 @@ void loop() {
       Back(currentSpeed);
 
       // (for debug)
-      // Serial.println("Back");
+       // Serial.println("Back");
     }
     else if (MessageByte[2] == 3) {
 
@@ -198,7 +201,7 @@ void loop() {
       Left(MessageByte[6]);
 
       // (for debug)
-      // Serial.println("Left");
+       // Serial.println("Left");
     }
     else if (MessageByte[2] == 4) {
 
@@ -206,7 +209,7 @@ void loop() {
       Right(MessageByte[6]);
 
       // (for debug)
-      // Serial.println("Right");
+       // Serial.println("Right");
     }
     else if (MessageByte[2] == 5 or MessageByte[2] == 6) {
 
@@ -216,10 +219,10 @@ void loop() {
 
     /* (for debug)
       else if (MessageByte[2] == 5) {
-      // Serial.println("Left stop");
+        Serial.println("Left stop");
       }
       else if (MessageByte[2] == 6) {
-      // Serial.println("Right stop");
+        Serial.println("Right stop");
       }*/
   }
 }
@@ -311,8 +314,8 @@ void setPWM(byte PWMLeft, byte PWMRight) {
   analogWrite(PWMright, PWMRight);
 
   // PWM values (for debug)
-  // Serial.println(PWMLeft);
-  // Serial.println(PWMRight);
+   // Serial.println(PWMLeft);
+   // Serial.println(PWMRight);
 }
 
 

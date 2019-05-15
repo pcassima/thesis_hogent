@@ -1,3 +1,11 @@
+/* Display triangle (written for arduino mega with newhaven display)
+ *  
+ * This program is going to draw a triangle on the display.
+ * You can choose the colour, placing, size and flip (45° * n)
+ * 
+ * Written by J. Sarrazyn
+ */
+
 #define   SDI_PIN    51    // SDI (serial mode) signal connected to (pin 11 for uno // pin 51 for mega)
 #define   SCL_PIN    52    // SCL (serial mdoe) signal connected to (pin 13 for uno // pin 52 for mega)
 #define    RS_PIN    4    // RS signal connected to pin 4

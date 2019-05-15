@@ -1,3 +1,12 @@
+/* Racing Lights (written for nodeMCU, esp8266)
+ * 
+ * This program controlls the racing lights.
+ * It will start the countdown when it receives a commando.
+ * When it's green it will send a commando back to enable driving.
+ * 
+ * Written by J. Sarrazyn
+ */
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
@@ -24,7 +33,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   for (int i = 0; i < length; i++) {
     MessageByte[i] = payload[i];
   }
-  Serial.println("received message");
 }
 
 void ConnectWiFi() {
@@ -94,10 +102,10 @@ void loop() {
   // put your main code here, to run repeatedly:
   client.loop();
 
-  prevMessageByte = MessageByte[2];
-
   if (MessageByte[0] == 21) {
 
+    MessageByte[0] = 0;
+    
     if (MessageByte[2] == 1) {
 
       int Delay;

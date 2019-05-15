@@ -1,3 +1,10 @@
+/* Reader (written for nodeMCU, esp8266)
+ *  
+ * This program reads every incomming message an decodes it.
+ * 
+ * Written by J. Sarrazyn
+ */
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 

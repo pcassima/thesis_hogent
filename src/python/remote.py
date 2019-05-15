@@ -1,6 +1,9 @@
 """
 this program controlls the car with inputs from a keyboard
 """
+
+__author__ = "J. Sarrazyn"
+
 # import libraries that are needed
 import lib.paho.mqtt.client as mqtt
 from pynput.keyboard import Key, Listener
@@ -16,6 +19,9 @@ mqttc.subscribe("vroom")
 
 # starting the mqtt loop
 mqttc.loop_start()
+
+# show that the programme is ready
+print("ready")
 
 # used to look if the button is already pressed
 z_pressed = False

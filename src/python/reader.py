@@ -1,6 +1,9 @@
 """
 This program reads everything that enters the mqtt network and decodes it to show what the message means
 """
+
+__author__ = "J. Sarrazyn"
+
 # import libraries that are needed
 import lib.paho.mqtt.client as mqtt
 from pynput.keyboard import Key, Listener
