@@ -1,0 +1,9 @@
+{
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code",
+    "editor.formatOnSave": true,
+    "[python]" :{
+
+    }
+}

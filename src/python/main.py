@@ -7,16 +7,18 @@ This script uses a web-cam connected to the computer and detects the three prima
 
 # ------------------------------------------- Imports ----------------------------------------------
 
-import time
-import math
 import sys
+import time
+
+import math
 
 try:
     import cv2
     import imutils
     import lib.paho.mqtt.client as mqtt
-except ImportError:
+except ImportError as e:
     print("Required modules not found")
+    print(e)
     sys.exit()
 
 # import numpy as np
@@ -27,6 +29,7 @@ __author__ = "P. Cassiman"
 __version__ = '1.5.0'
 
 # Vision variables are placed here for easy tuning.
+# These should be changed; currently they are global variables (not preferred).
 
 THRESHOLD_VALUE = 90
 EDGE_LOWER_VALUE = 25
@@ -60,7 +63,7 @@ LAP_TIMES = []
 START_TIME = time.time()
 CURRENT_LAP = 0
 
-# broker_address = 192.168.1.5
+broker_address = '192.168.1.5'
 
 
 # ------------------------------------------- Classes ----------------------------------------------
@@ -88,19 +91,39 @@ class WebCam(cv2.VideoCapture):
         # Set the framerate on the webcam.
         self.set(cv2.CAP_PROP_FPS, framerate)
 
-    def adjust_exposure(self):
+    def adjust_exposure(self, target: int = 127):
         """
-        Function to take a frame and auto adjust the exposure according to average brightness of the whole image.
+        This method will read 5 frames and calculate the brightness from each.
+        The brightness is averaged out between the 5 frames and used to adjust
+        the exposure of the webcam.
+        The desired exposure (target) has a margin, as the webcam's exposure
+        can only be adjusted in increments. This is to avoid having the
+        exposure bounce between two values.
         """
         while True:
-            frame = self.read()
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            brightness = cv2.mean(frame)
-            if brightness < 127:
-                exposure = self.get(cv2.CAP_PROP_EXPOSURE)
-                if exposure == -1:
+            brightness = 0
+            for i in range(5):
+                # Read 5 frames and take the brightness from those.
+                _, frame = self.read()
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                brightness += cv2.mean(frame)[0]
+            # Average out the brightness
+            brightness /= 5
+            # If the brightness is not within a certain margin from the target adjust the exposure.
+            if not (target - 32) < brightness < (target + 32):
+                if brightness < target:
+                    exposure = self.get(cv2.CAP_PROP_EXPOSURE)
+                    if exposure == -1:
+                        break
+                    self.set(cv2.CAP_PROP_EXPOSURE, exposure + 1)
+                elif target < brightness:
+                    exposure = self.get(cv2.CAP_PROP_EXPOSURE)
+                    if exposure == -15:
+                        break
+                    self.set(cv2.CAP_PROP_EXPOSURE, (exposure - 1))
+                else:
                     break
-                self.set(exposure + 1)
+            else:
                 break
 
 
@@ -268,6 +291,10 @@ def create_line(width: int = 80, message: str = "Hello world!") -> str:
 
 
 def mask_sides(window):
+    """
+    Function to mask off the side of the screen. Since the field of view for the camera is larger than the board,
+    the 'overflow' is masked so that it's ignored by the rest of the program.
+    """
     # Fill the sides with white rectangles
     # Left side of the screen
     cv2.rectangle(window, (0, 0), (150, 1200), (255, 255, 255), -1)
@@ -283,19 +310,18 @@ def mask_sides(window):
 
 def order_66():
     """
-    Command to disable controls to the car.
-    :return:
+    Command to disable all controls to the car.
     """
-    try:
-        # Create a delay here before sending the command
-        # ?Not the right way to do it, but oh well...
-        time.sleep(0.5)
-        print("Creating mqtt object")
-        mqtt_client = mqtt.Client()
+    # Create a delay here before sending the command
+    # Not the right way to do it, but oh well...
+    time.sleep(0.5)
+    print("Creating mqtt object")
+    mqtt_client = mqtt.Client()
 
-        # setting the mqtt broker address and port
-        print("Connecting to broker")
-        mqtt_client.connect("192.168.1.5", 1881)
+    # setting the mqtt broker address and port
+    print("Connecting to broker")
+    try:
+        mqtt_client.connect(broker_address, 1881)
 
         # starting the mqtt loop
         print("Starting mqtt loop")
@@ -319,8 +345,9 @@ def order_66():
         mqtt_client.loop_stop(force=False)
         print("Disconnect from the loop")
         mqtt_client.disconnect()
-    except:
-        print("Oops")
+    except ConnectionRefusedError:
+        print("Connection was refused by server")
+        print("Can the server be found on the same network?")
 
 
 # --------------------------------------------- Main -----------------------------------------------
@@ -336,7 +363,7 @@ if __name__ == "__main__":
 
     print("Creating capture object")
     # Creating a webcam object.
-    CAP = WebCam()
+    CAP = WebCam(channel=1)
 
     print("Creating result window")
     # Create a window to show the results
@@ -363,6 +390,9 @@ if __name__ == "__main__":
     FONT = cv2.FONT_HERSHEY_SIMPLEX
     TXT_COLOUR = (0, 150, 150)
 
+    print("Performing exposure adjust")
+    CAP.adjust_exposure(150)
+
     # As long as the window is opened keep running.
     # This allows the windows close button ('X') to be functional.
     print("Starting main loop")
@@ -371,6 +401,7 @@ if __name__ == "__main__":
     # while (cv2.getWindowProperty('frame', 0) or
     #        cv2.getWindowProperty('canny', 0) or
     #        cv2.getWindowProperty('threshold', 0)) >= 0:
+    count = 0
     while True:
 
         # Set the finish line colour.
@@ -379,7 +410,12 @@ if __name__ == "__main__":
         FINISHED = False
 
         # Read a frame from the web-cam.
+        if count == 150:
+            # Every 150 frames (or 5 seconds) perform auto adjust for the exposure
+            count = 0
+            CAP.adjust_exposure(150)
         _, FRAME = CAP.read()
+        count += 1
         # Create a copy of the frame
         INPUT_FRAME = FRAME.copy()
 
@@ -404,8 +440,7 @@ if __name__ == "__main__":
         EDGED_COPY = cv2.cvtColor(EDGED, cv2.COLOR_GRAY2BGR)
 
         # Find the contours in the image.
-        CONTOURS = cv2.findContours(
-            EDGED.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        CONTOURS = cv2.findContours(EDGED.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # Get the contours (to deal with different versions of OpenCV).
         CNTS = imutils.grab_contours(CONTOURS)
 
@@ -415,6 +450,8 @@ if __name__ == "__main__":
 
             if PERIMETER_LOWER_BOUND <= PERIMETER <= PERIMETER_UPPER_BOUND:
                 # Approximate the shape based on the perimeter (with a margin; here 3%).
+                # If two adjacent points in the contour have a distance that is less than 3% of the perimeter, they
+                # will be treated as a single point.
                 approx = cv2.approxPolyDP(c, 0.03 * PERIMETER, True)
                 # Draw the contour.
                 if len(approx) == 3:
@@ -433,8 +470,8 @@ if __name__ == "__main__":
                             (x, y, w, h) = cv2.boundingRect(approx)
                             # Calculate the aspect ratio of the bounding box.
                             ar = w / float(h)
-                            # Our triangles are half a square (diagonally) use this to further
-                            # filter out noise.
+                            # Our triangles are half a square (diagonally) and have a bounding rectangle with an
+                            # aspect ratio of 0.5 to 2 use this to further filter out noise.
                             if 0.45 <= ar <= 2.05:
                                 # Draw the contour on the frame.
                                 cv2.drawContours(FRAME, [c], -1, (0, 0, 255), 2)

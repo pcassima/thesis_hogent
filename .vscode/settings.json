@@ -1,6 +1,10 @@
 {
     "python.linting.pylintArgs": [
-        "--extension-pkg-whitelist=cv2, pygame"
+        "--extension-pkg-whitelist=cv2, pygame",
+        "--max-line-length=120"
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
     ],
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": false,
