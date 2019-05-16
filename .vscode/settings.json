@@ -21,5 +21,5 @@
         "typeinfo": "cpp",
         "stdio.h": "c"
     },
-    "python.pythonPath": "C:\\Program Files\\Python37\\python.exe",
+  "python.pythonPath": "C:\\Python37\\python.exe"
 }
