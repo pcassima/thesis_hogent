@@ -1,0 +1,13 @@
+.generic_photo {
+    justify-self: center;
+}
+
+.generic_photo img {
+    max-width: 550px;
+}
+
+section {
+    clear: both;
+}
+
+/*# sourceMappingURL=additional.css.map */
