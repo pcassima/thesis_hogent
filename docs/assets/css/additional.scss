@@ -1,12 +1,19 @@
 .generic_photo {
-  justify-self: center;
 
   img {
-    max-width: 550px;
+    max-width: 450px;
   }
 
 }
 
+.generic_photo.right_aligned {
+  float: right;
+}
+
 section {
+  clear: both;
+}
+
+.bottom_bar {
   clear: both;
 }

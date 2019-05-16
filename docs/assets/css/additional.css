@@ -1,13 +1,17 @@
-.generic_photo {
-    justify-self: center;
+.generic_photo img {
+  max-width: 450px;
 }
 
-.generic_photo img {
-    max-width: 550px;
+.generic_photo.right_aligned {
+  float: right;
 }
 
 section {
-    clear: both;
+  clear: both;
+}
+
+.bottom_bar {
+  clear: both;
 }
 
 /*# sourceMappingURL=additional.css.map */
