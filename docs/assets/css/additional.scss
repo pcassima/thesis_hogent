@@ -1,0 +1,19 @@
+.generic_photo {
+
+  img {
+    max-width: 450px;
+  }
+
+}
+
+.generic_photo.right_aligned {
+  float: right;
+}
+
+section {
+  clear: both;
+}
+
+.bottom_bar {
+  clear: both;
+}
