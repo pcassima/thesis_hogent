@@ -1,5 +1,5 @@
 .generic_photo {
-  margin-top: 16px;
+  margin: 8px 8px 8px 0;
 }
 .generic_photo img {
   max-width: 450px;
@@ -7,12 +7,8 @@
 
 .generic_photo.right_aligned {
   float: right;
-  margin-left: 16px;
+  margin-left: 12px;
   margin-right: 0;
-}
-
-section {
-  clear: both;
 }
 
 .bottom_bar {
