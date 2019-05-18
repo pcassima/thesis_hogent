@@ -14,17 +14,62 @@ html
         main
             article
                 h1 Vision
-                section
-                section
-                    h2 Sections:
-                    h3 Camera
-                    h4 USB-Camera
-                    h4 Raspberry Pi Camera module
-                    h3 System
-                    h3 Framework
-                    h4 Language
-                    h4 Libraries
-                    h3 Program
+                section#vision-camera
+                    h2 Camera
+                    p
+                        | Practically any camera can be used, as long as there is a way to
+                        | (reliably) get the data from the camera to the computer for processing.
+                        br
+                        | However a USB-camera is in most cased the most convenient (and cheapest)
+                        | option. These days USB-camera's can be easily found everywhere.
+                        | From cheap webcams to CMOS-camera intended for use with microscopes.
+                    h3 USB-camera
+                    p
+                        | Any USB-camera can be used and these days a USB interface can be found
+                        | on pretty much any camera.
+                    h3 Raspberry Pi Camera module
+                    p
+                        | Since the entire system is intended to run on a Raspberry Pi,
+                        | the Raspberry Pi camera module is an equally good option to use.
+                    h4 Enabling the camera interface
+                    h4 Dependencies for using the camera module
+                section#vision-system
+                    h2 System
+                    .table-container
+                        table
+                            caption Minimum system requirements
+                            tr
+                                th Spec
+                                th Value
+                            tr
+                                td RAM
+                                td 1 GB
+                            tr.alt
+                                td CPU speed
+                                td 1 GHz
+                            tr
+                                td CPU cores
+                                td 2 cores
+                            tr.alt
+                                td Storage
+                                td 8 GB
+                section#vision-framework
+                    h2 Framework
+                    h3 Language
+                    h3 Libraries
+                    h4 NumPy
+                    h4 Imutils
+                    h4 OpenCV
+                    h4 Paho MQTT
+                    h4 The Python Standard Library
+                    h4 PiCamera[array]
+                section#vision-program
+                    h2 Program
+                    h3 Structure
+                    h3 Classes
+                    h4 Webcam class
+                    h3 Functions
+                    h3 Main
 
             div
                 .bottom_navbar
