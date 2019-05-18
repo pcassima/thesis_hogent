@@ -1,3 +1,6 @@
+.generic_photo {
+  margin-top: 16px;
+}
 .generic_photo img {
   max-width: 450px;
 }
