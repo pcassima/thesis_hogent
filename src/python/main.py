@@ -157,7 +157,7 @@ def name_colour(pixel_colour: tuple = (0, 0, 0)) -> str:
         c_name = 'black'
 
     # Extract the other primary colours.
-    # TODO: improve the "algoritm" for checking colours.
+    # TODO: improve the "algorithm" for checking colours.
     elif blue > green and blue > red:
         c_name = 'blue'
     elif green > blue and green > red:
