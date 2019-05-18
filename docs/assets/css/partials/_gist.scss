@@ -1,0 +1,59 @@
+.gist_container {
+  margin: 12px 0;
+
+  .gist {
+    .gist-file {
+
+      margin-bottom: 0;
+      border: 1px solid $pink3;
+      border-radius: 0;
+    }
+
+    .gist-data {
+      border-bottom: none;
+      border-radius: 0;
+      background-color: #FFF;
+    }
+
+    .blob-wrapper {
+      border-radius: 0;
+    }
+
+    .highlight {
+      background-color: transparent;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+    }
+
+    .highlight td {
+      padding: 5px 10px !important;
+      line-height: 1;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    tr:first-child td {
+      padding-top: 15px !important;
+    }
+
+    tr:last-child td {
+      padding-bottom: 15px !important;
+    }
+
+    .blob-num {
+      color: #FFF;
+      background-color: $pink1;
+      pointer-events: none;
+    }
+
+    .gist-meta {
+      color: #FFF;
+      background-color: $pink2;
+
+      a {
+        color: #FFF;
+        font-weight: bold;
+      }
+    }
+  }
+}
