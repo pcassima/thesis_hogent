@@ -7,7 +7,7 @@
     <meta name="description" content="My corner of the internet">
     <title>Thesis</title>
     <link rel="icon" type="image/png" href="https://pcassima.github.io/assets/img/favicon.png">
-    <link rel="stylesheet" type="text/css" href="https://pcassima.github.io/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/additional.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
@@ -17,10 +17,10 @@
   <body>
     <header></header>
     <nav>
-      <div class="hamburger" onclick="myFunction()">
-        <div class="hamburger-bar"></div>
-        <div class="hamburger-bar"></div>
-        <div class="hamburger-bar"></div>
+      <div class="hamburger" id="hamburger" onclick="hamburgerNav()">
+        <div class="hamburger-bar" id="h-bar1"></div>
+        <div class="hamburger-bar" id="h-bar2"></div>
+        <div class="hamburger-bar" id="h-bar3"></div>
       </div>
       <ul class="nav-list" id="nav-list">
         <li><a href="https://pcassima.github.io/">Home</a></li>
@@ -37,9 +37,10 @@
         <li><a href="outline.html">Outline</a></li>
         <li><a href="vision.html">Vision</a>
           <ol>
-            <li><a href="#">Camera</a></li>
-            <li><a href="#">Framework</a></li>
-            <li><a href="#">Program</a></li>
+            <li><a href="vision.html#vision-camera">Camera</a></li>
+            <li><a href="vision.html#vision-system">System</a></li>
+            <li><a href="vision.html#vision-framework">Framework</a></li>
+            <li><a href="vision.html#vision-program">Program</a></li>
           </ol>
         </li>
       </ol>
@@ -51,6 +52,11 @@
         <section></section>
         <section>
           <h2>Sections:</h2>
+          <p>
+            These are the sections behind this project, each
+            section goes into detail about a specific part.<br>The last sections goes into detail on how all the
+            other sections are connected to one-another.
+          </p>
           <h3>Vision</h3>
           <h3>Linefollower</h3>
           <h3>Controllable car</h3>

@@ -7,7 +7,7 @@
     <meta name="description" content="My corner of the internet">
     <title>Thesis</title>
     <link rel="icon" type="image/png" href="https://pcassima.github.io/assets/img/favicon.png">
-    <link rel="stylesheet" type="text/css" href="https://pcassima.github.io/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/additional.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
@@ -17,10 +17,10 @@
   <body>
     <header></header>
     <nav>
-      <div class="hamburger" onclick="myFunction()">
-        <div class="hamburger-bar"></div>
-        <div class="hamburger-bar"></div>
-        <div class="hamburger-bar"></div>
+      <div class="hamburger" id="hamburger" onclick="hamburgerNav()">
+        <div class="hamburger-bar" id="h-bar1"></div>
+        <div class="hamburger-bar" id="h-bar2"></div>
+        <div class="hamburger-bar" id="h-bar3"></div>
       </div>
       <ul class="nav-list" id="nav-list">
         <li><a href="https://pcassima.github.io/">Home</a></li>
@@ -37,9 +37,10 @@
         <li><a href="outline.html">Outline</a></li>
         <li><a href="vision.html">Vision</a>
           <ol>
-            <li><a href="#">Camera</a></li>
-            <li><a href="#">Framework</a></li>
-            <li><a href="#">Program</a></li>
+            <li><a href="vision.html#vision-camera">Camera</a></li>
+            <li><a href="vision.html#vision-system">System</a></li>
+            <li><a href="vision.html#vision-framework">Framework</a></li>
+            <li><a href="vision.html#vision-program">Program</a></li>
           </ol>
         </li>
       </ol>
@@ -48,17 +49,73 @@
     <main>
       <article>
         <h1>Vision</h1>
-        <section></section>
-        <section>
-          <h2>Sections:</h2>
-          <h3>Camera</h3>
-          <h4>USB-Camera</h4>
-          <h4>Raspberry Pi Camera module</h4>
-          <h3>System</h3>
-          <h3>Framework</h3>
-          <h4>Language</h4>
-          <h4>Libraries</h4>
-          <h3>Program</h3>
+        <section id="vision-camera">
+          <h2>Camera</h2>
+          <p>
+            Practically any camera can be used, as long as there is a way to
+            (reliably) get the data from the camera to the computer for processing.<br>However a USB-camera is in most cased the most convenient (and cheapest)
+            option. These days USB-camera's can be easily found everywhere.
+            From cheap webcams to CMOS-camera intended for use with microscopes.
+          </p>
+          <h3>USB-camera</h3>
+          <p>
+            Any USB-camera can be used and these days a USB interface can be found
+            on pretty much any camera.
+          </p>
+          <h3>Raspberry Pi Camera module</h3>
+          <p>
+            Since the entire system is intended to run on a Raspberry Pi,
+            the Raspberry Pi camera module is an equally good option to use.
+          </p>
+          <h4>Enabling the camera interface</h4>
+          <h4>Dependencies for using the camera module</h4>
+        </section>
+        <section id="vision-system">
+          <h2>System</h2>
+          <div class="table-container">
+            <table>
+              <caption>Minimum system requirements</caption>
+              <tr>
+                <th>Spec</th>
+                <th>Value</th>
+              </tr>
+              <tr>
+                <td>RAM</td>
+                <td>1 GB</td>
+              </tr>
+              <tr class="alt">
+                <td>CPU speed</td>
+                <td>1 GHz</td>
+              </tr>
+              <tr>
+                <td>CPU cores</td>
+                <td>2 cores</td>
+              </tr>
+              <tr class="alt">
+                <td>Storage</td>
+                <td>8 GB</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <section id="vision-framework">
+          <h2>Framework</h2>
+          <h3>Language</h3>
+          <h3>Libraries</h3>
+          <h4>NumPy</h4>
+          <h4>Imutils</h4>
+          <h4>OpenCV</h4>
+          <h4>Paho MQTT</h4>
+          <h4>The Python Standard Library</h4>
+          <h4>PiCamera[array]</h4>
+        </section>
+        <section id="vision-program">
+          <h2>Program</h2>
+          <h3>Structure</h3>
+          <h3>Classes</h3>
+          <h4>Webcam class</h4>
+          <h3>Functions</h3>
+          <h3>Main</h3>
         </section>
       </article>
       <div>
