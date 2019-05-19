@@ -126,6 +126,9 @@ class WebCam(cv2.VideoCapture):
             else:
                 break
 
+        # Return to the main program
+        return
+
 
 # ------------------------------------------ Functions ---------------------------------------------
 
@@ -221,6 +224,9 @@ def finished():
         # Reset the current lap
         CURRENT_LAP = 0
 
+    # Return to the main program
+    return
+
 
 def print_message():
     """
@@ -252,6 +258,9 @@ def print_message():
     # Adding more whitespace at the end.
     print()
     print()
+
+    # Return to the main program
+    return
 
 
 def create_line(width: int = 80, message: str = "Hello world!") -> str:
@@ -306,6 +315,9 @@ def mask_sides(window):
     cv2.rectangle(window, (0, 0), (1600, 78), (255, 255, 255), -1)
     # Covering the black square on the track.
     cv2.rectangle(window, (0, 1200), (400, 800), (255, 255, 255), -1)
+
+    # Return to the main program
+    return
 
 
 def order_66():
