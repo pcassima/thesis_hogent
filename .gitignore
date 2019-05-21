@@ -1,6 +1,8 @@
 # Folders
 .idea
-.vscode/ipch
+.vscode
+.theia
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
