@@ -4,6 +4,11 @@
 .generic_photo img {
   max-width: 450px;
 }
+@media print {
+  .generic_photo img {
+    max-width: 320px;
+  }
+}
 
 .generic_photo.right_aligned {
   float: right;
@@ -44,6 +49,72 @@
 .table-container table th {
   color: white;
   background-color: #e11c84;
+}
+
+.folder-tree {
+  overflow: hidden;
+  width: 320px;
+  float: left;
+  padding: 4px;
+  margin-top: 8px;
+  margin-right: 16px;
+}
+.folder-tree p.caption {
+  margin: 4px 0 0 4px;
+  font-size: 14px;
+  font-style: italic;
+  color: #a42064;
+}
+.folder-tree .fas {
+  color: #16a5a9;
+}
+.folder-tree ul {
+  margin: 0;
+  list-style: none;
+  line-height: 1.5em;
+}
+.folder-tree ul li {
+  font-size: 16px;
+  position: relative;
+}
+.folder-tree ul li i {
+  margin-right: 4px;
+}
+.folder-tree ul li:before {
+  position: absolute;
+  left: -15px;
+  top: 0;
+  content: "";
+  display: block;
+  border-left: 1px solid #1c5555;
+  height: 1em;
+  border-bottom: 1px solid #1c5555;
+  width: 10px;
+}
+.folder-tree ul li:after {
+  position: absolute;
+  left: -15px;
+  bottom: -7px;
+  content: "";
+  display: block;
+  border-left: 1px solid #1c5555;
+  height: 100%;
+}
+.folder-tree ul li.root {
+  margin: 0 0 0 -20px;
+  font-weight: bold;
+}
+.folder-tree ul li.root:before {
+  display: none;
+}
+.folder-tree ul li.root:after {
+  display: none;
+}
+.folder-tree ul li:last-child:after {
+  display: none;
+}
+.folder-tree ul li.grayed {
+  color: gray;
 }
 
 /*# sourceMappingURL=additional.css.map */
