@@ -78,50 +78,55 @@ nav a:hover {
     transition: all ease-in-out 350ms;
   }
 }
+@media print {
+  nav {
+    display: none;
+  }
+}
 
-.gist_container {
+.gist-container {
   margin: 12px 0;
 }
-.gist_container .gist .gist-file {
+.gist-container .gist .gist-file {
   margin-bottom: 0;
   border: 1px solid #700e41;
   border-radius: 0;
 }
-.gist_container .gist .gist-data {
+.gist-container .gist .gist-data {
   border-bottom: none;
   border-radius: 0;
   background-color: #FFF;
 }
-.gist_container .gist .blob-wrapper {
+.gist-container .gist .blob-wrapper {
   border-radius: 0;
 }
-.gist_container .gist .highlight {
+.gist-container .gist .highlight {
   background-color: transparent;
   font-family: "Fira Code", monospace;
   font-size: 14px;
 }
-.gist_container .gist .highlight td {
+.gist-container .gist .highlight td {
   padding: 5px 10px !important;
   line-height: 1;
   font-family: inherit;
   font-size: inherit;
 }
-.gist_container .gist tr:first-child td {
+.gist-container .gist tr:first-child td {
   padding-top: 15px !important;
 }
-.gist_container .gist tr:last-child td {
+.gist-container .gist tr:last-child td {
   padding-bottom: 15px !important;
 }
-.gist_container .gist .blob-num {
+.gist-container .gist .blob-num {
   color: #FFF;
   background-color: #e11c84;
   pointer-events: none;
 }
-.gist_container .gist .gist-meta {
+.gist-container .gist .gist-meta {
   color: #FFF;
   background-color: #a42064;
 }
-.gist_container .gist .gist-meta a {
+.gist-container .gist .gist-meta a {
   color: #FFF;
   font-weight: bold;
 }
@@ -264,15 +269,20 @@ body figure img {
   height: auto;
   max-width: 400px;
 }
+@media print {
+  body figure img {
+    max-width: 320px;
+  }
+}
 body figure figcaption {
   text-align: right;
   font-size: 12px;
 }
 
-header h1 {
-  color: #e11c84;
-  text-align: center;
-  border: none;
+@media print {
+  header {
+    display: none;
+  }
 }
 
 aside {
@@ -294,6 +304,11 @@ aside ol {
 aside ol ol {
   margin-left: -35px;
   list-style-type: lower-latin;
+}
+@media print {
+  aside {
+    display: none;
+  }
 }
 
 .left {
@@ -337,6 +352,11 @@ main .bottom_navbar {
   width: auto;
   margin: 2px 0;
   font-size: 18px;
+}
+@media print {
+  main .bottom_navbar {
+    display: none;
+  }
 }
 main .back {
   float: left;
@@ -523,6 +543,11 @@ footer .social_bar .fab {
 }
 footer .social_bar .fab:hover {
   opacity: 0.7;
+}
+@media print {
+  footer {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
