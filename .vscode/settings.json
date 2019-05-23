@@ -21,7 +21,7 @@
         "typeinfo": "cpp",
         "stdio.h": "c"
     },
-    "python.pythonPath": "C:\\Python37\\python.exe",
+    "python.pythonPath": "C:\\Program Files\\Python37\\python.exe",
     "[python]" : {
         "editor.rulers": [100, 120],
     },

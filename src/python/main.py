@@ -15,7 +15,7 @@ import math
 try:
     import cv2
     import imutils
-    import lib.paho.mqtt.client as mqtt
+    import paho.mqtt.client as mqtt
 except ImportError as e:
     print("Required modules not found")
     print(e)

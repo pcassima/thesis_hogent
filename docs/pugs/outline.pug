@@ -15,6 +15,57 @@ html
             article
                 h1 Outline
                 section
+                    h2 Folder structure
+                    p
+                        | Before starting the project, it might be a good idea to have a small section about the folder
+                        | structure and how the Github repository is organised. This way it will be easy to find your
+                        | way around all the files and find what you are looking for.
+                    .folder-tree
+                        ul
+                            li.root Thesis
+                            li
+                                i(class="fas fa-folder")
+                                | .github
+                            li
+                                i(class="fas fa-folder")
+                                | design
+                                ul
+                                    li
+                                        i(class="fas fa-folder")
+                                        | minicar
+                                        ul
+                                            li
+                                                i(class="fas fa-folder")
+                                                | electronics
+                                                ul
+                                                    li
+                                                        i(class="fas fa-folder")
+                                                        | boards
+                                                    li
+                                                        i(class="fas fa-folder")
+                                                        | schematics
+                                            li
+                                                i(class="fas fa-folder")
+                                                | mechanical
+                                                ul
+                                                    li
+                                                        i(class="fas fa-folder")
+                                                        | STL
+                                                    li MiniCar.iges
+                            li
+                                i(class="fas fa-folder")
+                                | docs
+                            li
+                                i(class="fas fa-folder")
+                                | src
+                            li .gitignore
+                            li CODE_OF_CONDUCT.md
+                            li LICENSE
+                            li README.md
+                            li requirements.txt
+                            li setup.cfg
+                        p.caption folder structure
+
                 section
                     h2 Sections:
                     p
@@ -24,6 +75,9 @@ html
                         | The last sections goes into detail on how all the
                         | other sections are connected to one-another.
                     h3 Vision
+                    p
+                        | The part of vision deals with the vision (obviously). However it also goes into detail on
+                        | everything that is connected to the vision, like the camera, the program etc.
                     h3 Linefollower
                     h3 Controllable car
                     h3 Controllers
