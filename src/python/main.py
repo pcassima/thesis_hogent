@@ -77,10 +77,12 @@ class Finish(object):
 
 class WebCam(cv2.VideoCapture):
     """
-    WebCam class to act and deal with usb webcams. Class is an extension on the OpenCV VideoCapture class.
+    WebCam class to act and deal with usb webcams.
+    This class is an extension on the OpenCV VideoCapture class.
     """
 
-    def __init__(self, channel: int = 0, resolution: tuple = (1440, 1080), exposure: int = -2, framerate: int = 40):
+    def __init__(self, channel: int = 0, resolution: tuple = (1440, 1080),
+                 exposure: int = -2, framerate: int = 40) -> cv2.VideoCapture:
         # Call the super class to generate a video capture object.
         super(WebCam, self).__init__(channel)
         # Set the capture resolution, works best with 4:3 aspect ratio.
