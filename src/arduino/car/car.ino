@@ -32,10 +32,7 @@ char* mqttServer = "192.168.1.5";
 int mqttPort = 1881;
 
 // Message array to save the incomming message to
-byte MessageByte[9];
-
-// Previous message to look if the message has changed
-byte prevMessageByte = 9;
+byte MessageByte[8];
 
 // Current speed of the car
 byte currentSpeed = 0;

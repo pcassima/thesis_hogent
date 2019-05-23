@@ -20,7 +20,7 @@ mqttc.subscribe("vroom")
 # starting the mqtt loop
 mqttc.loop_start()
 
-# show that the programme is ready
+# show that the program is ready
 print("ready")
 
 # used to look if the button is already pressed

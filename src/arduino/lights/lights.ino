@@ -65,7 +65,7 @@ void ConnectWiFi() {
   status = WiFi.begin(ssid, password);
 
   // Connecting to the WiFi (for debug)
-   // Serial.print("Connecting to WiFi");
+  Serial.print("Connecting to WiFi");
 
   // While not connected to WiFi
   while (WiFi.status() != WL_CONNECTED) {
@@ -74,16 +74,16 @@ void ConnectWiFi() {
     delay(500);
 
     // Connecting (for debug)
-     // Serial.print(".");
+    Serial.print(".");
   }
 
   // Connected (for debug)
-   // Serial.println("");
-   // Serial.println("Connected to the WiFi network");
+   Serial.println("");
+   Serial.println("Connected to the WiFi network");
 
   // Connected with (for debug)
-   // Serial.print("With ip: ");
-   // Serial.println(WiFi.localIP());
+   Serial.print("With ip: ");
+   Serial.println(WiFi.localIP());
 
 
   // Set mqtt server (port) and calback
@@ -97,13 +97,13 @@ void ConnectWiFi() {
     delay(500);
 
     // Connecting (for debug)
-     // Serial.println("Connecting to MQTT...");
+     Serial.println("Connecting to MQTT...");
 
     // If connected to the mqtt
     if (client.connect(thisObject)) {
 
       // Connected to the mqtt (for debug)
-       // Serial.println("Connected");
+       Serial.println("Connected");
 
       // Wait 200 ms
       delay(200);
@@ -113,8 +113,8 @@ void ConnectWiFi() {
     else {
 
       // Error (for debug)
-       // Serial.print("failed with state ");
-       // Serial.println(client.state());
+       Serial.print("failed with state ");
+       Serial.println(client.state());
 
       // Wait 2000 ms
       delay(2000);
@@ -125,8 +125,8 @@ void ConnectWiFi() {
   client.subscribe(Topic);
 
   // Subscribed to the topic:... (for debug)
-   // Serial.print("Subscribed to the topic ");
-   // Serial.println(Topic);
+   Serial.print("Subscribed to the topic ");
+   Serial.println(Topic);
 }
 
 void setup() {
@@ -175,7 +175,7 @@ void loop() {
       // First LED red and delay
       digitalWrite(red1, HIGH);
       delay(Delay);
-      
+
       // Second LED red and delay
       digitalWrite(red2, HIGH);
       delay(Delay);
@@ -187,7 +187,7 @@ void loop() {
       // Fourth LED red and delay
       digitalWrite(red4, HIGH);
       delay(Delay);
-      
+
       // All LED's red out
       digitalWrite(red1, LOW);
       digitalWrite(red2, LOW);
