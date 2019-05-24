@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        include includes/head.pug
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+        aside.left
+            include  includes/aside.pug
+        aside.right
+
+        main
+            article
+                h1 Title
+                section
+
+            div
+                .bottom_navbar
+                    .back
+                        a(href="#") &#171; back
+                .bottom_navbar
+                    .next
+                        a(href="#") next &#187;
+
+        footer
+            include includes/footer.pug
