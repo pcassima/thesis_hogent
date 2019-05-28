@@ -13,16 +13,34 @@ html
 
         main
             article
-                h1 Title
-                section
+                h1 Extra
+                section#E-PID
+                    h2 PID
+                    h3 Proportional - P
+                    h3 Integral - I
+                    h3 Derivative - D
+                    h3 Continuous PID
+                    h3 Discrete PID
+                section#E-vision
+                    h2 Vision
+                    h3 Images as analog signals
+                    h3 Kernel convolution
+                    h3 Blur
+                    h4 Mean blur
+                    h4 Gaussian blur
+                    h3 Edge detection
+                    h4 Sobel Operator
+                    h4 Canny Edge Detection
+                section#E-raspbian
+                    h2 Raspbian - headless
 
             div
                 .bottom_navbar
                     .back
-                        a(href="#") &#171; back
+                        a(href="conclusion.html") &#171; back
                 .bottom_navbar
-                    .next
-                        a(href="#") next &#187;
+                    //.next
+                    //    a(href="#") next &#187;
 
         footer
             include includes/footer.pug

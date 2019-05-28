@@ -15,7 +15,14 @@
     <script src="https://pcassima.github.io/js/nav.js"></script>
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="top-triangle">
+        <div class="triangle-topright-1"></div>
+        <div class="triangle-topright-2"></div>
+        <div class="triangle-topright-3"></div>
+      </div>
+      <h1>My header</h1>
+    </header>
     <nav>
       <div class="hamburger" id="hamburger" onclick="hamburgerNav()">
         <div class="hamburger-bar" id="h-bar1"></div>
@@ -41,6 +48,37 @@
             <li><a href="vision.html#vision-system">System</a></li>
             <li><a href="vision.html#vision-framework">Framework</a></li>
             <li><a href="vision.html#vision-program">Program</a></li>
+          </ol>
+        </li>
+        <li><a href="linefollower.html">Linefollower</a>
+          <ol>
+            <li><a href="linefollower.html#LF-hardware">Hardware</a></li>
+            <li><a href="linefollower.html#LF-software">Software</a></li>
+          </ol>
+        </li>
+        <li><a href="controllable_car.html">Car</a>
+          <ol>
+            <li><a href="controllable_car.html#CC-prototype">Prototype</a></li>
+            <li><a href="controllable_car.html#CC-hardware">Hardware</a></li>
+            <li><a href="controllable_car.html#CC-software">Software</a></li>
+            <li><a href="controllable_car.html#CC-oled">OLED</a></li>
+          </ol>
+        </li>
+        <li><a href="controllers.html">Controllers</a></li>
+        <li><a href="link.html">Link</a>
+          <ol>
+            <li><a href="link.html#L-protocol">Protocol</a></li>
+            <li><a href="link.html#L-lights">Lights</a></li>
+            <li><a href="link.html#L-further">Further</a></li>
+          </ol>
+        </li>
+        <li><a href="makerfaire.html">Maker Faire</a></li>
+        <li><a href="conclusion.html">Conclusion</a></li>
+        <li><a href="extra.html">Extra</a>
+          <ol>
+            <li><a href="extra.html#E-PID">PID</a></li>
+            <li><a href="extra.html#E-vision">Vision</a></li>
+            <li><a href="extra.html#E-raspbian">Raspbian</a></li>
           </ol>
         </li>
       </ol>
@@ -113,7 +151,10 @@
           <h2>Program</h2>
           <h3>Structure</h3>
           <h3>Import libraries</h3>
-          <div class="gist-container"><script src="https://gist.github.com/pcassima/52e732a9dd9516d296491bad7ec8bd18.js"></script></div>
+          <div class="gist_container">
+            <script src="https://gist.github.com/pcassima/52e732a9dd9516d296491bad7ec8bd18.js"></script>
+            <label>Importing the libraries</label>
+          </div>
           <h3>Classes</h3>
           <h4>Webcam class</h4>
           <h3>Functions</h3>
@@ -125,8 +166,7 @@
           <div class="back"><a href="outline.html">&#171; back</a></div>
         </div>
         <div class="bottom_navbar">
-          <!--.next-->
-          <!--    a(href="#") next &#187;-->
+          <div class="next"><a href="linefollower.html">next &#187;</a></div>
         </div>
       </div>
     </main>
