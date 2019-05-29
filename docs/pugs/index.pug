@@ -20,8 +20,17 @@ html
                         br
                         b Computer Vision - the link between virtual reality and the physical world
                     figure.generic_photo.right_aligned
-                        img(src="assets/img/concepts/minicar_concept_2.png")
-                        figcaption A concept of the full stack-up of the car
+                        img(src='assets/img/concepts/minicar_concept_2.png'
+                            alt='Rear view of the concept'
+                            onclick='open_modal("modal-box-1")')
+
+                        figcaption Full concept of the car
+
+                    .modal-box#modal-box-1
+                        .close-button(onclick='close_modal("modal-box-1")')
+                        .image-modal-container
+                            img(src='assets/img/concepts/minicar_concept_2.png')
+                            figcaption Full concept of the car
                     p
                         | Our thesis was performed at the faculty of nature and technology at the HoGent
                         | [link to follow].
@@ -54,8 +63,17 @@ html
                         | we found to still fit on most classroom tables. This makes it perfect for use in
                         | the classroom.
                     figure.generic_photo
-                        img(src="assets/img/concepts/minicar_concept_3.png")
+                        img(src='assets/img/concepts/minicar_concept_3.png'
+                            alt='Rear view of the concept'
+                            onclick='open_modal("modal-box-2")')
+
                         figcaption Rear view of the concept
+
+                    .modal-box#modal-box-2
+                        .close-button(onclick='close_modal("modal-box-2")')
+                        .image-modal-container
+                            img(src='assets/img/concepts/minicar_concept_3.png')
+                            figcaption Rear view of the concept
                     p
                         | This virtual environment (i.e. virtual reality) is a project started by our teacher and
                         | promoter, to improve the quality of the education. More specifically the practical side
@@ -97,8 +115,17 @@ html
                 section
                     h2 goal
                     figure.generic_photo.right_aligned
-                        img(src="assets/img/concepts/mainboard_concept_1.png")
-                        figcaption The concept for the mainboard for the car
+                        img(src='assets/img/concepts/mainboard_concept_1.png'
+                            alt='Concept of the mainboard for the car'
+                            onclick='open_modal("modal-box-3")')
+
+                        figcaption Concept of the mainboard for the car
+
+                    .modal-box#modal-box-3
+                        .close-button(onclick='close_modal("modal-box-3")')
+                        .image-modal-container
+                            img(src='assets/img/concepts/mainboard_concept_1.png')
+                            figcaption Concept of the mainboard for the car
                     p
                         | The goal of this project as mentioned before is to show that a (lightweight)
                         | computer vision can be used to locate physical objects to transfer them over to virtual
