@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
     <script src="https://pcassima.github.io/js/nav.js"></script>
+    <script src="https://pcassima.github.io/js/modal.js"></script>
   </head>
   <body>
     <header>
@@ -90,9 +91,15 @@
         <h1>Thesis</h1>
         <section>
           <p>The official title for our thesis is:<br><b>Computer Vision - the link between virtual reality and the physical world</b></p>
-          <figure class="generic_photo right_aligned"><img src="assets/img/concepts/minicar_concept_2.png">
-            <figcaption>A concept of the full stack-up of the car</figcaption>
+          <figure class="generic_photo right_aligned"><img src="assets/img/concepts/minicar_concept_2.png" alt="Rear view of the concept" onclick="open_modal(&quot;modal-box-1&quot;)">
+            <figcaption>Full concept of the car</figcaption>
           </figure>
+          <div class="modal-box" id="modal-box-1">
+            <div class="close-button" onclick="close_modal(&quot;modal-box-1&quot;)"></div>
+            <div class="image-modal-container"><img src="assets/img/concepts/minicar_concept_2.png">
+              <figcaption>Full concept of the car</figcaption>
+            </div>
+          </div>
           <p>
             Our thesis was performed at the faculty of nature and technology at the HoGent
             [link to follow].
@@ -125,9 +132,15 @@
             we found to still fit on most classroom tables. This makes it perfect for use in
             the classroom.
           </p>
-          <figure class="generic_photo"><img src="assets/img/concepts/minicar_concept_3.png">
+          <figure class="generic_photo"><img src="assets/img/concepts/minicar_concept_3.png" alt="Rear view of the concept" onclick="open_modal(&quot;modal-box-2&quot;)">
             <figcaption>Rear view of the concept</figcaption>
           </figure>
+          <div class="modal-box" id="modal-box-2">
+            <div class="close-button" onclick="close_modal(&quot;modal-box-2&quot;)"></div>
+            <div class="image-modal-container"><img src="assets/img/concepts/minicar_concept_3.png">
+              <figcaption>Rear view of the concept</figcaption>
+            </div>
+          </div>
           <p>
             This virtual environment (i.e. virtual reality) is a project started by our teacher and
             promoter, to improve the quality of the education. More specifically the practical side
@@ -161,9 +174,15 @@
         </section>
         <section>
           <h2>goal</h2>
-          <figure class="generic_photo right_aligned"><img src="assets/img/concepts/mainboard_concept_1.png">
-            <figcaption>The concept for the mainboard for the car</figcaption>
+          <figure class="generic_photo right_aligned"><img src="assets/img/concepts/mainboard_concept_1.png" alt="Concept of the mainboard for the car" onclick="open_modal(&quot;modal-box-3&quot;)">
+            <figcaption>Concept of the mainboard for the car</figcaption>
           </figure>
+          <div class="modal-box" id="modal-box-3">
+            <div class="close-button" onclick="close_modal(&quot;modal-box-3&quot;)"></div>
+            <div class="image-modal-container"><img src="assets/img/concepts/mainboard_concept_1.png">
+              <figcaption>Concept of the mainboard for the car</figcaption>
+            </div>
+          </div>
           <p>
             The goal of this project as mentioned before is to show that a (lightweight)
             computer vision can be used to locate physical objects to transfer them over to virtual
