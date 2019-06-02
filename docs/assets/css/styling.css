@@ -1,0 +1,66 @@
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+@media screen and (max-width: 820px) {
+    .generic-card {
+        float: none;
+        width: auto;
+        margin-right: 4px;
+    }
+
+}
+
+.under-construction {
+    background-color: #ffcd2a;
+    text-align: center;
+    border: 4px dashed black;
+    margin: 24px 8px;
+}
+
+.under-construction h1 {
+    color: black;
+    border: none;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+blockquote p {
+    font-weight: bold;
+}
+
+h4{
+    clear: both;
+}
+
+figure{
+    clear: both;
+    cursor: zoom-in;
+}
+.modal-box{
+    cursor: zoom-out;
+}
+
+.gist {
+    box-shadow: 4px 4px 8px 0 rgba(75, 75, 75, 0.75);
+}
+
+pre {
+    box-shadow: 4px 4px 8px 0 rgba(75, 75, 75, 0.75);
+}
+
+code .terminal-first-highlight {
+    font-weight: bold;
+    color: blue;
+}
+
+code .terminal-string {
+    color: #009e00;
+}
+
+code .terminal-number {
+    color: crimson;
+}
