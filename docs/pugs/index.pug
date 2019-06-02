@@ -13,6 +13,8 @@ html
 
         main
             article
+                .under-construction
+                    h1 Still under construction
                 h1 Thesis
                 section
                     p
@@ -21,13 +23,13 @@ html
                         b Computer Vision - the link between virtual reality and the physical world
                     figure.generic_photo.right_aligned
                         img(src='assets/img/concepts/minicar_concept_2.png'
-                            alt='Rear view of the concept'
+                            alt='Full concept of the car'
                             onclick='open_modal("modal-box-1")')
 
                         figcaption Full concept of the car
 
-                    .modal-box#modal-box-1
-                        .close-button(onclick='close_modal("modal-box-1")')
+                    .modal-box#modal-box-1(onclick='close_modal("modal-box-1")')
+                        //.close-button(onclick='close_modal("modal-box-1")')
                         .image-modal-container
                             img(src='assets/img/concepts/minicar_concept_2.png')
                             figcaption Full concept of the car
@@ -37,11 +39,13 @@ html
                         | This thesis was written to obtain the <em>bachelor's degree</em> in
                         | <em>industrial-automation.</em>
                     p
-                        | This entire project is released as <em>open-source</em> under the <b>GNU-GPL V3</b> license.
+                        | This entire project is released as <em>open-source</em> under the
+                        a(href="https://choosealicense.com/licenses/lgpl-3.0/" target="_blank")  GNU-GPL V3
+                        |  license.
                         | All code, programs, designs and related documentation can be found on this website and on
                         | Github.
                         br
-                        a(href="https://github.com/pcassima/thesis_hogent" target="_blank") Github repository
+                        a(href="https://github.com/pcassima/thesis_hogent" target="_blank") The Github repository.
                     p
                         | As this project is focused on education and improving it. All project materials can be freely
                         | used, with disclosure of the source. If you also want to improve education, then feel free
@@ -69,8 +73,8 @@ html
 
                         figcaption Rear view of the concept
 
-                    .modal-box#modal-box-2
-                        .close-button(onclick='close_modal("modal-box-2")')
+                    .modal-box#modal-box-2(onclick='close_modal("modal-box-2")')
+                        //.close-button(onclick='close_modal("modal-box-2")')
                         .image-modal-container
                             img(src='assets/img/concepts/minicar_concept_3.png')
                             figcaption Rear view of the concept
@@ -121,8 +125,8 @@ html
 
                         figcaption Concept of the mainboard for the car
 
-                    .modal-box#modal-box-3
-                        .close-button(onclick='close_modal("modal-box-3")')
+                    .modal-box#modal-box-3(onclick='close_modal("modal-box-3")')
+                        //.close-button(onclick='close_modal("modal-box-3")')
                         .image-modal-container
                             img(src='assets/img/concepts/mainboard_concept_1.png')
                             figcaption Concept of the mainboard for the car
