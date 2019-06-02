@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="https://pcassima.github.io/assets/img/favicon.png">
     <link rel="stylesheet" type="text/css" href="https://pcassima.github.io/assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="https://pcassima.github.io/assets/css/additional.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styling.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -88,14 +89,17 @@
     <aside class="right"></aside>
     <main>
       <article>
+        <div class="under-construction">
+          <h1>Still under construction</h1>
+        </div>
         <h1>Thesis</h1>
         <section>
           <p>The official title for our thesis is:<br><b>Computer Vision - the link between virtual reality and the physical world</b></p>
-          <figure class="generic_photo right_aligned"><img src="assets/img/concepts/minicar_concept_2.png" alt="Rear view of the concept" onclick="open_modal(&quot;modal-box-1&quot;)">
+          <figure class="generic_photo right_aligned"><img src="assets/img/concepts/minicar_concept_2.png" alt="Full concept of the car" onclick="open_modal(&quot;modal-box-1&quot;)">
             <figcaption>Full concept of the car</figcaption>
           </figure>
-          <div class="modal-box" id="modal-box-1">
-            <div class="close-button" onclick="close_modal(&quot;modal-box-1&quot;)"></div>
+          <div class="modal-box" id="modal-box-1" onclick="close_modal(&quot;modal-box-1&quot;)">
+            <!--.close-button(onclick='close_modal("modal-box-1")')-->
             <div class="image-modal-container"><img src="assets/img/concepts/minicar_concept_2.png">
               <figcaption>Full concept of the car</figcaption>
             </div>
@@ -106,10 +110,9 @@
             This thesis was written to obtain the <em>bachelor's degree</em> in
             <em>industrial-automation.</em>
           </p>
-          <p>
-            This entire project is released as <em>open-source</em> under the <b>GNU-GPL V3</b> license.
+          <p>This entire project is released as <em>open-source</em> under the<a href="https://choosealicense.com/licenses/lgpl-3.0/" target="_blank"> GNU-GPL V3</a> license.
             All code, programs, designs and related documentation can be found on this website and on
-            Github.<br><a href="https://github.com/pcassima/thesis_hogent" target="_blank">Github repository</a>
+            Github.<br><a href="https://github.com/pcassima/thesis_hogent" target="_blank">The Github repository.</a>
           </p>
           <p>
             As this project is focused on education and improving it. All project materials can be freely
@@ -135,8 +138,8 @@
           <figure class="generic_photo"><img src="assets/img/concepts/minicar_concept_3.png" alt="Rear view of the concept" onclick="open_modal(&quot;modal-box-2&quot;)">
             <figcaption>Rear view of the concept</figcaption>
           </figure>
-          <div class="modal-box" id="modal-box-2">
-            <div class="close-button" onclick="close_modal(&quot;modal-box-2&quot;)"></div>
+          <div class="modal-box" id="modal-box-2" onclick="close_modal(&quot;modal-box-2&quot;)">
+            <!--.close-button(onclick='close_modal("modal-box-2")')-->
             <div class="image-modal-container"><img src="assets/img/concepts/minicar_concept_3.png">
               <figcaption>Rear view of the concept</figcaption>
             </div>
@@ -177,8 +180,8 @@
           <figure class="generic_photo right_aligned"><img src="assets/img/concepts/mainboard_concept_1.png" alt="Concept of the mainboard for the car" onclick="open_modal(&quot;modal-box-3&quot;)">
             <figcaption>Concept of the mainboard for the car</figcaption>
           </figure>
-          <div class="modal-box" id="modal-box-3">
-            <div class="close-button" onclick="close_modal(&quot;modal-box-3&quot;)"></div>
+          <div class="modal-box" id="modal-box-3" onclick="close_modal(&quot;modal-box-3&quot;)">
+            <!--.close-button(onclick='close_modal("modal-box-3")')-->
             <div class="image-modal-container"><img src="assets/img/concepts/mainboard_concept_1.png">
               <figcaption>Concept of the mainboard for the car</figcaption>
             </div>
