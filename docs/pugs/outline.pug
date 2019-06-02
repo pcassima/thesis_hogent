@@ -40,6 +40,13 @@ html
                                             li
                                                 i(class="fas fa-folder")
                                                 | mechanical
+                                    li
+                                        i(class="fas fa-folder")
+                                        | joystick
+                                        ul
+                                            li
+                                                i(class="fas fa-folder")
+                                                | electronics
                             li
                                 i(class="fas fa-folder")
                                 | docs
@@ -90,12 +97,49 @@ html
                             li LICENSE
                             li README.md
                             li requirements.txt
-                            li setup.cfg
                         p.caption folder structure
 
 
                     p
-                        |
+                        | A few files are located in the root directory of the project. These files have to do mostly
+                        | with Git and the project globally.
+                        | These files include the license under which the project is released, the code of conduct for
+                        | for the project and how to contribute.
+                    p
+                        | There are two files that have to do with the project directly: <em>.gitignore</em> and
+                        | <em>requirements.txt</em>. The former includes a list of all file types and folders to ignore,
+                        | when updating via Git. While the latter contains a list of requirements for the Python program
+                        | to work correctly.
+                    p
+                        | The rest of the project is located in various folders. The first one being the
+                        | <em>.github</em> folder. This folder contains information and templates for contributing and
+                        | filing bug-reports.
+                    p
+                        | The next folder is the <em>design</em> folder. Here the mechanical and electronic design files
+                        | for the project can be found. In the sub-folders the minicar and joystick can be found.
+                        | Each having a folder for electronic and mechanical designs (if applicable).
+                    p
+                        | All documentation related to the project can be found in the <em>docs</em> folder.
+                        | A copy of our actual thesis (in dutch) can also be found in this folder.
+                        br
+                        | This folder also houses all files related to the website for this project. As many of the
+                        | files have been moved to a remote location to keep the size down. Those files are not
+                        | related to this project.
+                    p
+                        | <em>Jade</em> files have been used to built the website, these are
+                        | compiled into <em>HTML</em>. As soon as the website is finished, these Jade-files will be
+                        | removed as well.
+                    p
+                        | The last folder is arguably the most important folder; the <em>src</em> folder contains all
+                        | the files that make up the actual program.
+                        | Since the project was split up over multiple sub-systems (and multiple programming languages).
+                        | This folder contains a sub-folder for each language used.
+                    p
+                        | The <em>python</em> folder contains the program responsible for the vision. As well as a few
+                        | programs to debug the MQTT-protocol and -messages. Locally stored copies of required libraries
+                        | are located in the <em>lib</em> sub-folder.
+
+
                 section
                     h2 Sections:
                     p
@@ -105,16 +149,24 @@ html
                         | The last sections goes into detail on how all the
                         | other sections are connected to one-another.
                     h3 Vision
+                    a(href="vision.html") Vision
                     p
                         | The part of vision deals with the vision (obviously). However it also goes into detail on
                         | everything that is connected to the vision, like the camera, the program etc.
                     h3 Linefollower
+                    a(href="linefollower.html") Linefollower
                     h3 Controllable car
+                    a(href="controllable_car.html") Controllable car
                     h3 Controllers
+                    a(href="controllers.html") Controllers
                     h3 Link
+                    a(href="link.html") Link
                     h3 Maker Faire
+                    a(href="makerfaire.html") Maker Faire
                     h3 Conclusion
+                    a(href="conclusion.html") Conclusion
                     h3 Extra
+                    a(href="extra.html") Extra
 
             div
                 .bottom_navbar
