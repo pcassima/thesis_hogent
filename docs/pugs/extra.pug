@@ -14,17 +14,37 @@ html
         main
             article
                 h1 Extra
+
                 section#E-PID
                     h2 PID
+
                     h3 Proportional - P
-                    p $$P = K_{p} * e$$
+                    p $$P = K_{p} \cdot e(t)$$
+
                     h3 Integral - I
+                    p $$I = K_{i} \int_0^t e(t)dt$$
+
                     h3 Derivative - D
+                    p $$D = K_{d} \frac{de(t)}{dt}$$
+
+                    h3 Error
+                    p $$e(t) = sp(t) - pv(t)$$
+
+                    h3 Output
+                    p
+                        | $$u(t) = P + I + D$$
+                        | $$\Leftrightarrow$$
+                        | $$u(t) = \Biggl[K_{p} \cdot e(t)\Biggr] + \Biggl[K_{i} \int_0^t e(t)dt\Biggr] +
+                        | \Biggl[K_{d} \frac{de(t)}{dt}\Biggr]$$
+
                     h3 Continuous PID
+
                     h3 Discrete PID
+
                 section#E-vision
                     h2 Vision
                     h3 Images as analog signals
+                    h3 Threshold
                     h3 Kernel convolution
                     h3 Blur
                     h4 Mean blur
@@ -32,6 +52,7 @@ html
                     h3 Edge detection
                     h4 Sobel Operator
                     h4 Canny Edge Detection
+
                 section#E-raspbian
                     h2 Raspbian - headless
 
