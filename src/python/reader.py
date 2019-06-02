@@ -5,7 +5,7 @@ This program reads everything that enters the mqtt network and decodes it to sho
 __author__ = "J. Sarrazyn"
 
 # import libraries that are needed
-import lib.paho.mqtt.client as mqtt
+import paho.mqtt.client as mqtt
 from pynput.keyboard import Key, Listener
 
 # set mqttc as the client
