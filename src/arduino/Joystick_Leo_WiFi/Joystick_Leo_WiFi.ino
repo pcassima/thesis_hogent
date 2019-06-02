@@ -1,4 +1,4 @@
-/* Joystick
+/* Joystick Leonardo Wi-Fi
  *
  * This program is used to read analog value and send it over the mqtt network.
  * It works best on a arduino mega.
