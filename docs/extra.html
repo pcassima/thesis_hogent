@@ -93,15 +93,27 @@
         <section id="E-PID">
           <h2>PID</h2>
           <h3>Proportional - P</h3>
-          <p>$$P = K_{p} * e$$</p>
+          <p>$$P = K_{p} \cdot e(t)$$</p>
           <h3>Integral - I</h3>
+          <p>$$I = K_{i} \int_0^t e(t)dt$$</p>
           <h3>Derivative - D</h3>
+          <p>$$D = K_{d} \frac{de(t)}{dt}$$</p>
+          <h3>Error</h3>
+          <p>$$e(t) = sp(t) - pv(t)$$</p>
+          <h3>Output</h3>
+          <p>
+            $$u(t) = P + I + D$$
+            $$\Leftrightarrow$$
+            $$u(t) = \Biggl[K_{p} \cdot e(t)\Biggr] + \Biggl[K_{i} \int_0^t e(t)dt\Biggr] +
+            \Biggl[K_{d} \frac{de(t)}{dt}\Biggr]$$
+          </p>
           <h3>Continuous PID</h3>
           <h3>Discrete PID</h3>
         </section>
         <section id="E-vision">
           <h2>Vision</h2>
           <h3>Images as analog signals</h3>
+          <h3>Threshold</h3>
           <h3>Kernel convolution</h3>
           <h3>Blur</h3>
           <h4>Mean blur</h4>
