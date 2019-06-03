@@ -64,3 +64,18 @@ code .terminal-string {
 code .terminal-number {
     color: crimson;
 }
+
+em{
+    font-weight: bold;
+}
+
+.formula {
+    text-align: center;
+    padding: 4px;
+}
+
+.formula p.caption {
+    color: deeppink;
+    font-weight: bold;
+    font-size: 12px;
+}
