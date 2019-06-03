@@ -92,21 +92,87 @@
         <h1>Extra</h1>
         <section id="E-PID">
           <h2>PID</h2>
-          <h3>Proportional - P</h3>
-          <p>$$P = K_{p} \cdot e(t)$$</p>
-          <h3>Integral - I</h3>
-          <p>$$I = K_{i} \int_0^t e(t)dt$$</p>
-          <h3>Derivative - D</h3>
-          <p>$$D = K_{d} \frac{de(t)}{dt}$$</p>
-          <h3>Error</h3>
-          <p>$$e(t) = sp(t) - pv(t)$$</p>
-          <h3>Output</h3>
+          <p>A PID-controller is the most popular and most used <em>closed-loop controller</em>.</p>
           <p>
-            $$u(t) = P + I + D$$
-            $$\Leftrightarrow$$
-            $$u(t) = \Biggl[K_{p} \cdot e(t)\Biggr] + \Biggl[K_{i} \int_0^t e(t)dt\Biggr] +
-            \Biggl[K_{d} \frac{de(t)}{dt}\Biggr]$$
+            A PID-controller receives an input, this will be the desired value (or state) of the system.
+            Often this is called the <em>setpoint</em>, in formulas <em>sp</em> is used. The current
+            state (or process-value) is denoted as <em>pv</em>. Often this is a value coming from a
+            sensor, and needs to be converted in order to work with the PID-controller. Here it will be
+            assumed, for simplicity, that the process-value is already correctly formatted by the process
+            itself.
           </p>
+          <p>
+            A PID-controller is based around three parallel calculations:
+            the <b>P</b>roportional, the <b>I</b>ntegral and the <b>D</b>erivative.
+            Each calculation has its own weight in the final result. These weights are called K-factors.
+            The PID-controller can be tuned and modified by calibrating these K-factors.
+          </p>
+          <p>
+            The PID-controller is time-dependant, as a result all functions and expressions are a function
+            of time. Since the output is fed back to the input, this controller is closed loop.
+          </p>
+          <h3>Input</h3>
+          <h4>Setpoint</h4>
+          <p>
+            The setpoint, as mentioned, is the desired state of the system. The controller will do
+            everything it can to get the system to that state.<br>In most cases the setpoint is static; it is set once (during calibration) and never changed.
+          </p>
+          <h4>Error</h4>
+          <p>
+            The input to the actual PID-algorithm is called the error. This is a result from subtracting
+            the process-value from the setpoint.
+          </p>
+          <div class="formula">
+            <p>$$e(t) = sp(t) - pv(t)$$</p>
+            <p class="caption">Formula for the error</p>
+          </div>
+          <p>
+            The PID-controller will do everything to get the system to the desired state, this is
+            achieved when the error becomes zero. Or when the process-value becomes equal to the setpoint.
+          </p>
+          <h3>Proportional - P</h3>
+          <p>
+            The first of the PID calculations is the easiest one. The result from this calculation is
+            proportional to the error, as the name would imply. The K<sub>p</sub>-factor will determine
+            how proportional the result is to the error. With a larger K<sub>p</sub>-factor the result
+            will rise quicker with a rising error, while a smaller K<sub>p</sub>-factor will result in
+            a slower rising result.
+          </p>
+          <div class="formula">
+            <p>$$P = K_{p} \cdot e(t)$$</p>
+            <p class="caption">Formula for a P-controller</p>
+          </div>
+          <p>
+            The P-term is a really simple but effective term. For slow changing processes, a P only
+            controller is sufficient. The P-term, however, "looks" only at the current error, because of
+            this <em>overshoot</em> will appear quickly. This overshoot will also lead to an oscillating
+            controller. The state of the system will bounce around the desired state.
+            The D-term offers a solution to this issue.
+          </p>
+          <p>
+            The P-term will not act on small errors, as the result will be to small to have an impact.
+            In order to resolve long-standing small errors the I-term is needed.
+          </p>
+          <h3>Integral - I</h3>
+          <div class="formula">
+            <p>$$I = K_{i} \int_0^t e(t)dt$$</p>
+            <p class="caption">Formula for a I-controller</p>
+          </div>
+          <h3>Derivative - D</h3>
+          <div class="formula">
+            <p>$$D = K_{d} \frac{de(t)}{dt}$$</p>
+            <p class="caption">Formula for a D-controller</p>
+          </div>
+          <h3>Output</h3>
+          <div class="formula">
+            <p>
+              $$u(t) = P + I + D$$
+              $$\Leftrightarrow$$
+              $$u(t) = \Biggl[K_{p} \cdot e(t)\Biggr] + \Biggl[K_{i} \int_0^t e(t)dt\Biggr] +
+              \Biggl[K_{d} \frac{de(t)}{dt}\Biggr]$$
+            </p>
+            <p class="caption">Formula for a PID-controller</p>
+          </div>
           <h3>Continuous PID</h3>
           <h3>Discrete PID</h3>
         </section>
