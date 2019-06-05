@@ -195,10 +195,11 @@ if __name__ == "__main__":
     while cv2.getWindowProperty('frame', 0) >= 0:
 
         # Check the need for auto exposure adjustment
-        if count == 120:
+        if frame_counter % 120 == 0:
             # Every 120 frames (or ~4 seconds) perform auto adjust for the exposure
-            count = 0
-            CAP.adjust_exposure(150)
+            # Here the auto exposure is dissabled
+            # CAP.adjust_exposure(150)
+            pass
 
          # Read a frame from the web-cam.
         _, FRAME = CAP.read()
@@ -301,6 +302,13 @@ if __name__ == "__main__":
                         # Circles (or close enough)
                         cv2.putText(FRAME, 'Circle', (cX - 16, cY - 16),
                                     cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+        # Put the title on threshold.
+        cv2.rectangle(FRAME, (0, 0), (350, 50), (255, 255, 255), -1)
+        cv2.putText(FRAME, 'Results', (4, 32), cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 0, 0), 2)
+
+        # Show the resulting frames.
+        cv2.imshow('frame', FRAME)
 
         if cv2.waitKey(1) & 0xff == ord('q'):
             # If the "q" is pressed, close to program by breaking the loop.
