@@ -184,18 +184,80 @@ if __name__ == "__main__":
     print("Performing exposure adjust")
     CAP.adjust_exposure(150)
 
+    # frame counter for the auto-exposure:
+    frame_counter = 0
+
+    print("Starting main loop")
     # As long as the window is opened keep running.
     # This allows the windows close button ('X') to be functional.
-    print("Starting main loop")
-    print()
-    print()
-
     while cv2.getWindowProperty('frame', 0) >= 0:
+
+        # Check the need for auto exposure adjustment
+        if count == 120:
+            # Every 120 frames (or ~4 seconds) perform auto adjust for the exposure
+            count = 0
+            CAP.adjust_exposure(150)
+
+         # Read a frame from the web-cam.
+        _, FRAME = CAP.read()
+        frame_counter += 1
+
+        # Convert the frame the grayscale
+        GRAY = cv2.cvtColor(FRAME, cv2.COLOR_BGR2GRAY)
+
+        # Use a gaussian blur to reduce noise in the image.
+        KERNEL = (9, 9)
+        GRAY = cv2.GaussianBlur(GRAY, KERNEL, 0)
+
+        # use a binary threshold on the image.
+        _, THRESHOLD = cv2.threshold(GRAY, 85, 255, cv2.THRESH_BINARY)
+
+        # Detect the edges in the image.
+        EDGED = cv2.Canny(THRESHOLD, 25, 145)
+        # Reduce noise on the detected edges.
+        EDGED = cv2.GaussianBlur(EDGED, (3, 3), 0)
+
+        # Find the contours in the image.
+        CONTOURS = cv2.findContours(EDGED.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        # Get the contours (to deal with different versions of OpenCV).
+        CNTS = imutils.grab_contours(CONTOURS)
+
+        for c in CNTS:
+            # Approximate the contour.
+            PERIMETER = cv2.arcLength(c, True)
+
+            if PERIMETER_LOWER_BOUND <= PERIMETER <= PERIMETER_UPPER_BOUND:
+                # Approximate the shape based on the perimeter (with a margin; here 3%).
+                # If two adjacent points in the contour have a distance that is less than 3% of the perimeter, they
+                # will be treated as a single point.
+                approx = cv2.approxPolyDP(c, 0.03 * PERIMETER, True)
+                # Determine the shape
+                if len(approx) == 3:
+                    # Triangles
+                    pass
+                elif len(approx) == 4:
+                    # Squares, rechtangles etc
+                    pass
+                elif len(approx) == 5:
+                    # Pentagon
+                    pass
+                elif len(approx) == 6:
+                    # Hexagon
+                    pass
+                elif len(approx) == 7:
+                    # Heptagon
+                    pass
+                elif len(approx) == 8:
+                    # Octagon
+                    pass
+                else:
+                    # Circles (or close enough)
+                    pass
 
         if cv2.waitKey(1) & 0xff == ord('q'):
             # If the "q" is pressed, close to program by breaking the loop.
             break
-            
+
     # Release the capture object.
     CAP.release()
     # Destroy all windows and finish the program.
