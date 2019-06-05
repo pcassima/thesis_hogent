@@ -228,31 +228,63 @@ if __name__ == "__main__":
 
             if PERIMETER_LOWER_BOUND <= PERIMETER <= PERIMETER_UPPER_BOUND:
                 # Approximate the shape based on the perimeter (with a margin; here 3%).
-                # If two adjacent points in the contour have a distance that is less than 3% of the perimeter, they
-                # will be treated as a single point.
+                # If two adjacent points in the contour have a distance that is less than 3% of the
+                # perimeter, they will be treated as a single point.
                 approx = cv2.approxPolyDP(c, 0.03 * PERIMETER, True)
+
+                M = cv2.moments(c)
+                if M['m00'] != 0:
+                    # Extract the centre of the triangle coordinates.
+                    cX = int(M['m10'] / M['m00'])
+                    cY = int(M['m01'] / M['m00'])
+                    # Name the colour of the triangle.
+                    colour = FRAME[cY, cX]
+                    colour_name = name_colour(colour)
+                    # Create a bounding rectangle for the triangle.
+                    (x, y, w, h) = cv2.boundingRect(approx)
+                    # Calculate the aspect ratio of the bounding box.
+                    ar = w / float(h)
+                    # Draw the contour on the frame.
+                    cv2.drawContours(FRAME, [c], -1, (0, 0, 255), 2)
+                    # Add the name of the colour.
+                    cv2.putText(FRAME, colour_name, (cX - 16, cY + 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
                 # Determine the shape
                 if len(approx) == 3:
                     # Triangles
-                    pass
+                    cv2.putText(FRAME, 'Triangle', (cX - 16, cY - 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
                 elif len(approx) == 4:
                     # Squares, rechtangles etc
-                    pass
+                    ar = w / float(h)
+                    if 0.85 <= ar <= 1.15:
+                        cv2.putText(FRAME, 'Square', (cX-24, cY-16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+                    else:
+                        cv2.putText(FRAME, 'Rectangle', (cX - 24, cY - 16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                 elif len(approx) == 5:
                     # Pentagon
-                    pass
+                    cv2.putText(FRAME, 'Pentagon', (cX - 16, cY - 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                 elif len(approx) == 6:
                     # Hexagon
-                    pass
+                    cv2.putText(FRAME, 'Hexagon', (cX - 16, cY - 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                 elif len(approx) == 7:
                     # Heptagon
-                    pass
+                    cv2.putText(FRAME, 'Heptagon', (cX - 16, cY - 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                 elif len(approx) == 8:
                     # Octagon
-                    pass
+                    cv2.putText(FRAME, 'Octagon', (cX - 16, cY - 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
                 else:
                     # Circles (or close enough)
-                    pass
+                    cv2.putText(FRAME, 'Circle', (cX - 16, cY - 16),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
 
         if cv2.waitKey(1) & 0xff == ord('q'):
             # If the "q" is pressed, close to program by breaking the loop.
