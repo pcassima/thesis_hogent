@@ -4,12 +4,14 @@ The script is using the Raspberry Pi camera module V2.
 Mostly this script is the same as the main.py script.
 """
 
-# Imports
+# ------------------------------------------- Imports ----------------------------------------------
 
 import sys
 import time
 
 import math
+
+from lib.camera import TinkerCamera
 
 try:
     import cv2
@@ -19,25 +21,27 @@ try:
 
 except ImportError as e:
     print("Required modules not found")
-    print e
+    print(e)
     sys.exit()
 
-# Global variables
+# --------------------------------------- Global variables -----------------------------------------
 
 __author__ = "P. Cassiman"
 __version__ = "0.1.0"
 
-# Vision parametres are placed here for convience.
+# Vision parametres are placed here for convenience.
 
 THRESHOLD_VALUE = 90
 EDGE_LOWER_VALUE = 25
 EDGE_UPPER_VALUE = 145
 
-# Classes
+# ------------------------------------------- Classes ----------------------------------------------
 
-class RpiCameraModule(cv2.VideoCapture):
-    """
-    Class to use the Raspberry Pi camera module on the Asus Tinker Board.
-    """
 
-    _channel = "rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw,format=NV12,width=640,height=480 ! videoconvert ! appsink"
+# ------------------------------------------ Functions ---------------------------------------------
+
+
+# --------------------------------------------- Main -----------------------------------------------
+
+if __name__ == "__main__":
+    pass
