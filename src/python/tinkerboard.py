@@ -80,6 +80,8 @@ def name_colour(pixel_colour: tuple = (0, 0, 0)) -> str:
         c_name = 'green'
     elif red > blue and red > green:
         c_name = 'red'
+    else:
+        c_name = 'gray'
 
     return c_name
 
@@ -233,58 +235,72 @@ if __name__ == "__main__":
                 approx = cv2.approxPolyDP(c, 0.03 * PERIMETER, True)
 
                 M = cv2.moments(c)
+                # If the shape has a valid centre, proceed.
                 if M['m00'] != 0:
-                    # Extract the centre of the triangle coordinates.
+                    # Extract the coordinates of the shape centre.
+                    # The centre of mass is used as the centre of the shape. When using the normal
+                    # centre it could give problems where the centre is located outside of the
+                    # shape. By using the centre of mass this problem is greatly reduced (however)
+                    # Not avoided completely.
                     cX = int(M['m10'] / M['m00'])
                     cY = int(M['m01'] / M['m00'])
-                    # Name the colour of the triangle.
-                    colour = FRAME[cY, cX]
-                    colour_name = name_colour(colour)
+                    # Name the colour of the shape.
+                    colour_name = name_colour(FRAME[cY, cX])
+
                     # Create a bounding rectangle for the triangle.
                     (x, y, w, h) = cv2.boundingRect(approx)
                     # Calculate the aspect ratio of the bounding box.
                     ar = w / float(h)
-                    # Draw the contour on the frame.
-                    cv2.drawContours(FRAME, [c], -1, (0, 0, 255), 2)
-                    # Add the name of the colour.
-                    cv2.putText(FRAME, colour_name, (cX - 16, cY + 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-
-                # Determine the shape
-                if len(approx) == 3:
-                    # Triangles
-                    cv2.putText(FRAME, 'Triangle', (cX - 16, cY - 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-
-                elif len(approx) == 4:
-                    # Squares, rechtangles etc
-                    ar = w / float(h)
-                    if 0.85 <= ar <= 1.15:
-                        cv2.putText(FRAME, 'Square', (cX-24, cY-16),
+                    if len(approx) >= 3:
+                        # Draw the contour on the frame.
+                        cv2.drawContours(FRAME, [c], -1, (0, 0, 255), 2)
+                        # Add the name of the colour.
+                        cv2.putText(FRAME, colour_name, (cX - 16, cY + 16),
                                     cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                    # Determine the shape
+                    if len(approx) == 3:
+                        # Triangles
+                        cv2.putText(FRAME, 'Triangle', (cX - 16, cY - 16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                    elif len(approx) == 4:
+                        # Squares, rectangles etc
+                        # If the width and height are with 15% of eachother the shape is determined
+                        # as a square.
+                        if 0.85 <= ar <= 1.15:
+                            cv2.putText(FRAME, 'Square', (cX-24, cY-16),
+                                        cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                        # Other wise the shape is determined to be a rectangle.
+                        else:
+                            cv2.putText(FRAME, 'Rectangle', (cX - 24, cY - 16),
+                                        cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                    elif len(approx) == 5:
+                        # Pentagons
+                        cv2.putText(FRAME, 'Pentagon', (cX - 16, cY - 16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                    elif len(approx) == 6:
+                        # Hexagons
+                        cv2.putText(FRAME, 'Hexagon', (cX - 16, cY - 16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                    elif len(approx) == 7:
+                        # Heptagons
+                        cv2.putText(FRAME, 'Heptagon', (cX - 16, cY - 16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
+                    elif len(approx) == 8:
+                        # Octagons
+                        cv2.putText(FRAME, 'Octagon', (cX - 16, cY - 16),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
+
                     else:
-                        cv2.putText(FRAME, 'Rectangle', (cX - 24, cY - 16),
+                        # Circles (or close enough)
+                        cv2.putText(FRAME, 'Circle', (cX - 16, cY - 16),
                                     cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-                elif len(approx) == 5:
-                    # Pentagon
-                    cv2.putText(FRAME, 'Pentagon', (cX - 16, cY - 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-                elif len(approx) == 6:
-                    # Hexagon
-                    cv2.putText(FRAME, 'Hexagon', (cX - 16, cY - 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-                elif len(approx) == 7:
-                    # Heptagon
-                    cv2.putText(FRAME, 'Heptagon', (cX - 16, cY - 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-                elif len(approx) == 8:
-                    # Octagon
-                    cv2.putText(FRAME, 'Octagon', (cX - 16, cY - 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
-                else:
-                    # Circles (or close enough)
-                    cv2.putText(FRAME, 'Circle', (cX - 16, cY - 16),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, TXT_COLOUR, 2)
 
         if cv2.waitKey(1) & 0xff == ord('q'):
             # If the "q" is pressed, close to program by breaking the loop.
