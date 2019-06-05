@@ -59,7 +59,7 @@ class Camera(cv2.VideoCapture):
         return
 
 
-class WebCam(cv2.VideoCapture):
+class WebCam(Camera):
     """
     WebCam class to act and deal with usb webcams.
     This class is an extension on the OpenCV VideoCapture class.
