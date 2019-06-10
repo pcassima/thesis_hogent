@@ -222,7 +222,7 @@ if __name__ == "__main__":
 
     print("Creating capture object")
     # Creating a webcam object.
-    CAP = = cv2.VideoCapture(
+    CAP = cv2.VideoCapture(
         "rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw,format=NV12,width=640,height=480 ! videoconvert ! appsink")
 
     # Set the capture resolution, works best with 4:3 aspect ratio.
@@ -255,7 +255,7 @@ if __name__ == "__main__":
     print("Starting main loop")
     # As long as the window is opened keep running.
     # This allows the windows close button ('X') to be functional.
-    while cv2.getWindowProperty('frame', 0) >= 0:
+    while CAP.isOpened():
 
         # Check the need for auto exposure adjustment
         if frame_counter % 120 == 0:
