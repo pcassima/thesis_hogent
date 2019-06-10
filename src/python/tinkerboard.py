@@ -222,17 +222,16 @@ if __name__ == "__main__":
 
     print("Creating capture object")
     # Creating a webcam object.
-    _channel = "rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw,format=NV12, \
-        width = 640, height = 480!videoconvert!appsink "
-    CAP = cv2.VideoCapture(_channel)
+    CAP = = cv2.VideoCapture(
+        "rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw,format=NV12,width=640,height=480 ! videoconvert ! appsink")
 
     # Set the capture resolution, works best with 4:3 aspect ratio.
-    CAP.set(cv2.CAP_PROP_FRAME_WIDTH, 1440)
-    CAP.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+    # CAP.set(cv2.CAP_PROP_FRAME_WIDTH, 1440)
+    # CAP.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     # Set the exposure of the camera
-    CAP.set(cv2.CAP_PROP_EXPOSURE, -2)
+    # CAP.set(cv2.CAP_PROP_EXPOSURE, -2)
     # Set the framerate on the webcam.
-    CAP.set(cv2.CAP_PROP_FPS, 30)
+    # CAP.set(cv2.CAP_PROP_FPS, 30)
 
     print("Creating result window")
     # Create a window to show the results
