@@ -23,10 +23,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import sys
 import time
+import argparse
 
 import math
 
-from lib.camera import TinkerCamera
+# from lib.camera import TinkerCamera
 
 try:
     import cv2
@@ -172,6 +173,44 @@ def create_line(width: int = 80, message: str = "Hello world!") -> str:
     return line
 
 
+def adjust_exposure(capture, target: int = 127):
+    """
+    This method will read 5 frames and calculate the brightness from each.
+    The brightness is averaged out between the 5 frames and used to adjust
+    the exposure of the webcam.
+    The desired exposure (target) has a margin, as the webcam's exposure
+    can only be adjusted in increments. This is to avoid having the
+    exposure bounce between two values.
+    """
+    while True:
+        brightness = 0
+        for i in range(5):
+            # Read 5 frames and take the brightness from those.
+            _, frame = capture.read()
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            brightness += cv2.mean(frame)[0]
+        # Average out the brightness
+        brightness /= 5
+        # If the brightness is not within a certain margin from the target adjust the exposure.
+        if not (target - 32) < brightness < (target + 32):
+            if brightness < target:
+                exposure = capture.get(cv2.CAP_PROP_EXPOSURE)
+                if exposure == -1:
+                    break
+                capture.set(cv2.CAP_PROP_EXPOSURE, exposure + 1)
+            elif target < brightness:
+                exposure = capture.get(cv2.CAP_PROP_EXPOSURE)
+                if exposure == -15:
+                    break
+                capture.set(cv2.CAP_PROP_EXPOSURE, (exposure - 1))
+            else:
+                break
+        else:
+            break
+
+    # Return to the main program
+    return
+
 # --------------------------------------------- Main -----------------------------------------------
 
 if __name__ == "__main__":
@@ -183,7 +222,17 @@ if __name__ == "__main__":
 
     print("Creating capture object")
     # Creating a webcam object.
-    CAP = TinkerCamera()
+    _channel = "rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw,format=NV12, \
+        width = 640, height = 480!videoconvert!appsink "
+    CAP = cv2.VideoCapture(_channel)
+
+    # Set the capture resolution, works best with 4:3 aspect ratio.
+    CAP.set(cv2.CAP_PROP_FRAME_WIDTH, 1440)
+    CAP.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+    # Set the exposure of the camera
+    CAP.set(cv2.CAP_PROP_EXPOSURE, -2)
+    # Set the framerate on the webcam.
+    CAP.set(cv2.CAP_PROP_FPS, 30)
 
     print("Creating result window")
     # Create a window to show the results
@@ -199,7 +248,7 @@ if __name__ == "__main__":
     TXT_COLOUR = (0, 150, 150)
 
     print("Performing exposure adjust")
-    CAP.adjust_exposure(150)
+    adjust_exposure(CAP, 150)
 
     # frame counter for the auto-exposure:
     frame_counter = 0
