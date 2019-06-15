@@ -89,7 +89,6 @@ def name_colour(pixel_colour: tuple = (0, 0, 0)) -> str:
         c_name = 'black'
 
     # Extract the other primary colours.
-    # TODO: improve the "algorithm" for checking colours.
     elif blue > green and blue > red:
         c_name = 'blue'
     elif green > blue and green > red:
@@ -222,8 +221,8 @@ if __name__ == "__main__":
 
     print("Creating capture object")
     # Creating a webcam object.
-    CAP = cv2.VideoCapture(
-        "rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw,format=NV12,width=640,height=480 ! videoconvert ! appsink")
+    CAP = cv2.VideoCapture("rkcamsrc io-mode=4 isp-mode=2A tuning-xml-path=/etc/cam_iq/IMX219.xml ! video/x-raw, \
+        format=NV12,width=640,height=480 ! videoconvert ! appsink")
 
     # Set the capture resolution, works best with 4:3 aspect ratio.
     # CAP.set(cv2.CAP_PROP_FRAME_WIDTH, 1440)
@@ -250,7 +249,7 @@ if __name__ == "__main__":
     adjust_exposure(CAP, 150)
 
     # frame counter for the auto-exposure:
-    frame_counter = 0
+    FRAME_COUNTER = 0
 
     print("Starting main loop")
     # As long as the window is opened keep running.
@@ -258,7 +257,7 @@ if __name__ == "__main__":
     while CAP.isOpened():
 
         # Check the need for auto exposure adjustment
-        if frame_counter % 120 == 0:
+        if FRAME_COUNTER % 120 == 0:
             # Every 120 frames (or ~4 seconds) perform auto adjust for the exposure
             # Here the auto exposure is dissabled
             # CAP.adjust_exposure(150)
@@ -266,7 +265,7 @@ if __name__ == "__main__":
 
          # Read a frame from the web-cam.
         _, FRAME = CAP.read()
-        frame_counter += 1
+        FRAME_COUNTER += 1
 
         # Convert the frame the grayscale
         GRAY = cv2.cvtColor(FRAME, cv2.COLOR_BGR2GRAY)
