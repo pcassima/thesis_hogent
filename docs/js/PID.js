@@ -37,9 +37,9 @@ function reset() {
     I_slider = document.getElementById('PID-SIM-I');
     D_slider = document.getElementById('PID-SIM-D');
     // Get the slider value
-    Kp = P_slider.value() / 10;
-    Ki = I_slider.value() / 10;
-    Kd = D_slider.value() / 10;
+    Kp = P_slider.value / 10;
+    Ki = I_slider.value / 10;
+    Kd = D_slider.value / 10;
 
     // Set the start time
     startTime = Date.now();
