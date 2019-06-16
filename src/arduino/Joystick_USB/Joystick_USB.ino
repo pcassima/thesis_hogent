@@ -8,10 +8,10 @@
  */
 
 // Name of the device
-byte thisDevice = 23;
+byte thisDevice = 62;
 
 // Target device
-byte target = 60;
+byte target = 20;
 
 byte dataType = 11;
 byte Tail = 83;
@@ -39,7 +39,8 @@ void setup() {
 
   pinMode(Y_speed, INPUT);
   pinMode(X_turn, INPUT);
-
+  pinMode(8, OUTPUT);
+  digitalWrite(8, HIGH);
   Serial.begin(115200);
 
   delay(1000);
@@ -434,10 +435,7 @@ void DataCheck() {
 void SendData() {
 
   for (int i = 0; i < sizeof(dataValue); i++) {
-    // Serial.write(dataValue[i]);
-    Serial.print(dataValue[i]);
-    Serial.print("//");
+    Serial.write(dataValue[i]); 
   }
-  Serial.println("");
 }
 
