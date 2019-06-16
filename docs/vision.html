@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <script src="https://pcassima.github.io/js/nav.js"></script>
     <script src="https://pcassima.github.io/js/modal.js"></script>
   </head>
@@ -24,7 +26,7 @@
         <div class="triangle-topright-2"></div>
         <div class="triangle-topright-3"></div>
       </div>
-      <h1>Thesis</h1>
+      <div><span class="main">Computer vision</span><span class="sub">-- the link between VR and the physical world</span></div>
     </header>
     <nav>
       <div class="hamburger" id="hamburger" onclick="hamburgerNav()">
@@ -326,6 +328,12 @@
             functionality is needed, the standard distribution can be installed.
           </p>
           <h4>Paho MQTT</h4>
+          <p>
+            Since the different parts of this project are connected together, via MQTT. A library is
+            needed in order to connect to a broker and send the messages. For this purpose eclipse-paho
+            was chosen. It is a lightweight module that does everything it is supposed to do.
+          </p>
+          <p>This module can be installed via the following command:</p>
           <pre><code><span class="terminal-first-highlight">pip</span> install paho-mqtt</code></pre>
           <h4>The Python Standard Library</h4>
           <p>text</p>
@@ -335,7 +343,7 @@
         <section id="vision-program">
           <h2>Program</h2>
           <h3>Structure</h3>
-          <h3>Import libraries</h3>
+          <h3>Importing the libraries</h3>
           <div class="gist_container">
             <script src="https://gist.github.com/pcassima/52e732a9dd9516d296491bad7ec8bd18.js"></script>
             <!--label Importing the libraries-->
@@ -343,7 +351,19 @@
           <h3>Classes</h3>
           <h4>Webcam class</h4>
           <h3>Functions</h3>
+          <h4>order_66</h4>
+          <h4>finished</h4>
+          <h4>name_colour</h4>
           <h3>Main</h3>
+          <h4>Read in a frame</h4>
+          <h4>Convert to greyscale</h4>
+          <h4>Gaussian blur</h4>
+          <h4>Threshold</h4>
+          <h4>Canny Edge Detection</h4>
+          <h4>Contours</h4>
+          <h4>Count corners & determine shape</h4>
+          <h4>Calculate centre of shape</h4>
+          <h4>Results</h4>
         </section>
       </article>
       <div>

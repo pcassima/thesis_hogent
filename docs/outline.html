@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <script src="https://pcassima.github.io/js/nav.js"></script>
     <script src="https://pcassima.github.io/js/modal.js"></script>
   </head>
@@ -24,7 +26,7 @@
         <div class="triangle-topright-2"></div>
         <div class="triangle-topright-3"></div>
       </div>
-      <h1>Thesis</h1>
+      <div><span class="main">Computer vision</span><span class="sub">-- the link between VR and the physical world</span></div>
     </header>
     <nav>
       <div class="hamburger" id="hamburger" onclick="hamburgerNav()">
@@ -109,6 +111,11 @@
                       <li><i class="fas fa-folder"></i>mechanical</li>
                     </ul>
                   </li>
+                  <li><i class="fas fa-folder"></i>joystick
+                    <ul>
+                      <li><i class="fas fa-folder"></i>electronics</li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li><i class="fas fa-folder"></i>docs</li>
@@ -139,11 +146,53 @@
               <li>LICENSE</li>
               <li>README.md</li>
               <li>requirements.txt</li>
-              <li>setup.cfg</li>
             </ul>
             <p class="caption">folder structure</p>
           </div>
-          <p></p>
+          <p>
+            A few files are located in the root directory of the project. These files have to do mostly
+            with Git and the project globally.
+            These files include the license under which the project is released, the code of conduct for
+            for the project and how to contribute.
+          </p>
+          <p>
+            There are two files that have to do with the project directly: <em>.gitignore</em> and
+            <em>requirements.txt</em>. The former includes a list of all file types and folders to ignore,
+            when updating via Git. While the latter contains a list of requirements for the Python program
+            to work correctly.
+          </p>
+          <p>
+            The rest of the project is located in various folders. The first one being the
+            <em>.github</em> folder. This folder contains information and templates for contributing and
+            filing bug-reports.
+          </p>
+          <p>
+            The next folder is the <em>design</em> folder. Here the mechanical and electronic design files
+            for the project can be found. In the sub-folders the minicar and joystick can be found.
+            Each having a folder for electronic and mechanical designs (if applicable).
+          </p>
+          <p>
+            All documentation related to the project can be found in the <em>docs</em> folder.
+            A copy of our actual thesis (in dutch) can also be found in this folder.<br>This folder also houses all files related to the website for this project. As many of the
+            files have been moved to a remote location to keep the size down. Those files are not
+            related to this project.
+          </p>
+          <p>
+            <em>Jade</em> files have been used to built the website, these are
+            compiled into <em>HTML</em>. As soon as the website is finished, these Jade-files will be
+            removed as well.
+          </p>
+          <p>
+            The last folder is arguably the most important folder; the <em>src</em> folder contains all
+            the files that make up the actual program.
+            Since the project was split up over multiple sub-systems (and multiple programming languages).
+            This folder contains a sub-folder for each language used.
+          </p>
+          <p>
+            The <em>python</em> folder contains the program responsible for the vision. As well as a few
+            programs to debug the MQTT-protocol and -messages. Locally stored copies of required libraries
+            are located in the <em>lib</em> sub-folder.
+          </p>
         </section>
         <section>
           <h2>Sections:</h2>
@@ -152,18 +201,18 @@
             section goes into detail about a specific part.<br>The last sections goes into detail on how all the
             other sections are connected to one-another.
           </p>
-          <h3>Vision</h3>
+          <h3>Vision</h3><a href="vision.html">Vision</a>
           <p>
             The part of vision deals with the vision (obviously). However it also goes into detail on
             everything that is connected to the vision, like the camera, the program etc.
           </p>
-          <h3>Linefollower</h3>
-          <h3>Controllable car</h3>
-          <h3>Controllers</h3>
-          <h3>Link</h3>
-          <h3>Maker Faire</h3>
-          <h3>Conclusion</h3>
-          <h3>Extra</h3>
+          <h3>Linefollower</h3><a href="linefollower.html">Linefollower</a>
+          <h3>Controllable car</h3><a href="controllable_car.html">Controllable car</a>
+          <h3>Controllers</h3><a href="controllers.html">Controllers</a>
+          <h3>Link</h3><a href="link.html">Link</a>
+          <h3>Maker Faire</h3><a href="makerfaire.html">Maker Faire</a>
+          <h3>Conclusion</h3><a href="conclusion.html">Conclusion</a>
+          <h3>Extra</h3><a href="extra.html">Extra</a>
         </section>
       </article>
       <div>

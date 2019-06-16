@@ -1,6 +1,21 @@
 """
-Stable version of the shape and colour detection.
-This script uses a web-cam connected to the computer and detects the three primary colours.
+Main script to detect and localize shapes within a frame.
+A webcam is used to read in the frames.
+
+Copyright (C) 2019, Pieter-Jan Cassiman
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 # TODO: Use a class to avoid having to use the global statement
@@ -11,6 +26,8 @@ import sys
 import time
 
 import math
+
+from lib.camera import WebCam
 
 try:
     import cv2
@@ -73,63 +90,6 @@ class Finish(object):
     * To implement
     """
     # TODO: implement finish line class, to avoid using global variables.
-
-
-class WebCam(cv2.VideoCapture):
-    """
-    WebCam class to act and deal with usb webcams.
-    This class is an extension on the OpenCV VideoCapture class.
-    """
-
-    def __init__(self, channel: int = 0, resolution: tuple = (1440, 1080),
-                 exposure: int = -2, framerate: int = 40) -> cv2.VideoCapture:
-        # Call the super class to generate a video capture object.
-        super(WebCam, self).__init__(channel)
-        # Set the capture resolution, works best with 4:3 aspect ratio.
-        self.set(cv2.CAP_PROP_FRAME_WIDTH, resolution[0])
-        self.set(cv2.CAP_PROP_FRAME_HEIGHT, resolution[1])
-        # Set the exposure of the camera
-        self.set(cv2.CAP_PROP_EXPOSURE, exposure)
-        # Set the framerate on the webcam.
-        self.set(cv2.CAP_PROP_FPS, framerate)
-
-    def adjust_exposure(self, target: int = 127):
-        """
-        This method will read 5 frames and calculate the brightness from each.
-        The brightness is averaged out between the 5 frames and used to adjust
-        the exposure of the webcam.
-        The desired exposure (target) has a margin, as the webcam's exposure
-        can only be adjusted in increments. This is to avoid having the
-        exposure bounce between two values.
-        """
-        while True:
-            brightness = 0
-            for i in range(5):
-                # Read 5 frames and take the brightness from those.
-                _, frame = self.read()
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                brightness += cv2.mean(frame)[0]
-            # Average out the brightness
-            brightness /= 5
-            # If the brightness is not within a certain margin from the target adjust the exposure.
-            if not (target - 32) < brightness < (target + 32):
-                if brightness < target:
-                    exposure = self.get(cv2.CAP_PROP_EXPOSURE)
-                    if exposure == -1:
-                        break
-                    self.set(cv2.CAP_PROP_EXPOSURE, exposure + 1)
-                elif target < brightness:
-                    exposure = self.get(cv2.CAP_PROP_EXPOSURE)
-                    if exposure == -15:
-                        break
-                    self.set(cv2.CAP_PROP_EXPOSURE, (exposure - 1))
-                else:
-                    break
-            else:
-                break
-
-        # Return to the main program
-        return
 
 
 # ------------------------------------------ Functions ---------------------------------------------
