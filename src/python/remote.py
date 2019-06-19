@@ -5,7 +5,7 @@ this program controlls the car with inputs from a keyboard
 __author__ = "J. Sarrazyn"
 
 # import libraries that are needed
-import lib.paho.mqtt.client as mqtt
+import paho.mqtt.client as mqtt
 from pynput.keyboard import Key, Listener
 
 # set mqttc as the client
