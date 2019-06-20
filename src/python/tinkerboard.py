@@ -233,10 +233,11 @@ if __name__ == "__main__":
     # CAP.set(cv2.CAP_PROP_FPS, 30)
 
     print("Creating result window")
+    # BUG: Could be a possible cause for pointer error on Tinker Board
     # Create a window to show the results
-    cv2.namedWindow("frame", cv2.WINDOW_NORMAL)
+    # cv2.namedWindow("frame", cv2.WINDOW_NORMAL)
     # Set the window to a 4:3 aspect ratio
-    cv2.resizeWindow("frame", MAIN_FRAME_RESOLUTION)
+    # cv2.resizeWindow("frame", MAIN_FRAME_RESOLUTION)
 
     # time.sleep(1)
 
