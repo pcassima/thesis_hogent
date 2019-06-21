@@ -1,0 +1,3 @@
+tasks:
+    - command: pip3 install --upgrade pip
+    - command: pip install -r requirement.txt
