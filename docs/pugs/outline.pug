@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Outline
+                article
+                    h1.article-title Repository structure
+                    section
+                        h1.section-title Section title
+                article
+                    h1.article-title Sections
+                    section
+                        h1.section-title Vision
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Linefollower
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Controllable car
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Controllers
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Link
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Maker Faire
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Conclusion
+                        h1.section-subtitle Section subtitle
+                    section
+                        h1.section-title Extra
+                        h1.section-subtitle Section subtitle
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="index.html") &#171; back
+                    .bottom-nav-right
+                        .next
+                            a(href="vision.html") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
