@@ -1,0 +1,101 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            #hamburger.hamburger(onclick="hamburgerNav()")
+                #h-bar1.hamburger-bar
+                #h-bar2.hamburger-bar
+                #h-bar3.hamburger-bar
+
+            .top-navbar
+                ul#nav-list.nav-list
+                    li.nav-active
+                        div
+                        a(href="#") home
+                    li
+                        div
+                        a(href="#") projects
+                    li
+                        div
+                        a(href="#") tutorials
+                    li
+                        div
+                        a(href="#") gallery
+                    li
+                        div
+                        a(href="#") about
+                    li
+                        div
+                        a(href="#") contact
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Page title
+                article
+                    h1.article-title Article title
+                    section
+                        h1.section-title Section title
+                        figure.half-width.left-aligned
+                            img(src="Assets/img/placeholders/placeholder-3-2.png" alt="placeholder")
+                            figcaption
+                                a(href="#") Figure 1
+                                br
+                                | &copy; 2019
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium culpa ipsa libero, magnam molestiae mollitia perferendis quas reiciendis similique tenetur. Alias asperiores cumque deserunt enim, est porro rem sint tempora!
+                article
+                    h1.article-title Article title
+                    section
+                        h1.section-title Section title
+                        h1.section-subtitle Section subtitle
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id labore repellat tempore! Consequuntur ex illum maiores nobis nulla odio recusandae, sint suscipit! Deserunt error hic nesciunt, non perferendis quam similique?
+                    section
+                        h1.section-title Section title
+                        h1.section-subtitle Section subtitle
+                article
+                    h1.article-title Article title
+                    section
+                        h1.section-title Section title
+                    section
+                        h1.section-title Section title
+                article
+                    h1.article-title Article title
+                    section
+                        h1.section-title Section title
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id illo minus odio voluptatum. Doloribus eum excepturi ipsa ipsam non provident quisquam. Ab, animi dolore ducimus laboriosam omnis perspiciatis possimus sit!
+                        .gist-container
+                            script(src="https://gist.github.com/pcassima/05c4a7dfdb3a5a22977c7201aa58ae2e.js")
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aperiam corporis deserunt, dolore eveniet illum minima, perspiciatis porro quaerat qui quod ratione, sapiente sed sequi temporibus tenetur voluptatibus voluptatum.
+                article
+                    section
+                        h1 heading 1
+                        p text
+                        h2 heading 2
+                        p text
+                        h3 heading 3
+                        p text
+                        h4 heading 4
+                        p text
+                        h5 heading 5
+                        p text
+                        h6 heading 6
+                        p text
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="#") &#171; back
+                    .bottom-nav-right
+                        .next
+                            a(href="#") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
