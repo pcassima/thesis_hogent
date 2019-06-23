@@ -1,0 +1,40 @@
+@import '../_colors.scss';
+
+footer {
+  margin-top: 8px;
+  text-align: center;
+  display: block;
+
+  .footer-left {
+    display: unset;
+    .social-bar-container {
+      display: inline-block;
+      margin: 0 auto;
+
+      .social-bar {
+        list-style-type: none;
+        padding: 0;
+        overflow: hidden;
+
+        li {
+          float: left;
+        }
+
+        .fab {
+          padding: 4px;
+          text-align: center;
+          text-decoration: none;
+          color: $accent2;
+          font-weight: lighter;
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    display: unset;
+    text-align: center;
+    .badge {
+    }
+  }
+}

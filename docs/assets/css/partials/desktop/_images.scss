@@ -1,0 +1,45 @@
+@import '../_colors.scss';
+@import '_shadow.scss';
+
+figure {
+  padding: 8px;
+  margin: 12px;
+  @include create-box-shadow;
+
+  img {
+    object-fit: cover;
+    max-width: 100%;
+  }
+
+  figcaption {
+    text-align: center;
+    font-size: 14px;
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: $accent2;
+      cursor: pointer;
+    }
+  }
+}
+
+.half-width {
+  width: 50%;
+}
+
+.third-width {
+  width: 33%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.right-aligned {
+  float: right;
+}
+
+.left-aligned {
+  float: left;
+}

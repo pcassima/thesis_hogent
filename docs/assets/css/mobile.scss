@@ -1,0 +1,20 @@
+@media screen and (max-width: 500px) {
+  body {
+    font-family: "Roboto Light", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  @import 'partials/mobile/_header';
+  @import 'partials/mobile/_nav';
+  @import 'partials/mobile/_headings';
+  @import 'partials/mobile/_footer';
+  @import 'partials/mobile/_gist';
+  @import 'partials/mobile/_shadow';
+  @import 'partials/mobile/_images';
+
+  .page {
+    @import 'partials/mobile/_aside';
+    
+  }
+
+}

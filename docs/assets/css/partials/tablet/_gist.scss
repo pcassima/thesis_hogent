@@ -1,0 +1,29 @@
+@import '../_colors.scss';
+@import '_shadow.scss';
+
+.gist-container {
+  margin: 8px;
+
+  .gist {
+    .gist-file {
+    }
+    .gist-data {
+    }
+    .blob-wrapper {
+    }
+    .highlight {
+    }
+    .highlight td {
+    }
+    tr:first-child td {
+    }
+    tr:last-child td {
+    }
+    .blob-num {
+    }
+    .gist-meta {
+      a {
+      }
+    }
+  }
+}

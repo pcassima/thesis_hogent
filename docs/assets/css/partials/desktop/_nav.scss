@@ -1,0 +1,62 @@
+@import '../_colors.scss';
+@import '_shadow.scss';
+
+nav {
+  text-align: center;
+  @include create-box-shadow;
+  background-color: $accent1;
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  .top-navbar {
+    display: inline-block;
+    margin-bottom: -4px;
+
+    ul {
+      list-style: none;
+
+      li {
+        float: left;
+        min-width: 145px;
+        margin-right: 4px;
+        margin-left: 4px;
+
+        a {
+          padding-top: 4px;
+          padding-bottom: 6px;
+          color: white;
+          display: inline-block;
+          font-size: 24px;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        div {
+          background-color: $accent2;
+          height: 4px;
+          transform-origin: center;
+          transform: scaleX(0);
+          transition: transform 350ms ease-in-out;
+        }
+      }
+
+      .nav-active {
+        div {
+          transform: scaleX(1);
+        }
+      }
+
+      li:hover {
+        div {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

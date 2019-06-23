@@ -1,0 +1,50 @@
+@import '../_colors.scss';
+
+footer {
+  display: table;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  //background-color: lightgrey;
+
+  p {
+    margin-left: 16px;
+  }
+
+  .footer-left {
+    display: table-cell;
+    //width: 50%;
+    .social-bar-container {
+      .social-bar {
+        list-style-type: none;
+        padding: 0;
+        margin-left: 12px;
+        overflow: hidden;
+
+        .fab {
+          padding: 4px;
+          text-align: center;
+          text-decoration: none;
+          display: block;
+          float: left;
+          color: $accent2;
+          font-weight: lighter;
+        }
+
+        .fab:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    display: table-cell;
+
+    text-align: right;
+
+    .badge {
+      margin-right: 24px;
+    }
+  }
+}

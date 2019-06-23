@@ -1,0 +1,66 @@
+@import '../_colors.scss';
+
+body {
+}
+
+.page-title {
+  color: $accent1;
+  border-bottom: 4px solid;
+  padding-bottom: 2px;
+  margin: 4px 8px 8px 12px;
+  font-size: 48px;
+}
+
+.article-title {
+  color: $dark1;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  font-size: 32px;
+}
+
+.section-title {
+  color: $darker1;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  font-size: 24px;
+}
+
+.section-subtitle {
+  color: $dark2;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-left: 4px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-left: 4px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-left: 4px;
+}
+
+h4 {
+  font-size: 20px;
+  margin-left: 4px;
+}
+
+h5 {
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+h6 {
+  font-size: 16px;
+  margin-left: 4px;
+}

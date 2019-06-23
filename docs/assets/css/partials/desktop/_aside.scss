@@ -1,0 +1,37 @@
+@import '../_colors.scss';
+@import '_shadow.scss';
+
+aside {
+  display: table-cell;
+  width: 20%;
+}
+
+
+aside.left {
+
+  padding-left: 8px;
+  padding-right: 12px;
+
+  .left-aside-card {
+    margin-bottom: 12px;
+    @include create-box-shadow;
+  }
+
+  .left-aside-card > * {
+    margin-left: 4px;
+  }
+}
+
+aside.right {
+  padding-left: 12px;
+  padding-right: 12px;
+  .right-aside-card{
+    position: relative;
+    margin-bottom: 12px;
+    @include create-box-shadow;
+  }
+
+  .right-aside-card > * {
+    margin-left: 8px;
+  }
+}

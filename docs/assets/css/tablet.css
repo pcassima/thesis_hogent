@@ -1,0 +1,312 @@
+@media screen and (max-width: 850px) {
+  body {
+    font-family: "Roboto Light", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav {
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    background-color: #20dce1;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  nav .top-navbar {
+    display: block;
+    clear: both;
+  }
+  nav .top-navbar .nav-list {
+    display: none;
+    list-style: none;
+  }
+  nav .top-navbar .nav-list li {
+    text-align: center;
+    margin: 8px 0;
+  }
+  nav .top-navbar .nav-list li a {
+    padding: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  nav .top-navbar .nav-list li.nav-active {
+    background-color: #e11c84;
+  }
+  nav .top-navbar .nav-list.active {
+    display: block;
+    padding-bottom: 4px;
+  }
+  nav .hamburger {
+    display: block;
+    float: right;
+    margin-right: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  nav .hamburger.active #h-bar1 {
+    transform: translate(0, 250%) rotate(45deg);
+  }
+  nav .hamburger.active #h-bar2 {
+    transform-origin: center;
+    transform: scaleX(0);
+  }
+  nav .hamburger.active #h-bar3 {
+    transform: translate(0, -250%) rotate(-45deg);
+  }
+  nav .hamburger-bar {
+    width: 40px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+    transition: all ease-in-out 350ms;
+  }
+
+  .page-title {
+    color: #20dce1;
+    border-bottom: 4px solid;
+    padding-bottom: 2px;
+    margin: 4px 8px 8px 8px;
+    font-size: 38px;
+  }
+
+  .article-title {
+    color: #16a5a9;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    font-size: 30px;
+  }
+
+  .section-title {
+    color: #1c5555;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    font-size: 24px;
+  }
+
+  .section-subtitle {
+    color: #a42064;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 40px;
+    margin-left: 4px;
+  }
+
+  h2 {
+    font-size: 32px;
+    margin-left: 4px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-left: 4px;
+  }
+
+  h4 {
+    font-size: 20px;
+    margin-left: 4px;
+  }
+
+  h5 {
+    font-size: 18px;
+    margin-left: 4px;
+  }
+
+  h6 {
+    font-size: 16px;
+    margin-left: 4px;
+  }
+
+  footer {
+    margin-top: 8px;
+    text-align: center;
+  }
+  footer .footer-left .social-bar-container {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  footer .footer-left .social-bar-container .social-bar {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+  }
+  footer .footer-left .social-bar-container .social-bar li {
+    float: left;
+  }
+  footer .footer-left .social-bar-container .social-bar .fab {
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    color: #e11c84;
+    font-weight: lighter;
+  }
+  .gist-container {
+    margin: 8px;
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  }
+  .gist-container .gist .gist-file {
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+  }
+  .gist-container .gist .gist-data {
+    border-bottom: none;
+    border-radius: 0;
+    background-color: #FFF;
+  }
+  .gist-container .gist .blob-wrapper {
+    border-radius: 0;
+  }
+  .gist-container .gist .highlight {
+    background-color: transparent;
+    font-family: "Fira Code", monospace;
+    font-size: 16px;
+  }
+  .gist-container .gist .highlight td {
+    padding: 5px 10px !important;
+    line-height: 1;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .gist-container .gist tr:first-child td {
+    padding-top: 15px !important;
+  }
+  .gist-container .gist tr:last-child td {
+    padding-bottom: 15px !important;
+  }
+  .gist-container .gist .blob-num {
+    color: #FFF;
+    background-color: #e11c84;
+    pointer-events: none;
+  }
+  .gist-container .gist .gist-meta {
+    color: #FFF;
+    background-color: #a42064;
+    border-radius: 0;
+  }
+  .gist-container .gist .gist-meta a {
+    color: #FFF;
+    font-weight: bold;
+  }
+
+  figure {
+    padding: 8px;
+    margin: 8px;
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  }
+  figure img {
+    object-fit: cover;
+    max-width: 100%;
+  }
+  figure figcaption {
+    text-align: center;
+    font-size: 14px;
+  }
+  figure figcaption a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #e11c84;
+    cursor: pointer;
+  }
+
+  .half-width {
+    width: 50%;
+  }
+
+  .third-width {
+    width: 33%;
+  }
+
+  .quarter-width {
+    width: 25%;
+  }
+
+  .right-aligned {
+    float: right;
+  }
+
+  .left-aligned {
+    float: left;
+  }
+
+  .page {
+    display: table;
+    width: 100%;
+    padding-bottom: 16px;
+  }
+  .page aside.left {
+    display: table-cell;
+    width: 20%;
+  }
+  .page aside.right {
+    display: block;
+    text-align: center;
+  }
+  .page aside.right .right-aside-card {
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    margin: 4px auto;
+    width: 50%;
+    overflow: auto;
+  }
+  .page aside.right .right-aside-card > * {
+    text-align: left;
+    margin-left: 4px;
+  }
+  .page main {
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    padding: 0 6px;
+    display: table-cell;
+  }
+  .page main article {
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    margin: 8px;
+  }
+  .page main article section {
+    overflow: auto;
+  }
+  .page main article p {
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .page main .bottom-nav {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    display: table;
+    width: 100%;
+  }
+  .page main .bottom-nav a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e11c84;
+    text-decoration: none;
+  }
+  .page main .bottom-nav .bottom-nav-left {
+    display: table-cell;
+    text-align: left;
+  }
+  .page main .bottom-nav .bottom-nav-left a {
+    margin-left: 48px;
+  }
+  .page main .bottom-nav .bottom-nav-right {
+    display: table-cell;
+    text-align: right;
+  }
+  .page main .bottom-nav .bottom-nav-right a {
+    margin-right: 48px;
+  }
+}
+
+/*# sourceMappingURL=tablet.css.map */

@@ -1,0 +1,25 @@
+@import '../_colors.scss';
+@import '_shadow.scss';
+
+aside {
+}
+
+
+aside.left {
+  display: none;
+}
+
+aside.right {
+  text-align: center;
+
+  .right-aside-card {
+    margin: 4px auto;
+    width: 75%;
+    overflow: auto;
+  }
+
+  .right-aside-card > * {
+    text-align: left;
+    margin-left: 4px;
+  }
+}

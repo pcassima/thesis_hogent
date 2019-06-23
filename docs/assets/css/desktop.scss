@@ -1,0 +1,71 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+@import 'partials/desktop/_header';
+@import 'partials/desktop/_nav';
+@import 'partials/desktop/_headings';
+@import 'partials/desktop/_footer';
+@import 'partials/desktop/_gist';
+@import 'partials/desktop/_shadow';
+@import 'partials/desktop/_images';
+
+.page {
+  display: table;
+  width: 100%;
+  @import 'partials/desktop/_aside';
+  @include create-box-shadow;
+  padding-bottom: 16px;
+  main {
+    @include create-box-shadow;
+    padding: 0 6px;
+    display: table-cell;
+
+    article {
+      @include create-box-shadow;
+      margin: 16px 8px;
+      padding: 4px;
+
+      section {
+        overflow: auto
+      }
+
+      p {
+        margin: 8px 0 4px 8px;
+        font-size: 16px;
+      }
+    }
+    .bottom-nav {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      display: table;
+      width: 100%;
+
+      a {
+        font-size: 18px;
+        font-weight: bold;
+        color: $accent2;
+        text-decoration: none;
+      }
+
+      .bottom-nav-left {
+        display: table-cell;
+        text-align: left;
+
+        a {
+          margin-left: 96px;
+        }
+      }
+
+      .bottom-nav-right {
+        display: table-cell;
+        text-align: right;
+
+        a {
+          margin-right: 96px;
+        }
+      }
+    }
+  }
+}

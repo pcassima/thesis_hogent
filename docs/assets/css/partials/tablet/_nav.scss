@@ -1,0 +1,74 @@
+@import '../_colors.scss';
+@import '_shadow.scss';
+
+nav {
+  @include create-box-shadow;
+  background-color: $accent1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  .top-navbar {
+    display: block;
+    clear: both;
+
+    .nav-list {
+      display: none;
+      list-style: none;
+
+      li {
+        text-align: center;
+        margin: 8px 0;
+
+        a {
+          padding: 4px;
+          color: white;
+          font-weight: bold;
+          font-size: 24px;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+
+      li.nav-active {
+        background-color: $accent2;
+      }
+    }
+
+    .nav-list.active {
+      display: block;
+      padding-bottom: 4px;
+    }
+  }
+
+  .hamburger {
+    display: block;
+    float: right;
+    margin-right: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .hamburger.active #h-bar1 {
+    transform: translate(0, 250%) rotate(45deg);
+  }
+
+  .hamburger.active #h-bar2 {
+    transform-origin: center;
+    transform: scaleX(0);
+  }
+
+  .hamburger.active #h-bar3 {
+    transform: translate(0, -250%) rotate(-45deg);
+  }
+
+  .hamburger-bar {
+    width: 40px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+    transition: all ease-in-out 350ms;
+  }
+}

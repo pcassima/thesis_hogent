@@ -1,0 +1,50 @@
+@media screen and (max-width: 950px) {
+  body {
+    font-family: "Roboto Light", sans-serif;
+  }
+
+  @import 'partials/tablet/_header';
+  @import 'partials/tablet/_nav';
+  @import 'partials/tablet/_headings';
+  @import 'partials/tablet/_footer';
+  @import 'partials/tablet/_gist';
+  @import 'partials/tablet/_shadow';
+  @import 'partials/tablet/_images';
+
+  .page {
+    display: block;
+    @import 'partials/tablet/_aside';
+
+    main {
+      display: block;
+
+      article {
+        margin: 8px;
+
+        section {
+          overflow: auto;
+        }
+
+        p {
+          margin-left: 4px;
+          margin-right: 4px;
+          margin-bottom: 4px;
+        }
+      }
+
+      .bottom-nav {
+        .bottom-nav-left {
+          a {
+            margin-left: 48px;
+          }
+        }
+
+        .bottom-nav-right {
+          a {
+            margin-right: 48px;
+          }
+        }
+      }
+    }
+  }
+}
