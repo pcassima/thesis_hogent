@@ -7,31 +7,7 @@ html(lang="en")
         header
             include includes/header.pug
         nav
-            #hamburger.hamburger(onclick="hamburgerNav()")
-                #h-bar1.hamburger-bar
-                #h-bar2.hamburger-bar
-                #h-bar3.hamburger-bar
-
-            .top-navbar
-                ul#nav-list.nav-list
-                    li.nav-active
-                        div
-                        a(href="#") home
-                    li
-                        div
-                        a(href="#") projects
-                    li
-                        div
-                        a(href="#") tutorials
-                    li
-                        div
-                        a(href="#") gallery
-                    li
-                        div
-                        a(href="#") about
-                    li
-                        div
-                        a(href="#") contact
+            include includes/nav.pug
 
         .page
             aside.left
