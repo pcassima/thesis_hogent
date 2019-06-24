@@ -259,6 +259,20 @@ body b {
   color: #e11c84;
 }
 
+blockquote {
+  color: #a42064;
+  margin: 8px 96px;
+}
+blockquote q {
+  color: inherit;
+}
+blockquote p::before {
+  content: "- ";
+}
+blockquote p {
+  color: inherit;
+}
+
 .formula-container {
   text-align: center;
   padding: 8px;

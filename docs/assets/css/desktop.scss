@@ -25,6 +25,24 @@ body {
   }
 }
 
+blockquote {
+  //  TODO: move to dedicated partial (for general styling)
+  color: $dark2;
+  margin: 8px 96px;
+
+  q {
+    color: inherit;
+  }
+
+  p::before {
+    content: '- ';
+  }
+
+  p {
+    color: inherit;
+  }
+}
+
 .formula-container {
   //  TODO: move to dedicated partial
   text-align: center;

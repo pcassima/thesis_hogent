@@ -55,10 +55,58 @@
       <aside class="left"></aside>
       <main>
         <h1 class="page-title">Vision</h1>
+          <blockquote cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf">
+              <q>
+                  For both biological systems and machines, vision begins with a large and
+                  unwieldy array of measurements of the amount of light reflected from
+                  surfaces in the environment. The goal of vision is to recover physical
+                  properties of objects in the scene, such as the location of object boundaries
+                  and the structure, color and texture of object surfaces, from the two-dimensional image
+                  that is projected onto the eye or camera. This goal is not
+                  achieved in a single step; vision proceeds in stages, with each stage
+                  producing increasingly more useful descriptions of the image and then the
+                  scene. The first clues about the physical properties of the scene are provided
+                  by the changes of intensity in the image.
+              </q>
+              <p>(Hildreth, 1985)</p>
+          </blockquote>
         <article id="vision-camera">
           <h1 class="article-title">Camera</h1>
+            <p>
+                Any vision system requires an input of data. In this case that will be a camera.
+                Practically any camera can be used, as long as there is a way to
+                (reliably) get the data from the camera to the computer for processing.
+            </p>
+            <p>A few examples of camera interfaces that can be used:
+            <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>USB</li>
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Ethernet</li>
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>HDMI</li>
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>SDI</li>
+            </ul>
+            </p>
           <section>
-            <h1 class="section-title">Section title</h1>
+              <h1 class="section-title">USB-camera</h1>
+              <p>
+                  However a USB-camera is in most cased the most convenient (and cheapest)
+                  option. These days USB-camera's can be easily found everywhere.
+                  From cheap webcams to CMOS-camera intended for use with microscopes.
+              </p>
+              <p>
+                  This system was developed and tested with a (cheap) Logitech USB-webcam.
+                  To illustrate that good result can be achieved even on moderate hardware.
+              </p>
+          </section>
+            <section>
+                <h1 class="section-title">Raspberry Pi Camera module</h1>
+                <p>
+                    Due to the versatile nature of the library (an entire system). The computer-vision system
+                    can also be easily ran on a Raspberry Pi with the Raspberry Pi camera module.<br>In order to achieve
+                    this, the camera interface has to be enabled, a few dependencies must
+                    be installed on the Raspberry Pi and a few line have to be changed in the program.
+                    These lines mostly have to do with the initialization of the camera object. The rest of
+                    the program stays unchanged.
+                </p>
           </section>
         </article>
         <article id="vison-system">
@@ -73,18 +121,41 @@
           <section>
             <h1 class="section-title">Language</h1>
             <h1 class="section-subtitle">Section subtitle</h1>
-            <h1 class="section-title">Libraries</h1>
           </section>
+            <section>
+                <h1 class="section-title">Libraries</h1>
+            </section>
         </article>
         <article id="vison-program">
           <h1 class="article-title">Program</h1>
           <section>
             <h1 class="section-title">Structure</h1>
-            <h1 class="section-title">Importing libraries</h1>
-            <h1 class="section-title">Classes</h1>
-            <h1 class="section-title">Functions</h1>
-            <h1 class="section-title">Main</h1>
           </section>
+            <section>
+                <h1 class="section-title">Importing libraries</h1>
+            </section>
+            <section>
+                <h1 class="section-title">Classes</h1>
+                <h1 class="section-subtitle">Webcam class</h1>
+            </section>
+            <section>
+                <h1 class="section-title">Functions</h1>
+                <h1 class="section-subtitle">order_66</h1>
+                <h1 class="section-subtitle">finished</h1>
+                <h1 class="section-subtitle">name_colour</h1>
+            </section>
+            <section>
+                <h1 class="section-title">Main</h1>
+                <h1 class="section-subtitle">Read a frame</h1>
+                <h1 class="section-subtitle">Convert to greyscale</h1>
+                <h1 class="section-subtitle">Gaussian blur</h1>
+                <h1 class="section-subtitle">Threshold</h1>
+                <h1 class="section-subtitle">Canny Edge Detection</h1>
+                <h1 class="section-subtitle">Contours</h1>
+                <h1 class="section-subtitle">Count corners & determine shape</h1>
+                <h1 class="section-subtitle">Calculate centre of shape & determine colour</h1>
+                <h1 class="section-subtitle">Results</h1>
+            </section>
         </article>
         <div class="bottom-nav">
           <div class="bottom-nav-left">
