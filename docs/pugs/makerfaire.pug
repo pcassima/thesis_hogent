@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Maker Faire
+                article
+                    h1.article-title Article title
+                    section
+                        h1.section-title Section title
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="link.html") &#171; back
+                    .bottom-nav-right
+                        .next
+                            a(href="conclusion.html") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
