@@ -1,20 +1,24 @@
 @media screen and (max-width: 500px) {
+  @import 'partials/_colors';
+
+  @import 'partials/desktop/_header';
+  @import 'partials/desktop/_nav';
+  @import 'partials/desktop/_headings';
+  @import 'partials/desktop/_footer';
+  @import 'partials/desktop/_gist';
+  @import 'partials/desktop/_shadow';
+  @import 'partials/desktop/_images';
+
   body {
-    font-family: "Roboto Light", sans-serif;
-    padding: 0;
-    margin: 0;
+    a {
+    }
+    b {
+    }
   }
-  @import 'partials/mobile/_header';
-  @import 'partials/mobile/_nav';
-  @import 'partials/mobile/_headings';
-  @import 'partials/mobile/_footer';
-  @import 'partials/mobile/_gist';
-  @import 'partials/mobile/_shadow';
-  @import 'partials/mobile/_images';
 
   .page {
     @import 'partials/mobile/_aside';
-    
+
   }
 
 }

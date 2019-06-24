@@ -1,6 +1,4 @@
-body {
-  font-family: 'Roboto', sans-serif;
-}
+@import 'partials/_colors';
 
 @import 'partials/desktop/_header';
 @import 'partials/desktop/_nav';
@@ -9,6 +7,18 @@ body {
 @import 'partials/desktop/_gist';
 @import 'partials/desktop/_shadow';
 @import 'partials/desktop/_images';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  a {
+    color: $accent2;
+    font-weight: bold;
+    //text-decoration: none;
+  }
+  b {
+    color: $accent2;
+  }
+}
 
 .page {
   display: table;

@@ -1,7 +1,5 @@
 @media screen and (max-width: 950px) {
-  body {
-    font-family: "Roboto Light", sans-serif;
-  }
+  @import 'partials/_colors';
 
   @import 'partials/tablet/_header';
   @import 'partials/tablet/_nav';
@@ -10,6 +8,13 @@
   @import 'partials/tablet/_gist';
   @import 'partials/tablet/_shadow';
   @import 'partials/tablet/_images';
+  body {
+    font-family: "Roboto Light", sans-serif;
+    a {
+    }
+    b {
+    }
+  }
 
   .page {
     display: block;
