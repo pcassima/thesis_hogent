@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Line follower
+                article#lf-hardware
+                    h1.article-title Hardware
+                    section
+                        h1.section-title Section title
+                article#lf-software
+                    h1.article-title Software
+                    section
+                        h1.section-title Section title
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="vision.html") &#171; back
+                    .bottom-nav-right
+                        .next
+                            a(href="controllable_car.html") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
+
