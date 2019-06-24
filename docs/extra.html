@@ -12,7 +12,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-    <!--Javascript-->
+    <!-- Javascript-->
+    <!-- Formula formatter-->
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- Local scripts for making the website work-->
     <script src="./js/nav.js"></script>
     <script src="./js/modal.js"></script>
 </head>
@@ -59,6 +62,61 @@
         <h1 class="page-title">Extra</h1>
         <article id="e-pid">
             <h1 class="article-title">PID</h1>
+            <section>
+                <h1 class="section-title">What is a PID?</h1>
+                <figure class="center-aligned"><img alt="PID-controller schematic" src="assets/img/thesis/PID.bmp">
+                    <figcaption><a href="#">PID-controller schematic</a><br>&copy; 2019</figcaption>
+                </figure>
+            </section>
+            <section>
+                <h1 class="section-title">Input</h1>
+                <h1 class="section-subtitle">Set-point</h1>
+                <h1 class="section-subtitle">Error</h1>
+            </section>
+            <section>
+                <h1 class="section-title">Proportional - P</h1>
+                <div class="formula-container">
+                    <div class="formula">
+                        <p>$$P = K_{p} \cdot e(t)$$</p>
+                        <p class="caption">Formula for a P-controller</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h1 class="section-title">Integral - I</h1>
+                <div class="formula-container">
+                    <div class="formula">
+                        <p>$$I = K_{i} \int_0^t e(t)dt$$</p>
+                        <p class="caption">Formula for a I-controller</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h1 class="section-title">Derivative - D</h1>
+                <div class="formula-container">
+                    <div class="formula">
+                        <p>$$D = K_{d} \frac{de(t)}{dt}$$</p>
+                        <p class="caption">Formula for a D-controller</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h1 class="section-title">Output</h1>
+                <div class="formula-container">
+                    <div class="formula">
+                        <p>
+                            $$u(t) = P + I + D$$
+                            $$\Leftrightarrow$$
+                            $$u(t) = \Biggl[K_{p} \cdot e(t)\Biggr] + \Biggl[K_{i} \int_0^t e(t)dt\Biggr] +
+                            \Biggl[K_{d} \frac{de(t)}{dt}\Biggr]$$
+                        </p>
+                        <p class="caption">Formula for a PID-controller</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h1 class="section-title">Simulation</h1>
+            </section>
         </article>
         <article id="e-vision">
             <h1 class="article-title">Vision</h1>

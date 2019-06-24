@@ -12,7 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <!--Javascript-->
+      <!-- Javascript-->
+      <!-- Formula formatter-->
+      <script async
+              src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+      <!-- Local scripts for making the website work-->
     <script src="./js/nav.js"></script>
     <script src="./js/modal.js"></script>
   </head>
@@ -27,27 +31,27 @@
       <div class="top-navbar">
         <ul class="nav-list" id="nav-list">
           <li class="nav-active">
-            <div></div>
-            <a href="https://pcassima.github.io">home</a>
+              <div></div>
+              <a href="https://pcassima.github.io">home</a>
           </li>
           <li>
-            <div></div>
-            <a href="https://pcassima.github.io/projects.html">projects</a>
+              <div></div>
+              <a href="https://pcassima.github.io/projects.html">projects</a>
           </li>
           <li>
             <div></div><a href="#">tutorials</a>
           </li>
           <li>
-            <div></div>
-            <a href="https://pcassima.github.io/gallery.html">gallery</a>
+              <div></div>
+              <a href="https://pcassima.github.io/gallery.html">gallery</a>
           </li>
           <li>
-            <div></div>
-            <a href="https://pcassima.github.io/about.html">about</a>
+              <div></div>
+              <a href="https://pcassima.github.io/about.html">about</a>
           </li>
           <li>
-            <div></div>
-            <a href="https://pcassima.github.io/contact.html">contact</a>
+              <div></div>
+              <a href="https://pcassima.github.io/contact.html">contact</a>
           </li>
         </ul>
       </div>
@@ -60,20 +64,20 @@
           <h1 class="article-title">The link between virtual reality and the physical world</h1>
           <section>
             <h1 class="section-title">Preface</h1>
-            <figure class="third-width right-aligned"><img alt="Full concept of the car"
-                                                           src="assets/img/concepts/minicar_concept_2.png">
+              <figure class="third-width right-aligned"><img alt="Full concept of the car"
+                                                             src="assets/img/concepts/minicar_concept_2.png">
               <figcaption><a href="#">Full concept of the car</a><br>&copy; 2019</figcaption>
             </figure>
-            <p>The official title for our thesis is:<br><b>Computer Vision - the link between virtual reality and the
-              physical world</b></p>
+              <p>The official title for our thesis is:<br><b>Computer Vision - the link between virtual reality and the
+                  physical world</b></p>
             <p>
               Our thesis was performed at the faculty of nature and technology at the HoGent
               [link to follow].
               This thesis was written to obtain the <em>bachelor's degree</em> in
               <em>industrial-automation.</em>
             </p>
-            <p>This entire project is released as <em>open-source</em> under the<a
-                    href="https://choosealicense.com/licenses/gpl-3.0/" target="_blank"> GNU-GPL V3</a> license.
+              <p>This entire project is released as <em>open-source</em> under the<a
+                      href="https://choosealicense.com/licenses/gpl-3.0/" target="_blank"> GNU-GPL V3</a> license.
               All code, programs, designs and related documentation can be found on this website and on
               Github.<br><a href="https://github.com/pcassima/thesis_hogent" target="_blank">The Github repository.</a>
             </p>
@@ -91,14 +95,14 @@
           </section>
           <section>
             <h1 class="section-title">Introduction</h1>
-            <figure class="third-width left-aligned"><img alt="Rear view of the concept"
-                                                          src="assets/img/concepts/minicar_concept_3.png">
+              <figure class="third-width left-aligned"><img alt="Rear view of the concept"
+                                                            src="assets/img/concepts/minicar_concept_3.png">
               <figcaption><a href="#">Rear view of the concept</a><br>&copy; 2019</figcaption>
             </figure>
             <p>
               This project is a proof-of-concept to use a computer-vision system as a way of accurately
-              positioning objects, so that they can be transferred over to a virtual environment.<br>We worked out an
-              example to showcase that a simple and cheap webcam can be used to accurately
+                positioning objects, so that they can be transferred over to a virtual environment.<br>We worked out an
+                example to showcase that a simple and cheap webcam can be used to accurately
               and repeatedly locate objects on a surface area of an A0 sized piece of paper. This is a size
               we found to still fit on most classroom tables. This makes it perfect for use in
               the classroom.
@@ -106,44 +110,44 @@
             <p>
               This virtual environment (i.e. virtual reality) is a project started by our teacher and
               promoter, to improve the quality of the education. More specifically the practical side
-              of the education.<br>This virtual reality would allow the students to program and interact with actual,
-              industrial,
-              machines and installations, without the usual risks and costs.<br>If one of the students were to make a
-              terrible mistake, and program the machine in such a way
+                of the education.<br>This virtual reality would allow the students to program and interact with actual,
+                industrial,
+                machines and installations, without the usual risks and costs.<br>If one of the students were to make a
+                terrible mistake, and program the machine in such a way
               that would destroy it. Everything would be fixed by simply restarting the simulation.
             </p>
             <p>
               Currently the students learn how to program industrial machines by programming the controllers
               used in those machines. But all in- and outputs are substituted by switches and LEDs.
-              In our opinion this doesn't give an accurate feeling of what an actual machines acts like.<br>Also since
-              the switches have to be operated manually according to the desired situation,
+                In our opinion this doesn't give an accurate feeling of what an actual machines acts like.<br>Also since
+                the switches have to be operated manually according to the desired situation,
               certain scenario's can't be simulated this way. As a consequence the students miss out on
               an important part of their education.
             </p>
             <p>
               However by virtual reality alone they would also miss a big part of their education. As they
               would no longer get any physical feedback on their work. Everything would just be pixels on
-              a computer screen.<br>As such we believe that the students still needs something physical, that they can
-              touch and
+                a computer screen.<br>As such we believe that the students still needs something physical, that they can
+                touch and
               interact with. Something that they can see moving in front of them.
             </p>
             <p>
               A combination of both virtualisation and something along the lines of a scale model would be
-              the perfect solution.<br>But there needs to be a link between the physical world and the virtual reality.
-              This is
+                the perfect solution.<br>But there needs to be a link between the physical world and the virtual
+                reality. This is
               where the computer-vision system comes into play.
             </p>
             <p>
               After comparing and evaluating the many different techniques there are for position, we came
-              to the conclusion that none of them are suitable for this application.<br>Some of them are far too
-              inaccurate (such as GPS), while others are expensive and out of
+                to the conclusion that none of them are suitable for this application.<br>Some of them are far too
+                inaccurate (such as GPS), while others are expensive and out of
               budget for most schools (such as RF).
             </p>
           </section>
           <section>
             <h1 class="section-title">Goal</h1>
-            <figure class="third-width right-aligned"><img alt="Concept of the mainboard for the car"
-                                                           src="assets/img/concepts/mainboard_concept_1.png">
+              <figure class="third-width right-aligned"><img alt="Concept of the mainboard for the car"
+                                                             src="assets/img/concepts/mainboard_concept_1.png">
               <figcaption><a href="#">Concept of the mainboard for the car</a><br>&copy; 2019</figcaption>
             </figure>
             <p>
