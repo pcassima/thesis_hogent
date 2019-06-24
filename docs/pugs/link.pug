@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Link
+                article#l-protocol
+                    h1.article-title Protocol
+                    section
+                        h1.section-title Pegasus
+                    section
+                        h1.section-title MQTT
+                    section
+                        h1.section-title Reader
+                article#l-lights
+                    h1.article-title Lights
+                    section
+                        h1.section-title section title
+                article#l-further
+                h1.article-title Further
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="controllers.html") &#171; back
+                    .bottom-nav-right
+                        .next
+                            a(href="makerfaire.html") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
