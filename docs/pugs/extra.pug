@@ -16,6 +16,52 @@ html(lang="en")
                 h1.page-title Extra
                 article#e-pid
                     h1.article-title PID
+                    section
+                        h1.section-title What is a PID?
+                        figure.center-aligned
+                            img(src="assets/img/thesis/PID.bmp"
+                                alt="PID-controller schematic")
+                            figcaption
+                                a(href="#") PID-controller schematic
+                                br
+                                | &copy; 2019
+                    section
+                        h1.section-title Input
+                        h1.section-subtitle Set-point
+                        h1.section-subtitle Error
+                    section
+                        h1.section-title Proportional - P
+                        .formula-container
+                            .formula
+                                p $$P = K_{p} \cdot e(t)$$
+                                p.caption Formula for a P-controller
+                    section
+                        h1.section-title Integral - I
+                        .formula-container
+                            .formula
+                                p $$I = K_{i} \int_0^t e(t)dt$$
+                                p.caption Formula for a I-controller
+                    section
+                        h1.section-title Derivative - D
+                        .formula-container
+                            .formula
+                                p $$D = K_{d} \frac{de(t)}{dt}$$
+                                p.caption Formula for a D-controller
+                    section
+                        h1.section-title Output
+                        .formula-container
+                            .formula
+                                p
+                                    | $$u(t) = P + I + D$$
+                                    | $$\Leftrightarrow$$
+                                    | $$u(t) = \Biggl[K_{p} \cdot e(t)\Biggr] + \Biggl[K_{i} \int_0^t e(t)dt\Biggr] +
+                                    | \Biggl[K_{d} \frac{de(t)}{dt}\Biggr]$$
+                                p.caption Formula for a PID-controller
+                    section
+                        h1.section-title Simulation
+
+
+
                 article#e-vision
                     h1.article-title Vision
                 .bottom-nav
