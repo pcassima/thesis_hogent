@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Extra
+                article#e-pid
+                    h1.article-title PID
+                article#e-vision
+                    h1.article-title Vision
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="conclusion.html") &#171; back
+                    .bottom-nav-right
+                        //.next
+                        //    a(href="#") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Some tags for page management-->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Pieter-Jan Cassiman" name="author">
+    <meta content="My corner of the internet" name="description">
+    <title>My personal page</title>
+    <!-- Link to stylesheets and fonts-->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+    <!--Javascript-->
+    <script src="./js/nav.js"></script>
+    <script src="./js/modal.js"></script>
+</head>
+<body>
+<header></header>
+<nav>
+    <div class="hamburger" id="hamburger" onclick="hamburgerNav()">
+        <div class="hamburger-bar" id="h-bar1"></div>
+        <div class="hamburger-bar" id="h-bar2"></div>
+        <div class="hamburger-bar" id="h-bar3"></div>
+    </div>
+    <div class="top-navbar">
+        <ul class="nav-list" id="nav-list">
+            <li class="nav-active">
+                <div></div>
+                <a href="https://pcassima.github.io">home</a>
+            </li>
+            <li>
+                <div></div>
+                <a href="https://pcassima.github.io/projects.html">projects</a>
+            </li>
+            <li>
+                <div></div>
+                <a href="#">tutorials</a>
+            </li>
+            <li>
+                <div></div>
+                <a href="https://pcassima.github.io/gallery.html">gallery</a>
+            </li>
+            <li>
+                <div></div>
+                <a href="https://pcassima.github.io/about.html">about</a>
+            </li>
+            <li>
+                <div></div>
+                <a href="https://pcassima.github.io/contact.html">contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="page">
+    <aside class="left"></aside>
+    <main>
+        <h1 class="page-title">Extra</h1>
+        <article id="e-pid">
+            <h1 class="article-title">PID</h1>
+        </article>
+        <article id="e-vision">
+            <h1 class="article-title">Vision</h1>
+        </article>
+        <div class="bottom-nav">
+            <div class="bottom-nav-left">
+                <div class="back"><a href="conclusion.html">&#171; back</a></div>
+            </div>
+            <div class="bottom-nav-right">
+                <!--.next-->
+                <!--    a(href="#") next &#187;-->
+            </div>
+        </div>
+    </main>
+    <aside class="right"></aside>
+</div>
+<footer>
+    <div class="footer-left">
+        <p>&copy; 2019, Pieter-Jan Cassiman</p>
+        <div class="social-bar-container">
+            <ul class="social-bar">
+                <li><a class="fab fa-youtube fa-2x" href="https://www.youtube.com/channel/UCag4kR1A4hj4j2MgZwDUQLg"
+                       target="_blank"></a></li>
+                <li><a class="fab fa-instagram fa-2x" href="https://www.instagram.com/pieterjancassiman/"
+                       target="_blank"></a></li>
+                <li><a class="fab fa-github fa-2x" href="https://github.com/pcassima" target="_blank"></a></li>
+                <li><a class="fab fa-blogger fa-2x" href="https://transistories.blogspot.com/" target="_blank"></a></li>
+                <li><a class="fab fa-twitter fa-2x" href="https://twitter.com/PieterJanCassim"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-right">
+        <form action="https://www.paypal.com/cgi-bin/webscr" class="badge" method="post" target="_top">
+            <input name="cmd" type="hidden" value="_s-xclick">
+            <input name="hosted_button_id" type="hidden" value="HUKNCQV28VZV6">
+            <input alt="Donate with PayPal button" name="submit"
+                   src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                   title="PayPal - The safer, easier way to pay online!" type="image">
+        </form>
+        <a class="badge"
+           href="https://www.tindie.com/stores/fenixcomputers/?ref=offsite_badges&amp;utm_source=sellers_fenixcomputers&amp;utm_medium=badges&amp;utm_campaign=badge_medium"
+           target="_blank"><img alt="I sell on Tindie" height="78"
+                                src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-mediums.png" width="150"></a>
+    </div>
+</footer>
+</body>
+</html>
