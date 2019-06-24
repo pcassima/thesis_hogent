@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Vision
+                article#vision-camera
+                    h1.article-title Camera
+                    section
+                        h1.section-title Section title
+                article#vison-system
+                    h1.article-title System
+                    section
+                        h1.section-title Section title
+                        h1.section-subtitle Section subtitle
+                article#vison-framework
+                    h1.article-title Framework
+                    section
+                        h1.section-title Language
+                        h1.section-subtitle Section subtitle
+                        h1.section-title Libraries
+                article#vison-program
+                    h1.article-title Program
+                    section
+                        h1.section-title Structure
+                        h1.section-title Importing libraries
+                        h1.section-title Classes
+                        h1.section-title Functions
+                        h1.section-title Main
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="outline.html") &#171; back
+                    .bottom-nav-right
+                        .next
+                            a(href="linefollower.html") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
