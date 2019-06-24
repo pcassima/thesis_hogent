@@ -14,10 +14,63 @@ html(lang="en")
                 include includes/header.pug
             main
                 h1.page-title Vision
+                blockquote(cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf")
+                    q
+                        | For both biological systems and machines, vision begins with a large and
+                        | unwieldy array of measurements of the amount of light reflected from
+                        | surfaces in the environment. The goal of vision is to recover physical
+                        | properties of objects in the scene, such as the location of object boundaries
+                        | and the structure, color and texture of object surfaces, from the two-dimensional image
+                        | that is projected onto the eye or camera. This goal is not
+                        | achieved in a single step; vision proceeds in stages, with each stage
+                        | producing increasingly more useful descriptions of the image and then the
+                        | scene. The first clues about the physical properties of the scene are provided
+                        | by the changes of intensity in the image.
+                    p (Hildreth, 1985)
                 article#vision-camera
                     h1.article-title Camera
+                    p
+                        | Any vision system requires an input of data. In this case that will be a camera.
+                        | Practically any camera can be used, as long as there is a way to
+                        | (reliably) get the data from the camera to the computer for processing.
+                    p
+                        | A few examples of camera interfaces that can be used:
+                        ul.fa-ul
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | USB
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | Ethernet
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | HDMI
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | SDI
                     section
-                        h1.section-title Section title
+                        h1.section-title USB-camera
+                        p
+                            | However a USB-camera is in most cased the most convenient (and cheapest)
+                            | option. These days USB-camera's can be easily found everywhere.
+                            | From cheap webcams to CMOS-camera intended for use with microscopes.
+                        p
+                            | This system was developed and tested with a (cheap) Logitech USB-webcam.
+                            | To illustrate that good result can be achieved even on moderate hardware.
+                    section
+                        h1.section-title Raspberry Pi Camera module
+                        p
+                            | Due to the versatile nature of the library (an entire system). The computer-vision system
+                            | can also be easily ran on a Raspberry Pi with the Raspberry Pi camera module.
+                            br
+                            | In order to achieve this, the camera interface has to be enabled, a few dependencies must
+                            | be installed on the Raspberry Pi and a few line have to be changed in the program.
+                            | These lines mostly have to do with the initialization of the camera object. The rest of
+                            | the program stays unchanged.
                 article#vison-system
                     h1.article-title System
                     section
@@ -28,15 +81,33 @@ html(lang="en")
                     section
                         h1.section-title Language
                         h1.section-subtitle Section subtitle
+                    section
                         h1.section-title Libraries
                 article#vison-program
                     h1.article-title Program
                     section
                         h1.section-title Structure
+                    section
                         h1.section-title Importing libraries
+                    section
                         h1.section-title Classes
+                        h1.section-subtitle Webcam class
+                    section
                         h1.section-title Functions
+                        h1.section-subtitle order_66
+                        h1.section-subtitle finished
+                        h1.section-subtitle name_colour
+                    section
                         h1.section-title Main
+                        h1.section-subtitle Read a frame
+                        h1.section-subtitle Convert to greyscale
+                        h1.section-subtitle Gaussian blur
+                        h1.section-subtitle Threshold
+                        h1.section-subtitle Canny Edge Detection
+                        h1.section-subtitle Contours
+                        h1.section-subtitle Count corners & determine shape
+                        h1.section-subtitle Calculate centre of shape & determine colour
+                        h1.section-subtitle Results
                 .bottom-nav
                     .bottom-nav-left
                         .back
