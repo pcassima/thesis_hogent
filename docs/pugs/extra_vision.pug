@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+
+    body
+        header
+            include includes/header.pug
+        nav
+            include includes/nav.pug
+
+        .page
+            aside.left
+                include includes/header.pug
+            main
+                h1.page-title Vision - extra
+                article
+                    h1.article-title Analog signals
+                article
+                    h1.article-title Threshold
+                article
+                    h1.article-title Kernel convolution
+                article
+                    h1.article-title Blur
+                    section
+                        h1.section-title Mean blur
+                    section
+                        h1.section-title Gaussian blur
+                article
+                    h1.article-title Edge detection
+                    section
+                        h1.section-title Sobel Operator
+                    section
+                        h1.section-title Canny Edge Detection
+
+                .bottom-nav
+                    .bottom-nav-left
+                        .back
+                            a(href="extra_pid.html") &#171; back
+                    .bottom-nav-right
+                        //.next
+                        //    a(href="#") next &#187;
+
+            aside.right
+                include includes/right-aside.pug
+        footer
+            include includes/footer.pug
+
