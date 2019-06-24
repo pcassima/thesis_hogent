@@ -10,6 +10,11 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+
+  p {
+    margin: 8px 8px 4px 8px;
+    font-size: 16px;
+  }
   a {
     color: $accent2;
     font-weight: bold;
@@ -17,6 +22,24 @@ body {
   }
   b {
     color: $accent2;
+  }
+}
+
+.formula-container {
+  //  TODO: move to dedicated partial
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 4px;
+
+  .formula {
+    @include create-box-shadow;
+    display: inline-block;
+  }
+
+  p.caption {
+    color: #e11c84;
+    font-weight: bold;
+    font-size: 14px;
   }
 }
 
@@ -37,12 +60,9 @@ body {
       padding: 4px;
 
       section {
+        @include create-box-shadow;
+        margin: 8px;
         overflow: auto
-      }
-
-      p {
-        margin: 8px 0 4px 8px;
-        font-size: 16px;
       }
     }
     .bottom-nav {

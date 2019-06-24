@@ -5,7 +5,7 @@
 
 nav {
   text-align: center;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   background-color: #20dce1;
   display: block;
   position: sticky;
@@ -63,7 +63,7 @@ nav .hamburger {
   color: #16a5a9;
   margin-top: 4px;
   margin-bottom: 4px;
-  margin-left: 4px;
+  margin-left: 8px;
   font-size: 32px;
 }
 
@@ -153,7 +153,7 @@ footer .footer-right .badge {
 
 .gist-container {
   margin: 12px 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
 }
 .gist-container .gist .gist-file {
   margin-bottom: 0;
@@ -203,7 +203,7 @@ footer .footer-right .badge {
 figure {
   padding: 8px;
   margin: 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
 }
 figure img {
   object-fit: cover;
@@ -232,6 +232,10 @@ figure figcaption a {
   width: 25%;
 }
 
+.center-aligned {
+  text-align: center;
+}
+
 .right-aligned {
   float: right;
 }
@@ -243,6 +247,10 @@ figure figcaption a {
 body {
   font-family: "Roboto", sans-serif;
 }
+body p {
+  margin: 8px 8px 4px 8px;
+  font-size: 16px;
+}
 body a {
   color: #e11c84;
   font-weight: bold;
@@ -251,10 +259,25 @@ body b {
   color: #e11c84;
 }
 
+.formula-container {
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 4px;
+}
+.formula-container .formula {
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  display: inline-block;
+}
+.formula-container p.caption {
+  color: #e11c84;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 .page {
   display: table;
   width: 100%;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   padding-bottom: 16px;
 }
 .page aside {
@@ -267,7 +290,7 @@ body b {
 }
 .page aside.left .left-aside-card {
   margin-bottom: 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
 }
 .page aside.left .left-aside-card > * {
   margin-left: 4px;
@@ -279,27 +302,25 @@ body b {
 .page aside.right .right-aside-card {
   position: relative;
   margin-bottom: 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
 }
 .page aside.right .right-aside-card > * {
   margin-left: 8px;
 }
 .page main {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   padding: 0 6px;
   display: table-cell;
 }
 .page main article {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   margin: 16px 8px;
   padding: 4px;
 }
 .page main article section {
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  margin: 8px;
   overflow: auto;
-}
-.page main article p {
-  margin: 8px 0 4px 8px;
-  font-size: 16px;
 }
 .page main .bottom-nav {
   margin-top: 18px;
@@ -482,7 +503,7 @@ body b {
 @media screen and (max-width: 500px) {
   nav {
     text-align: center;
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
     background-color: #20dce1;
     display: block;
     position: sticky;
@@ -540,7 +561,7 @@ body b {
     color: #16a5a9;
     margin-top: 4px;
     margin-bottom: 4px;
-    margin-left: 4px;
+    margin-left: 8px;
     font-size: 32px;
   }
 
@@ -630,7 +651,7 @@ body b {
 
   .gist-container {
     margin: 12px 12px;
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   }
   .gist-container .gist .gist-file {
     margin-bottom: 0;
@@ -680,7 +701,7 @@ body b {
   figure {
     padding: 8px;
     margin: 12px;
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.25);
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   }
   figure img {
     object-fit: cover;
@@ -707,6 +728,10 @@ body b {
 
   .quarter-width {
     width: 25%;
+  }
+
+  .center-aligned {
+    text-align: center;
   }
 
   .right-aligned {
