@@ -71,18 +71,245 @@ html(lang="en")
                             | be installed on the Raspberry Pi and a few line have to be changed in the program.
                             | These lines mostly have to do with the initialization of the camera object. The rest of
                             | the program stays unchanged.
+                        h1.section-subtitle Enabling the camera interface
+                        figure.half-width.left-aligned
+
+                            img(src="assets/img/thesis/raspbian/rasbian_1.png"
+                                alt="raspi-config")
+                            figcaption
+                                a(href="#") raspi-config
+                                br
+                                | &copy; 2019
+                        p
+                            | The first thing that needs to be done in order to use the Raspberry Pi camera module is
+                            | enable the camera interface. This can be done via the Raspbian configuration screen.
+                            br
+                            | This screen can be accessed by opening a terminal and calling the following command:
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">sudo</span>
+                                | raspi-config
+                        p
+                            | This will open the configuration screen in the terminal, with a blue background. This
+                            | screen can be navigated using both the keyboard and the mouse. Each setting has an
+                            | associated keyboard shortcut that can be pressed for quicker navigation.
+                            | The setting to enable the camera interface can be found under
+                            | <em>interfacing options</em>.
+                        figure.half-width.right-aligned
+
+                            img(src="assets/img/thesis/raspbian/rasbian_2.png"
+                                alt="raspi-config")
+                            figcaption
+                                a(href="#") raspi-config
+                                br
+                                | &copy; 2019
+
+                        //    TODO: Find a sollution to prevent this text from floating with the pictures
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque officiis perspiciatis velit vero. Accusamus ad consequuntur culpa distinctio ea est id iusto libero magni maxime mollitia necessitatibus nemo nesciunt nihil nobis nostrum officiis, pariatur, provident quaerat reiciendis repellat repellendus rerum sapiente sit suscipit ullam ut vel veritatis vero voluptates? Error, illum, vitae! Accusamus architecto consequuntur cumque, ex expedita explicabo, laborum laudantium neque nulla perspiciatis quasi qui repudiandae soluta temporibus voluptatibus. Ad aliquid, consectetur hic in sed tempora veniam voluptatum. Aliquam animi assumenda cumque deleniti eius enim eos eum mollitia nostrum nulla optio possimus praesentium quaerat quibusdam recusandae rem repellat tempore, vitae. Ab aliquam corporis culpa, delectus eligendi esse eveniet explicabo fuga illum ipsa iste, libero officiis quasi ratione sunt! Ad, aliquid, amet assumenda atque error et ex impedit in incidunt ipsa ipsum nobis non obcaecati perferendis possimus tempore vel. Aperiam dicta, dolores laudantium natus placeat possimus soluta veritatis! Culpa, pariatur!
                 article#vison-system
                     h1.article-title System
                     section
-                        h1.section-title Section title
-                        h1.section-subtitle Section subtitle
+                        h1.section-title Minimum system requirements
+                        .table-container
+                            div
+                                table
+                                    caption Minimum system requirements
+                                    tbody
+                                        tr
+                                            th Spec
+                                            th Value
+                                        tr
+                                            td RAM
+                                            td 1 GB
+                                        tr.alt
+                                            td CPU speed
+                                            td 1 GHz
+                                        tr
+                                            td CPU cores
+                                            td 2 cores
+                                        tr.alt
+                                            td Storage
+                                            td 8 GB
                 article#vison-framework
                     h1.article-title Framework
                     section
                         h1.section-title Language
-                        h1.section-subtitle Section subtitle
+                        .card.left-aligned
+                            blockquote(cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf")
+                                q
+                                    | Python is powerful... and fast;
+                                    br
+                                    | plays well with others;
+                                    br
+                                    | runs everywhere;
+                                    br
+                                    | is friendly & easy to learn;
+                                    br
+                                    | is Open.
+                                p (The Python Software Foundation, sd)
+                        p
+                            | Python is an enormously popular programming language, especially in scientific context.
+                            | As a result there are a lot of modules and libraries available. There is at least one for
+                            | pretty much any application.
+                        p Python can be found at: <a href="https://python.org" target="_blank">Python</a>.
+                        p
+                            | This language was chosen for various reasons. The most important one being the vast
+                            | community and documentation Python has. Our previous knowledge of Python also helped
+                            | chose this language. Python programs and reads easily, which makes it easy for others to
+                            | read and modify the code.
+                        p
+                            | Because of the object-oriented approach of Python, the code can easily be split into
+                            | several sections, each responsible for their own task. By splitting up the code into
+                            | smaller sections, the code becomes easier to debug, modify and reuse.
+                        p
+                            | PyPi (<em>Python Package Index</em>) is Python's module-manager and it contains thousands
+                            | of modules. These can be easily installed via PIP (<em>Package Installer for Python</em>).
+                        p
+                            | For this project Python 3 was used, specifically <em>Python 3.7.2 64bit</em>. At the
+                            | moment of testing the software, this was the latest version.
                     section
                         h1.section-title Libraries
+                        h1.section-subtitle NumPy
+                        p
+                            |  NumPy is a very powerful module, that is commonly used in scientific context for
+                            | processing large amounts of data. The most known aspect of NumPy are the N-dimensional
+                            | arrays (matrices). These array and operations on them are implemented in a really
+                            | efficient way, making these really fast and efficient to use, even with larger arrays and
+                            | multiple dimensions.
+                        p
+                            | Many of the other Python modules use NumPy to implement their data-structures. In this
+                            | project NumPy is used to save the pixel-values of each frame and intermediate results.
+                            | This allows to quickly isolate parts of the frame and further process them.
+                        p
+                            | NumPy can be installed using the following command:
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">pip</span>
+                                | <span class="terminal-second-highlight">install</span>
+                                | numpy
+                        h1.section-subtitle Imutils
+                        p
+                            | Imutils os a relatively small module for Python. This module simplifies moving, rotating
+                            | and scaling images. There is also a functionality to correctly format the contours, found
+                            | by OpenCV. It is this functionality that is being used in the program.
+
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">pip</span>
+                                | <span class="terminal-second-highlight">install</span>
+                                | imutils
+                        h1.section-subtitle OpenCV
+                        p
+                            | To read in the frames and process them, OpenCV (<em>Open source Computer Vision library</em>)
+                            | is used. This is a library for image processing and -recognition. OpenCv is a popular library,
+                            | used by companies such as Google, Microsoft, Intel, IBM and Sony.
+                        p
+                            | A few of the application where OpenCV is used include:
+                            ul.fa-ul
+                                li
+                                    span.fa-li
+                                        i(class="fas fa-caret-right")
+                                    | Processing and stitching the images for Google Streetview.
+                                li
+                                    span.fa-li
+                                        i(class="fas fa-caret-right")
+                                    | Monitoring of mining equipment in China
+                                li
+                                    span.fa-li
+                                        i(class="fas fa-caret-right")
+                                    | Detecting potential drownings in pools
+                                li
+                                    span.fa-li
+                                        i(class="fas fa-caret-right")
+                                    | Checking runways for debris
+                        p
+                            | OpenCV can be used in C++, Python, Java and MATLAB and on different platforms, including
+                            | Windows and Linux.
+                        p
+                            | OpenCV itself has been written in C++ and has to be compiled before it can be used in
+                            | Python. Luckily there is a pre-compiled version available on PyPi. This version can be
+                            | easily installed via PIP.
+                            br
+                            | It is officially supported and maintained by the OpenCV developers, but is really easy to
+                            | use. There is less control over the installation, as no option can be changed during the
+                            | compilation. In most cases, however, this is also not needed. This will also reduce the
+                            | chances for errors during the installation.
+
+                        p
+                            | OpenCV can be installed, via PIP, using the following command:
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">pip</span>
+                                | <span class="terminal-second-highlight">install</span>
+                                | opencv-python
+                        p
+                            | This will always install the latest version. For this project OpenCV version 4.0.0 was
+                            | used. A specific version can be installed by specifying which version pip should install.
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">pip</span>
+                                | <span class="terminal-second-highlight">install</span>
+                                | opencv-python
+                                | <span class="terminal-number">4.0.0.21</span>
+                        p
+                            | The program was tested with newer version of OpenCV, so this should pose no problems.
+                        p
+                            | Both commands will install the same distribution that was used during the development of
+                            | the program. There are different distributions available of OpenCV on PyPi. All of these
+                            | can be easily installed.
+                        p
+                            | The difference between them, lays in the functionality they offer. The first distribution
+                            | is the standard one, it has all the built-in functionality that OpenCV would normally
+                            | have, if compiled it yourself.
+                        p
+                            | The distributions with <em>contrib</em> in their name, contain functionality that was
+                            | written and developed by the community. These versions contain a lot more functionality
+                            | but are also larger to install.
+                        p
+                            | The distributions with <em>headless</em> in their name, contain all functionality to
+                            | process the frames, but they have no visualisation capabilities. They cannot display the
+                            | results. These distributions are ideal to install on machines with no monitor attached,
+                            | or machines that are controlled via a text-only interface (like the command-line or SSH).
+
+                        ul.fa-ul
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | opencv-python
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | opencv-contrib-python
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | opencv-python-headless
+                            li
+                                span.fa-li
+                                    i(class="fas fa-caret-right")
+                                | opencv-contrib-python-headless
+                        p
+                            | Since OpenCV itself is used for the visualisation of the results, in this project and no
+                            | extra functionality is needed, the standard distribution can be installed.
+                        h1.section-subtitle Paho MQTT
+                        p
+                            | Since the different parts of this project are connected together, via MQTT. A library is
+                            | needed in order to connect to a broker and send the messages. For this purpose
+                            | eclipse-paho was chosen. It is a lightweight module that does everything it is supposed
+                            | to do.
+                        p
+                            | This module can be installed via the following command:
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">pip</span>
+                                | <span class="terminal-second-highlight">install</span>
+                                | paho-mqtt
+                        h1.section-subtitle PiCamera
+                        .code-container
+                            code
+                                | <span class="terminal-first-highlight">pip</span>
+                                | <span class="terminal-second-highlight">install</span>
+                                | <span class="terminal-string">"picamera[array]"</span>
                 article#vison-program
                     h1.article-title Program
                     section
@@ -94,9 +321,9 @@ html(lang="en")
                         h1.section-subtitle Webcam class
                     section
                         h1.section-title Functions
-                        h1.section-subtitle order_66
-                        h1.section-subtitle finished
-                        h1.section-subtitle name_colour
+                        h1.section-subtitle order_66()
+                        h1.section-subtitle finished()
+                        h1.section-subtitle name_colour()
                     section
                         h1.section-title Main
                         h1.section-subtitle Read a frame
