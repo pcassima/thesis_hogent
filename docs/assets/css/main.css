@@ -234,7 +234,7 @@ figure figcaption a {
 }
 
 .center-aligned {
-  text-align: center;
+    margin: 0 auto;
 }
 
 .right-aligned {
@@ -823,7 +823,7 @@ blockquote p {
   }
 
   .center-aligned {
-    text-align: center;
+      margin: 0 auto;
   }
 
   .right-aligned {
