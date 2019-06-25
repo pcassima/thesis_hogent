@@ -16,6 +16,11 @@
     }
   }
 
+  blockquote {
+    //  TODO: move to dedicated partial (for general styling)
+    margin: 8px 48px;
+  }
+
   .page {
     display: block;
     @import 'partials/tablet/_aside';

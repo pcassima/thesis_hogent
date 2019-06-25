@@ -1,4 +1,6 @@
 @media screen and (max-width: 500px) {
+  // TODO: figure out issues with random whitespace at the right side
+  // TODO: Fix issues with formatting and layout
   @import 'partials/_colors';
 
   @import 'partials/desktop/_header';
@@ -14,6 +16,11 @@
     }
     b {
     }
+  }
+
+  blockquote {
+    //  TODO: move to dedicated partial (for general styling)
+    margin: 8px 16px;
   }
 
   .page {
