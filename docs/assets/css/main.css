@@ -221,6 +221,10 @@ figure figcaption a {
   cursor: pointer;
 }
 
+.full-width {
+    width: 95%;
+}
+
 .half-width {
   width: 50%;
 }
@@ -814,6 +818,10 @@ blockquote p {
     color: #e11c84;
     cursor: pointer;
   }
+
+    .full-width {
+        width: 95%;
+    }
 
   .half-width {
     width: 50%;
