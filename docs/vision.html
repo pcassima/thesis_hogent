@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-      <!-- Javascript-->
-      <!-- Formula formatter-->
-      <script async
-              src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
-      <!-- Local scripts for making the website work-->
+    <!-- Javascript-->
+    <!-- Formula formatter-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+    <!-- Local scripts for making the website work-->
     <script src="./js/nav.js"></script>
     <script src="./js/modal.js"></script>
   </head>
@@ -55,327 +54,302 @@
       <aside class="left"></aside>
       <main>
         <h1 class="page-title">Vision</h1>
-          <blockquote cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf">
-              <q>
-                  For both biological systems and machines, vision begins with a large and
-                  unwieldy array of measurements of the amount of light reflected from
-                  surfaces in the environment. The goal of vision is to recover physical
-                  properties of objects in the scene, such as the location of object boundaries
-                  and the structure, color and texture of object surfaces, from the two-dimensional image
-                  that is projected onto the eye or camera. This goal is not
-                  achieved in a single step; vision proceeds in stages, with each stage
-                  producing increasingly more useful descriptions of the image and then the
-                  scene. The first clues about the physical properties of the scene are provided
-                  by the changes of intensity in the image.
-              </q>
-              <p>(Hildreth, 1985)</p>
-          </blockquote>
+        <blockquote cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf">
+          <q>
+            For both biological systems and machines, vision begins with a large and
+            unwieldy array of measurements of the amount of light reflected from
+            surfaces in the environment. The goal of vision is to recover physical
+            properties of objects in the scene, such as the location of object boundaries
+            and the structure, color and texture of object surfaces, from the two-dimensional image
+            that is projected onto the eye or camera. This goal is not
+            achieved in a single step; vision proceeds in stages, with each stage
+            producing increasingly more useful descriptions of the image and then the
+            scene. The first clues about the physical properties of the scene are provided
+            by the changes of intensity in the image.
+          </q>
+          <p>(Hildreth, 1985)</p>
+        </blockquote>
         <article id="vision-camera">
           <h1 class="article-title">Camera</h1>
-            <p>
-                Any vision system requires an input of data. In this case that will be a camera.
-                Practically any camera can be used, as long as there is a way to
-                (reliably) get the data from the camera to the computer for processing.
-            </p>
-            <p>A few examples of camera interfaces that can be used:
+          <p>
+            Any vision system requires an input of data. In this case that will be a camera.
+            Practically any camera can be used, as long as there is a way to
+            (reliably) get the data from the camera to the computer for processing.
+          </p>
+          <p>A few examples of camera interfaces that can be used:
             <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>USB</li>
-                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Ethernet</li>
-                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>HDMI</li>
-                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>SDI</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>USB</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Ethernet</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>HDMI</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>SDI</li>
             </ul>
-            </p>
+          </p>
           <section>
-              <h1 class="section-title">USB-camera</h1>
-              <p>
-                  However a USB-camera is in most cased the most convenient (and cheapest)
-                  option. These days USB-camera's can be easily found everywhere.
-                  From cheap webcams to CMOS-camera intended for use with microscopes.
-              </p>
-              <p>
-                  This system was developed and tested with a (cheap) Logitech USB-webcam.
-                  To illustrate that good result can be achieved even on moderate hardware.
-              </p>
+            <h1 class="section-title">USB-camera</h1>
+            <p>
+              However a USB-camera is in most cased the most convenient (and cheapest)
+              option. These days USB-camera's can be easily found everywhere.
+              From cheap webcams to CMOS-camera intended for use with microscopes.
+            </p>
+            <p>
+              This system was developed and tested with a (cheap) Logitech USB-webcam.
+              To illustrate that good result can be achieved even on moderate hardware.
+            </p>
           </section>
-            <section>
-                <h1 class="section-title">Raspberry Pi Camera module</h1>
-                <p>
-                    Due to the versatile nature of the library (an entire system). The computer-vision system
-                    can also be easily ran on a Raspberry Pi with the Raspberry Pi camera module.<br>In order to achieve
-                    this, the camera interface has to be enabled, a few dependencies must
-                    be installed on the Raspberry Pi and a few line have to be changed in the program.
-                    These lines mostly have to do with the initialization of the camera object. The rest of
-                    the program stays unchanged.
-                </p>
-                <h1 class="section-subtitle">Enabling the camera interface</h1>
-                <figure class="half-width left-aligned"><img alt="raspi-config"
-                                                             src="assets/img/thesis/raspbian/rasbian_1.png">
-                    <figcaption><a href="#">raspi-config</a><br>&copy; 2019</figcaption>
-                </figure>
-                <p>
-                    The first thing that needs to be done in order to use the Raspberry Pi camera module is
-                    enable the camera interface. This can be done via the Raspbian configuration screen.<br>This screen
-                    can be accessed by opening a terminal and calling the following command:
-                </p>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">sudo</span>
-                    raspi-config</code></div>
-                <p>
-                    This will open the configuration screen in the terminal, with a blue background. This
-                    screen can be navigated using both the keyboard and the mouse. Each setting has an
-                    associated keyboard shortcut that can be pressed for quicker navigation.
-                    The setting to enable the camera interface can be found under
-                    <em>interfacing options</em>.
-                </p>
-                <figure class="half-width right-aligned"><img alt="raspi-config"
-                                                              src="assets/img/thesis/raspbian/rasbian_2.png">
-                    <figcaption><a href="#">raspi-config</a><br>&copy; 2019</figcaption>
-                </figure>
-                <!--    TODO: Find a sollution to prevent this text from floating with the pictures-->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque officiis perspiciatis velit vero.
-                    Accusamus ad consequuntur culpa distinctio ea est id iusto libero magni maxime mollitia
-                    necessitatibus nemo nesciunt nihil nobis nostrum officiis, pariatur, provident quaerat reiciendis
-                    repellat repellendus rerum sapiente sit suscipit ullam ut vel veritatis vero voluptates? Error,
-                    illum, vitae! Accusamus architecto consequuntur cumque, ex expedita explicabo, laborum laudantium
-                    neque nulla perspiciatis quasi qui repudiandae soluta temporibus voluptatibus. Ad aliquid,
-                    consectetur hic in sed tempora veniam voluptatum. Aliquam animi assumenda cumque deleniti eius enim
-                    eos eum mollitia nostrum nulla optio possimus praesentium quaerat quibusdam recusandae rem repellat
-                    tempore, vitae. Ab aliquam corporis culpa, delectus eligendi esse eveniet explicabo fuga illum ipsa
-                    iste, libero officiis quasi ratione sunt! Ad, aliquid, amet assumenda atque error et ex impedit in
-                    incidunt ipsa ipsum nobis non obcaecati perferendis possimus tempore vel. Aperiam dicta, dolores
-                    laudantium natus placeat possimus soluta veritatis! Culpa, pariatur!</p>
+          <section>
+            <h1 class="section-title">Raspberry Pi Camera module</h1>
+            <p>
+              Due to the versatile nature of the library (an entire system). The computer-vision system
+              can also be easily ran on a Raspberry Pi with the Raspberry Pi camera module.<br>In order to achieve this, the camera interface has to be enabled, a few dependencies must
+              be installed on the Raspberry Pi and a few line have to be changed in the program.
+              These lines mostly have to do with the initialization of the camera object. The rest of
+              the program stays unchanged.
+            </p>
+            <h1 class="section-subtitle">Enabling the camera interface</h1>
+            <figure class="center-aligned half-width"><img src="assets/img/thesis/raspbian/rasbian_1.png" alt="raspi-config">
+              <figcaption><a href="#">raspi-config</a><br>&copy; 2019</figcaption>
+            </figure>
+            <p>
+              The first thing that needs to be done in order to use the Raspberry Pi camera module is
+              enable the camera interface. This can be done via the Raspbian configuration screen.<br>This screen can be accessed by opening a terminal and calling the following command:
+            </p>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">sudo</span>
+                raspi-config</code></div>
+            <p>
+              This will open the configuration screen in the terminal, with a blue background. This
+              screen can be navigated using both the keyboard and the mouse. Each setting has an
+              associated keyboard shortcut that can be pressed for quicker navigation.
+              The setting to enable the camera interface can be found under
+              <em>interfacing options</em>.
+            </p>
+            <figure class="center-aligned half-width"><img src="assets/img/thesis/raspbian/rasbian_2.png" alt="raspi-config">
+              <figcaption><a href="#">raspi-config</a><br>&copy; 2019</figcaption>
+            </figure>
           </section>
         </article>
         <article id="vison-system">
           <h1 class="article-title">System</h1>
           <section>
-              <h1 class="section-title">Minimum system requirements</h1>
-              <div class="table-container">
-                  <div>
-                      <table>
-                          <caption>Minimum system requirements</caption>
-                          <tbody>
-                          <tr>
-                              <th>Spec</th>
-                              <th>Value</th>
-                          </tr>
-                          <tr>
-                              <td>RAM</td>
-                              <td>1 GB</td>
-                          </tr>
-                          <tr class="alt">
-                              <td>CPU speed</td>
-                              <td>1 GHz</td>
-                          </tr>
-                          <tr>
-                              <td>CPU cores</td>
-                              <td>2 cores</td>
-                          </tr>
-                          <tr class="alt">
-                              <td>Storage</td>
-                              <td>8 GB</td>
-                          </tr>
-                          </tbody>
-                      </table>
-                  </div>
+            <h1 class="section-title">Minimum system requirements</h1>
+            <div class="table-container">
+              <div>
+                <table>
+                  <caption>Minimum system requirements</caption>
+                  <tbody>
+                    <tr>
+                      <th>Spec</th>
+                      <th>Value</th>
+                    </tr>
+                    <tr>
+                      <td>RAM</td>
+                      <td>1 GB</td>
+                    </tr>
+                    <tr class="alt">
+                      <td>CPU speed</td>
+                      <td>1 GHz</td>
+                    </tr>
+                    <tr>
+                      <td>CPU cores</td>
+                      <td>2 cores</td>
+                    </tr>
+                    <tr class="alt">
+                      <td>Storage</td>
+                      <td>8 GB</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+            </div>
           </section>
         </article>
         <article id="vison-framework">
           <h1 class="article-title">Framework</h1>
           <section>
             <h1 class="section-title">Language</h1>
-              <div class="card left-aligned">
-                  <blockquote cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf">
-                      <q>Python is powerful... and fast;<br>plays well with others;<br>runs everywhere;<br>is friendly &
-                          easy to learn;<br>is Open.</q>
-                      <p>(The Python Software Foundation, sd)</p>
-                  </blockquote>
-              </div>
-              <p>
-                  Python is an enormously popular programming language, especially in scientific context.
-                  As a result there are a lot of modules and libraries available. There is at least one for
-                  pretty much any application.
-              </p>
-              <p>Python can be found at: <a href="https://python.org" target="_blank">Python</a>.</p>
-              <p>
-                  This language was chosen for various reasons. The most important one being the vast
-                  community and documentation Python has. Our previous knowledge of Python also helped
-                  chose this language. Python programs and reads easily, which makes it easy for others to
-                  read and modify the code.
-              </p>
-              <p>
-                  Because of the object-oriented approach of Python, the code can easily be split into
-                  several sections, each responsible for their own task. By splitting up the code into
-                  smaller sections, the code becomes easier to debug, modify and reuse.
-              </p>
-              <p>
-                  PyPi (<em>Python Package Index</em>) is Python's module-manager and it contains thousands
-                  of modules. These can be easily installed via PIP (<em>Package Installer for Python</em>).
-              </p>
-              <p>
-                  For this project Python 3 was used, specifically <em>Python 3.7.2 64bit</em>. At the
-                  moment of testing the software, this was the latest version.
-              </p>
+            <div class="card left-aligned">
+              <blockquote cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf">
+                <q>Python is powerful... and fast;<br>plays well with others;<br>runs everywhere;<br>is friendly & easy to learn;<br>is Open.</q>
+                <p>(The Python Software Foundation, sd)</p>
+              </blockquote>
+            </div>
+            <p>
+              Python is an enormously popular programming language, especially in scientific context.
+              As a result there are a lot of modules and libraries available. There is at least one for
+              pretty much any application.
+            </p>
+            <p>Python can be found at: <a href="https://python.org" target="_blank">Python</a>.</p>
+            <p>
+              This language was chosen for various reasons. The most important one being the vast
+              community and documentation Python has. Our previous knowledge of Python also helped
+              chose this language. Python programs and reads easily, which makes it easy for others to
+              read and modify the code.
+            </p>
+            <p>
+              Because of the object-oriented approach of Python, the code can easily be split into
+              several sections, each responsible for their own task. By splitting up the code into
+              smaller sections, the code becomes easier to debug, modify and reuse.
+            </p>
+            <p>
+              PyPi (<em>Python Package Index</em>) is Python's module-manager and it contains thousands
+              of modules. These can be easily installed via PIP (<em>Package Installer for Python</em>).
+            </p>
+            <p>
+              For this project Python 3 was used, specifically <em>Python 3.7.2 64bit</em>. At the
+              moment of testing the software, this was the latest version.
+            </p>
           </section>
-            <section>
-                <h1 class="section-title">Libraries</h1>
-                <h1 class="section-subtitle">NumPy</h1>
-                <p>
-                    NumPy is a very powerful module, that is commonly used in scientific context for
-                    processing large amounts of data. The most known aspect of NumPy are the N-dimensional
-                    arrays (matrices). These array and operations on them are implemented in a really
-                    efficient way, making these really fast and efficient to use, even with larger arrays and
-                    multiple dimensions.
-                </p>
-                <p>
-                    Many of the other Python modules use NumPy to implement their data-structures. In this
-                    project NumPy is used to save the pixel-values of each frame and intermediate results.
-                    This allows to quickly isolate parts of the frame and further process them.
-                </p>
-                <p>NumPy can be installed using the following command:</p>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">pip</span>
-                    <span class="terminal-second-highlight">install</span>
-                    numpy</code></div>
-                <h1 class="section-subtitle">Imutils</h1>
-                <p>
-                    Imutils os a relatively small module for Python. This module simplifies moving, rotating
-                    and scaling images. There is also a functionality to correctly format the contours, found
-                    by OpenCV. It is this functionality that is being used in the program.
-                </p>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">pip</span>
-                    <span class="terminal-second-highlight">install</span>
-                    imutils</code></div>
-                <h1 class="section-subtitle">OpenCV</h1>
-                <p>
-                    To read in the frames and process them, OpenCV (<em>Open source Computer Vision library</em>)
-                    is used. This is a library for image processing and -recognition. OpenCv is a popular library,
-                    used by companies such as Google, Microsoft, Intel, IBM and Sony.
-                </p>
-                <p>A few of the application where OpenCV is used include:
-                <ul class="fa-ul">
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Processing and stitching the images
-                        for Google Streetview.
-                    </li>
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Monitoring of mining equipment in
-                        China
-                    </li>
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Detecting potential drownings in
-                        pools
-                    </li>
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Checking runways for debris</li>
-                </ul>
-                </p>
-                <p>
-                    OpenCV can be used in C++, Python, Java and MATLAB and on different platforms, including
-                    Windows and Linux.
-                </p>
-                <p>
-                    OpenCV itself has been written in C++ and has to be compiled before it can be used in
-                    Python. Luckily there is a pre-compiled version available on PyPi. This version can be
-                    easily installed via PIP.<br>It is officially supported and maintained by the OpenCV developers, but
-                    is really easy to
-                    use. There is less control over the installation, as no option can be changed during the
-                    compilation. In most cases, however, this is also not needed. This will also reduce the
-                    chances for errors during the installation.
-                </p>
-                <p>OpenCV can be installed, via PIP, using the following command:</p>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">pip</span>
-                    <span class="terminal-second-highlight">install</span>
-                    opencv-python</code></div>
-                <p>
-                    This will always install the latest version. For this project OpenCV version 4.0.0 was
-                    used. A specific version can be installed by specifying which version pip should install.
-                </p>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">pip</span>
-                    <span class="terminal-second-highlight">install</span>
-                    opencv-python
-                    <span class="terminal-number">4.0.0.21</span></code></div>
-                <p>The program was tested with newer version of OpenCV, so this should pose no problems.</p>
-                <p>
-                    Both commands will install the same distribution that was used during the development of
-                    the program. There are different distributions available of OpenCV on PyPi. All of these
-                    can be easily installed.
-                </p>
-                <p>
-                    The difference between them, lays in the functionality they offer. The first distribution
-                    is the standard one, it has all the built-in functionality that OpenCV would normally
-                    have, if compiled it yourself.
-                </p>
-                <p>
-                    The distributions with <em>contrib</em> in their name, contain functionality that was
-                    written and developed by the community. These versions contain a lot more functionality
-                    but are also larger to install.
-                </p>
-                <p>
-                    The distributions with <em>headless</em> in their name, contain all functionality to
-                    process the frames, but they have no visualisation capabilities. They cannot display the
-                    results. These distributions are ideal to install on machines with no monitor attached,
-                    or machines that are controlled via a text-only interface (like the command-line or SSH).
-                </p>
-                <ul class="fa-ul">
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-python</li>
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-contrib-python</li>
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-python-headless</li>
-                    <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-contrib-python-headless</li>
-                </ul>
-                <p>
-                    Since OpenCV itself is used for the visualisation of the results, in this project and no
-                    extra functionality is needed, the standard distribution can be installed.
-                </p>
-                <h1 class="section-subtitle">Paho MQTT</h1>
-                <p>
-                    Since the different parts of this project are connected together, via MQTT. A library is
-                    needed in order to connect to a broker and send the messages. For this purpose
-                    eclipse-paho was chosen. It is a lightweight module that does everything it is supposed
-                    to do.
-                </p>
-                <p>This module can be installed via the following command:</p>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">pip</span>
-                    <span class="terminal-second-highlight">install</span>
-                    paho-mqtt</code></div>
-                <h1 class="section-subtitle">PiCamera</h1>
-                <div class="code-container"><code>
-                    <span class="terminal-first-highlight">pip</span>
-                    <span class="terminal-second-highlight">install</span>
-                    <span class="terminal-string">"picamera[array]"</span></code></div>
-            </section>
+          <section>
+            <h1 class="section-title">Libraries</h1>
+            <h1 class="section-subtitle">NumPy</h1>
+            <p>
+               NumPy is a very powerful module, that is commonly used in scientific context for
+              processing large amounts of data. The most known aspect of NumPy are the N-dimensional
+              arrays (matrices). These array and operations on them are implemented in a really
+              efficient way, making these really fast and efficient to use, even with larger arrays and
+              multiple dimensions.
+            </p>
+            <p>
+              Many of the other Python modules use NumPy to implement their data-structures. In this
+              project NumPy is used to save the pixel-values of each frame and intermediate results.
+              This allows to quickly isolate parts of the frame and further process them.
+            </p>
+            <p>NumPy can be installed using the following command:</p>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">pip</span>
+                <span class="terminal-second-highlight">install</span>
+                numpy</code></div>
+            <h1 class="section-subtitle">Imutils</h1>
+            <p>
+              Imutils os a relatively small module for Python. This module simplifies moving, rotating
+              and scaling images. There is also a functionality to correctly format the contours, found
+              by OpenCV. It is this functionality that is being used in the program.
+            </p>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">pip</span>
+                <span class="terminal-second-highlight">install</span>
+                imutils</code></div>
+            <h1 class="section-subtitle">OpenCV</h1>
+            <p>
+              To read in the frames and process them, OpenCV (<em>Open source Computer Vision library</em>)
+              is used. This is a library for image processing and -recognition. OpenCv is a popular library,
+              used by companies such as Google, Microsoft, Intel, IBM and Sony.
+            </p>
+            <p>A few of the application where OpenCV is used include:
+              <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Processing and stitching the images for Google Streetview.</li>
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Monitoring of mining equipment in China</li>
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Detecting potential drownings in pools</li>
+                <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Checking runways for debris</li>
+              </ul>
+            </p>
+            <p>
+              OpenCV can be used in C++, Python, Java and MATLAB and on different platforms, including
+              Windows and Linux.
+            </p>
+            <p>
+              OpenCV itself has been written in C++ and has to be compiled before it can be used in
+              Python. Luckily there is a pre-compiled version available on PyPi. This version can be
+              easily installed via PIP.<br>It is officially supported and maintained by the OpenCV developers, but is really easy to
+              use. There is less control over the installation, as no option can be changed during the
+              compilation. In most cases, however, this is also not needed. This will also reduce the
+              chances for errors during the installation.
+            </p>
+            <p>OpenCV can be installed, via PIP, using the following command:</p>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">pip</span>
+                <span class="terminal-second-highlight">install</span>
+                opencv-python</code></div>
+            <p>
+              This will always install the latest version. For this project OpenCV version 4.0.0 was
+              used. A specific version can be installed by specifying which version pip should install.
+            </p>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">pip</span>
+                <span class="terminal-second-highlight">install</span>
+                opencv-python
+                <span class="terminal-number">4.0.0.21</span></code></div>
+            <p>The program was tested with newer version of OpenCV, so this should pose no problems.</p>
+            <p>
+              Both commands will install the same distribution that was used during the development of
+              the program. There are different distributions available of OpenCV on PyPi. All of these
+              can be easily installed.
+            </p>
+            <p>
+              The difference between them, lays in the functionality they offer. The first distribution
+              is the standard one, it has all the built-in functionality that OpenCV would normally
+              have, if compiled it yourself.
+            </p>
+            <p>
+              The distributions with <em>contrib</em> in their name, contain functionality that was
+              written and developed by the community. These versions contain a lot more functionality
+              but are also larger to install.
+            </p>
+            <p>
+              The distributions with <em>headless</em> in their name, contain all functionality to
+              process the frames, but they have no visualisation capabilities. They cannot display the
+              results. These distributions are ideal to install on machines with no monitor attached,
+              or machines that are controlled via a text-only interface (like the command-line or SSH).
+            </p>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-python</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-contrib-python</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-python-headless</li>
+              <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>opencv-contrib-python-headless</li>
+            </ul>
+            <p>
+              Since OpenCV itself is used for the visualisation of the results, in this project and no
+              extra functionality is needed, the standard distribution can be installed.
+            </p>
+            <h1 class="section-subtitle">Paho MQTT</h1>
+            <p>
+              Since the different parts of this project are connected together, via MQTT. A library is
+              needed in order to connect to a broker and send the messages. For this purpose
+              eclipse-paho was chosen. It is a lightweight module that does everything it is supposed
+              to do.
+            </p>
+            <p>This module can be installed via the following command:</p>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">pip</span>
+                <span class="terminal-second-highlight">install</span>
+                paho-mqtt</code></div>
+            <h1 class="section-subtitle">PiCamera</h1>
+            <div class="code-container"><code>
+                <span class="terminal-first-highlight">pip</span>
+                <span class="terminal-second-highlight">install</span>
+                <span class="terminal-string">"picamera[array]"</span></code></div>
+          </section>
         </article>
         <article id="vison-program">
           <h1 class="article-title">Program</h1>
           <section>
             <h1 class="section-title">Structure</h1>
           </section>
-            <section>
-                <h1 class="section-title">Importing libraries</h1>
-            </section>
-            <section>
-                <h1 class="section-title">Classes</h1>
-                <h1 class="section-subtitle">Webcam class</h1>
-            </section>
-            <section>
-                <h1 class="section-title">Functions</h1>
-                <h1 class="section-subtitle">order_66()</h1>
-                <h1 class="section-subtitle">finished()</h1>
-                <h1 class="section-subtitle">name_colour()</h1>
-            </section>
-            <section>
-                <h1 class="section-title">Main</h1>
-                <h1 class="section-subtitle">Read a frame</h1>
-                <h1 class="section-subtitle">Convert to greyscale</h1>
-                <h1 class="section-subtitle">Gaussian blur</h1>
-                <h1 class="section-subtitle">Threshold</h1>
-                <h1 class="section-subtitle">Canny Edge Detection</h1>
-                <h1 class="section-subtitle">Contours</h1>
-                <h1 class="section-subtitle">Count corners & determine shape</h1>
-                <h1 class="section-subtitle">Calculate centre of shape & determine colour</h1>
-                <h1 class="section-subtitle">Results</h1>
-            </section>
+          <section>
+            <h1 class="section-title">Importing libraries</h1>
+          </section>
+          <section>
+            <h1 class="section-title">Classes</h1>
+            <h1 class="section-subtitle">Webcam class</h1>
+          </section>
+          <section>
+            <h1 class="section-title">Functions</h1>
+            <h1 class="section-subtitle">order_66()</h1>
+            <h1 class="section-subtitle">finished()</h1>
+            <h1 class="section-subtitle">name_colour()</h1>
+          </section>
+          <section>
+            <h1 class="section-title">Main</h1>
+            <h1 class="section-subtitle">Read a frame</h1>
+            <h1 class="section-subtitle">Convert to greyscale</h1>
+            <h1 class="section-subtitle">Gaussian blur</h1>
+            <h1 class="section-subtitle">Threshold</h1>
+            <h1 class="section-subtitle">Canny Edge Detection</h1>
+            <h1 class="section-subtitle">Contours</h1>
+            <h1 class="section-subtitle">Count corners & determine shape</h1>
+            <h1 class="section-subtitle">Calculate centre of shape & determine colour</h1>
+            <h1 class="section-subtitle">Results</h1>
+          </section>
         </article>
         <div class="bottom-nav">
           <div class="bottom-nav-left">
