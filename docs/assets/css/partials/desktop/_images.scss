@@ -2,9 +2,10 @@
 @import '_shadow.scss';
 
 figure {
+  @include create-box-shadow;
   padding: 8px;
   margin: 12px;
-  @include create-box-shadow;
+  clear: both;
 
   img {
     object-fit: cover;

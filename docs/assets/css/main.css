@@ -201,9 +201,10 @@ footer .footer-right .badge {
 }
 
 figure {
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   padding: 8px;
   margin: 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  clear: both;
 }
 figure img {
   object-fit: cover;
@@ -248,7 +249,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 body p {
-  margin: 8px 8px 4px 8px;
+  margin: 8px;
   font-size: 16px;
 }
 body a {
@@ -258,10 +259,61 @@ body a {
 body b {
   color: #e11c84;
 }
+body em {
+  color: #16a5a9;
+}
+
+.table-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.table-container div {
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  display: inline-block;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+.table-container table caption {
+  caption-side: bottom;
+  margin: 4px;
+  color: #e11c84;
+  font-weight: bold;
+}
+.table-container table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.table-container table tbody tr {
+  background-color: #f3a3cd;
+}
+.table-container table tbody tr.alt {
+  background-color: #f9d1e6;
+}
+.table-container table tbody th {
+  color: white;
+  background-color: #e11c84;
+}
+.table-container table tbody td {
+  padding: 2px 6px;
+  margin: 0;
+  border: none;
+  width: 240px;
+  text-align: left;
+}
+
+.card blockquote {
+  margin: 12px;
+  color: white;
+  background-color: #e11c84;
+}
 
 blockquote {
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   color: #a42064;
   margin: 8px 96px;
+  padding: 8px;
 }
 blockquote q {
   color: inherit;
@@ -271,6 +323,31 @@ blockquote p::before {
 }
 blockquote p {
   color: inherit;
+}
+
+.code-container {
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  margin: 16px;
+  padding: 8px;
+  display: inline-block;
+  border-left: 6px solid #e11c84;
+}
+.code-container code {
+  font-family: "Droid Sans Mono", monospace;
+  font-size: 16px;
+}
+.code-container .terminal-first-highlight {
+  font-weight: bold;
+  color: blue;
+}
+.code-container .terminal-second-highlight {
+  color: orangered;
+}
+.code-container .terminal-string {
+  color: green;
+}
+.code-container .terminal-number {
+  color: crimson;
 }
 
 .formula-container {
@@ -713,9 +790,10 @@ blockquote p {
   }
 
   figure {
+    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
     padding: 8px;
     margin: 12px;
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+    clear: both;
   }
   figure img {
     object-fit: cover;

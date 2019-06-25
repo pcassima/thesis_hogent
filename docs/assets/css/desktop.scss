@@ -1,5 +1,4 @@
 @import 'partials/_colors';
-
 @import 'partials/desktop/_header';
 @import 'partials/desktop/_nav';
 @import 'partials/desktop/_headings';
@@ -12,23 +11,91 @@ body {
   font-family: 'Roboto', sans-serif;
 
   p {
-    margin: 8px 8px 4px 8px;
+    margin: 8px;
     font-size: 16px;
   }
+
   a {
     color: $accent2;
     font-weight: bold;
     //text-decoration: none;
   }
+
   b {
     color: $accent2;
+  }
+
+  em {
+    color: $dark1;
+  }
+}
+
+.table-container {
+  //  TODO: move to dedicated partial (for general styling)
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  div {
+    @include create-box-shadow;
+    display: inline-block;
+    padding: 4px;
+    margin-bottom: 8px;
+  }
+
+  table {
+    caption {
+      caption-side: bottom;
+      margin: 4px;
+      color: #e11c84;
+      font-weight: bold;
+    }
+
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+      border-color: inherit;
+
+      tr {
+        background-color: #f3a3cd;
+      }
+
+      tr.alt {
+        background-color: #f9d1e6;
+      }
+
+      th {
+        color: white;
+        background-color: #e11c84;
+      }
+
+      td {
+        padding: 2px 6px;
+        margin: 0;
+        border: none;
+        width: 240px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+.card {
+  //  TODO: move to dedicated partial (for general styling)
+  blockquote {
+    margin: 12px;
+    color: white;
+    background-color: $accent2;
   }
 }
 
 blockquote {
   //  TODO: move to dedicated partial (for general styling)
+  @include create-box-shadow;
   color: $dark2;
   margin: 8px 96px;
+  padding: 8px;
 
   q {
     color: inherit;
@@ -41,6 +108,38 @@ blockquote {
   p {
     color: inherit;
   }
+}
+
+.code-container {
+  //  TODO: move to dedicated partial (for general styling)
+  @include create-box-shadow;
+  margin: 16px;
+  padding: 8px;
+  display: inline-block;
+  border-left: 6px solid #e11c84;
+
+  code {
+    font-family: "Droid Sans Mono", monospace;
+    font-size: 16px;
+  }
+
+  .terminal-first-highlight {
+    font-weight: bold;
+    color: blue;
+  }
+
+  .terminal-second-highlight {
+    color: orangered;
+  }
+
+  .terminal-string {
+    color: green;
+  }
+
+  .terminal-number {
+    color: crimson;
+  }
+
 }
 
 .formula-container {
@@ -67,6 +166,7 @@ blockquote {
   @import 'partials/desktop/_aside';
   @include create-box-shadow;
   padding-bottom: 16px;
+
   main {
     @include create-box-shadow;
     padding: 0 6px;
@@ -83,6 +183,7 @@ blockquote {
         overflow: auto
       }
     }
+
     .bottom-nav {
       margin-top: 18px;
       margin-bottom: 8px;
