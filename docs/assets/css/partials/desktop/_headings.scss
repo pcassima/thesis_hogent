@@ -5,7 +5,9 @@ body {
 
 .page-title {
   color: $accent1;
-  border-bottom: 4px solid;
+  border-left: 6px solid;
+  border-bottom: 3px solid;
+  padding-left: 8px;
   padding-bottom: 2px;
   margin: 4px 8px 8px 12px;
   font-size: 48px;
@@ -13,6 +15,8 @@ body {
 
 .article-title {
   color: $dark1;
+  border-left: 6px solid;
+  padding-left: 6px;
   margin-top: 4px;
   margin-bottom: 4px;
   margin-left: 8px;
@@ -23,7 +27,7 @@ body {
   color: $darker1;
   margin-top: 6px;
   margin-bottom: 4px;
-  margin-left: 4px;
+  margin-left: 8px;
   font-size: 24px;
 }
 
@@ -31,7 +35,7 @@ body {
   color: $dark2;
   margin-top: 6px;
   margin-bottom: 4px;
-  margin-left: 4px;
+  margin-left: 8px;
   font-size: 20px;
 }
 
