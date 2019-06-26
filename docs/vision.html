@@ -51,7 +51,63 @@
       </div>
     </nav>
     <div class="page">
-      <aside class="left"></aside>
+        <aside class="left">
+            <div class="left-aside-card">
+                <h1 class="card-title">Project status</h1>
+                <p>
+                    The project is currently no longer active,
+                    since our thesis has been completed
+                </p>
+            </div>
+            <div class="left-aside-card left-aside-contents">
+                <ol>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="outline.html">Outline</a></li>
+                    <li><a href="vision.html">Vision</a>
+                        <ol>
+                            <li><a href="vision.html#vision-camera">Camera</a></li>
+                            <li><a href="vision.html#vision-system">System</a></li>
+                            <li><a href="vision.html#vision-framework">Framework</a></li>
+                            <li><a href="vision.html#vision-program">Program</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="linefollower.html">Linefollower</a>
+                        <ol>
+                            <li><a href="linefollower.html#lf-hardware">Hardware</a></li>
+                            <li><a href="linefollower.html#lf-software">Software</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="controllable_car.html">Car</a>
+                        <ol>
+                            <li><a href="controllable_car.html#cc-prototype">Prototype</a></li>
+                            <li><a href="controllable_car.html#cc-hardware">Hardware</a></li>
+                            <li><a href="controllable_car.html#cc-software">Software</a></li>
+                            <li><a href="controllable_car.html#cc-oled">OLED</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="controllers.html">Controllers</a></li>
+                    <li><a href="link.html">Link</a>
+                        <ol>
+                            <li><a href="link.html#l-protocol">Protocol</a></li>
+                            <li><a href="link.html#l-lights">Lights</a></li>
+                            <li><a href="link.html#l-further">Further</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="makerfaire.html">Maker Faire</a></li>
+                    <li><a href="conclusion.html">Conclusion</a></li>
+                    <li><a href="extra_pid.html">PID extra</a></li>
+                    <li><a href="extra_vision.html">Vision extra</a>
+                        <ol>
+                            <li><a href="extra_vision.html#ev-analog-signals">Analog signals</a></li>
+                            <li><a href="extra_vision.html#ev-threshold">Threshold</a></li>
+                            <li><a href="extra_vision.html#ev-kernel-convolution">Kernel Convolution</a></li>
+                            <li><a href="extra_vision.html#ev-blur">Blur</a></li>
+                            <li><a href="extra_vision.html#ev-edge-detection">Edge Detection</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </aside>
       <main>
         <h1 class="page-title">Vision</h1>
         <blockquote cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf">
@@ -69,7 +125,8 @@
           </q>
           <p>(Hildreth, 1985)</p>
         </blockquote>
-        <article id="vision-camera">
+          <article>
+              <div class="anchor" id="vision-camera"></div>
           <h1 class="article-title">Camera</h1>
           <p>
             Any vision system requires an input of data. In this case that will be a camera.
@@ -128,7 +185,8 @@
             </figure>
           </section>
         </article>
-        <article id="vison-system">
+          <article>
+              <div class="anchor" id="vision-system"></div>
           <h1 class="article-title">System</h1>
           <section>
             <h1 class="section-title">Minimum system requirements</h1>
@@ -163,7 +221,8 @@
             </div>
           </section>
         </article>
-        <article id="vison-framework">
+          <article>
+              <div class="anchor" id="vision-framework"></div>
           <h1 class="article-title">Framework</h1>
           <section>
             <h1 class="section-title">Language</h1>
@@ -320,10 +379,60 @@
                 <span class="terminal-string">"picamera[array]"</span></code></div>
           </section>
         </article>
-        <article id="vison-program">
+          <article>
+              <div class="anchor" id="vision-program"></div>
           <h1 class="article-title">Program</h1>
           <section>
             <h1 class="section-title">Structure</h1>
+              <p>
+                  The program is written and organised to follow a logical order and to be readable.
+                  During the development, the program was often tested to the PEP8 standard
+                  (<em>Python Enhancement Proposal</em>). This standard contains all the rules to make
+                  Python code more readable, but also a few do's and dont's for programming.
+                  PEP8 makes sure that there is a clear distinction between the different parts of the
+                  programs like classes, functions etc.
+              </p>
+              <p>
+                  Every Python program (and file) starts with a docstring. This contains a description of
+                  what the program should do. This also contains a short description of variables,
+                  return-types and exceptions. These last ones are more applicable for a class' and a
+                  function's docstring.
+              </p>
+              <p>
+                  After the docstring come the import statements for all required libraries and classes.
+                  These can be both locally or globally installed libraries. Because the Python interpreter
+                  doesn't have much regard for the order of code; classes and functions can be placed
+                  anywhere in the document. The import statements do have to be placed as the first "real"
+                  code in a file. The docstring is a comment and isn't seen as code.<br>If import statements are placed
+                  at the top of a file, error can occur where functionality
+                  isn't available when needed. As a result the program could crash.
+              </p>
+              <p>
+                  According to PEP8 it is recommended to separate the import statements from the Python
+                  Standard Library before any other import statements. They should be separated by a blank
+                  line.
+              </p>
+              <p>
+                  The global variables are placed after the import statements. Global variables are, in
+                  general but in Python especially, to be avoided. These can cause problems with
+                  multi-threading and parallel processes. OpenCV uses multi-threading to speed up the
+                  calculations. So far no problems have been encountered, because all other operations are
+                  executed in a single thread. Global variables can be avoided by implementing a custom
+                  data-structure as a class.
+              </p>
+              <p>
+                  Read-only variabelen, zoals metadata, zijn hier wel toegestaan. Hierdoor kunnen
+                  modules beter geïdentificeerd worden. Volgens de PEP8-standaard krijgen deze
+                  variabelen een naam die begint en eindigt met “__” (twee underscores).
+              </p>
+              <p>
+                  Vervolgens komen de klassen, elk met hun eigen docstring en eventuele metadata.
+                  Elke klasse heeft minstens één methode nodig; de constructor. Deze wordt
+                  aangeduid door __init__.
+              </p>
+              <div class="gist-container">
+                  <script src="https://gist.github.com/pcassima/31ae639e22f40b94ddc4201fe08d3376.js"></script>
+              </div>
           </section>
           <section>
             <h1 class="section-title">Importing libraries</h1>
@@ -335,6 +444,9 @@
           <section>
             <h1 class="section-title">Classes</h1>
             <h1 class="section-subtitle">Webcam class</h1>
+              <div class="gist-container">
+                  <script src="https://gist.github.com/pcassima/08efda5b1962fc37315f10fb33d37cd3.js"></script>
+              </div>
           </section>
           <section>
             <h1 class="section-title">Functions</h1>

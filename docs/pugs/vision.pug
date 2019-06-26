@@ -11,7 +11,7 @@ html(lang="en")
 
         .page
             aside.left
-                include includes/header.pug
+                include includes/left-aside.pug
             main
                 h1.page-title Vision
                 blockquote(cite="ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-858.pdf")
@@ -27,7 +27,8 @@ html(lang="en")
                         | scene. The first clues about the physical properties of the scene are provided
                         | by the changes of intensity in the image.
                     p (Hildreth, 1985)
-                article#vision-camera
+                article
+                    .anchor#vision-camera
                     h1.article-title Camera
                     p
                         | Any vision system requires an input of data. In this case that will be a camera.
@@ -104,7 +105,8 @@ html(lang="en")
                                 br
                                 | &copy; 2019
 
-                article#vison-system
+                article
+                    .anchor#vision-system
                     h1.article-title System
                     section
                         h1.section-title Minimum system requirements
@@ -128,7 +130,8 @@ html(lang="en")
                                         tr.alt
                                             td Storage
                                             td 8 GB
-                article#vison-framework
+                article
+                    .anchor#vision-framework
                     h1.article-title Framework
                     section
                         h1.section-title Language
@@ -308,10 +311,54 @@ html(lang="en")
                                 | <span class="terminal-first-highlight">pip</span>
                                 | <span class="terminal-second-highlight">install</span>
                                 | <span class="terminal-string">"picamera[array]"</span>
-                article#vison-program
+                article
+                    .anchor#vision-program
                     h1.article-title Program
                     section
                         h1.section-title Structure
+                        p
+                            | The program is written and organised to follow a logical order and to be readable.
+                            | During the development, the program was often tested to the PEP8 standard
+                            | (<em>Python Enhancement Proposal</em>). This standard contains all the rules to make
+                            | Python code more readable, but also a few do's and dont's for programming.
+                            | PEP8 makes sure that there is a clear distinction between the different parts of the
+                            | programs like classes, functions etc.
+                        p
+                            | Every Python program (and file) starts with a docstring. This contains a description of
+                            | what the program should do. This also contains a short description of variables,
+                            | return-types and exceptions. These last ones are more applicable for a class' and a
+                            | function's docstring.
+                        p
+                            | After the docstring come the import statements for all required libraries and classes.
+                            | These can be both locally or globally installed libraries. Because the Python interpreter
+                            | doesn't have much regard for the order of code; classes and functions can be placed
+                            | anywhere in the document. The import statements do have to be placed as the first "real"
+                            | code in a file. The docstring is a comment and isn't seen as code.
+                            br
+                            | If import statements are placed at the top of a file, error can occur where functionality
+                            | isn't available when needed. As a result the program could crash.
+                        p
+                            | According to PEP8 it is recommended to separate the import statements from the Python
+                            | Standard Library before any other import statements. They should be separated by a blank
+                            | line.
+                        p
+                            | The global variables are placed after the import statements. Global variables are, in
+                            | general but in Python especially, to be avoided. These can cause problems with
+                            | multi-threading and parallel processes. OpenCV uses multi-threading to speed up the
+                            | calculations. So far no problems have been encountered, because all other operations are
+                            | executed in a single thread. Global variables can be avoided by implementing a custom
+                            | data-structure as a class.
+                        p
+                            | Read-only variabelen, zoals metadata, zijn hier wel toegestaan. Hierdoor kunnen
+                            | modules beter geïdentificeerd worden. Volgens de PEP8-standaard krijgen deze
+                            | variabelen een naam die begint en eindigt met “__” (twee underscores).
+                        p
+                            | Vervolgens komen de klassen, elk met hun eigen docstring en eventuele metadata.
+                            | Elke klasse heeft minstens één methode nodig; de constructor. Deze wordt
+                            | aangeduid door __init__.
+                        .gist-container
+                            script(src="https://gist.github.com/pcassima/31ae639e22f40b94ddc4201fe08d3376.js")
+
                     section
                         h1.section-title Importing libraries
                         .gist-container
@@ -320,6 +367,8 @@ html(lang="en")
                     section
                         h1.section-title Classes
                         h1.section-subtitle Webcam class
+                        .gist-container
+                            script(src="https://gist.github.com/pcassima/08efda5b1962fc37315f10fb33d37cd3.js")
                     section
                         h1.section-title Functions
                         h1.section-subtitle order_66()
@@ -336,6 +385,7 @@ html(lang="en")
                         h1.section-subtitle Count corners & determine shape
                         h1.section-subtitle Calculate centre of shape & determine colour
                         h1.section-subtitle Results
+
                 .bottom-nav
                     .bottom-nav-left
                         .back

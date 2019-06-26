@@ -11,14 +11,16 @@ html(lang="en")
 
         .page
             aside.left
-                include includes/header.pug
+                include includes/left-aside.pug
             main
                 h1.page-title Line follower
-                article#lf-hardware
+                article
+                    .anchor#lf-hardware
                     h1.article-title Hardware
                     section
                         h1.section-title Section title
-                article#lf-software
+                article
+                    .anchor#lf-software
                     h1.article-title Software
                     section
                         h1.section-title Section title

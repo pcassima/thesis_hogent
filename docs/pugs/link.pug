@@ -11,10 +11,11 @@ html(lang="en")
 
         .page
             aside.left
-                include includes/header.pug
+                include includes/left-aside.pug
             main
                 h1.page-title Link
-                article#l-protocol
+                article
+                    .anchor#l-protocol
                     h1.article-title Protocol
                     section
                         h1.section-title Pegasus
@@ -22,11 +23,13 @@ html(lang="en")
                         h1.section-title MQTT
                     section
                         h1.section-title Reader
-                article#l-lights
+                article
+                    .anchor#l-lights
                     h1.article-title Lights
                     section
                         h1.section-title section title
-                article#l-further
+                article
+                    .anchor#l-further
                     h1.article-title Further
                 .bottom-nav
                     .bottom-nav-left
