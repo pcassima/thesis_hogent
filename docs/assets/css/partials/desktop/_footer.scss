@@ -1,19 +1,19 @@
 @import '../_colors.scss';
+@import '_shadow.scss';
 
 footer {
-  display: table;
   width: 100%;
-  margin-top: 12px;
-  padding: 12px;
-  //background-color: lightgrey;
-
-  p {
-    margin-left: 16px;
-  }
+  margin-top: 16px;
 
   .footer-left {
-    display: table-cell;
-    //width: 50%;
+    @include create-box-shadow;
+    float: left;
+    margin: 12px;
+    padding: 8px;
+
+    p {
+      margin-left: 16px;
+    }
     .social-bar-container {
       .social-bar {
         list-style-type: none;
@@ -39,12 +39,14 @@ footer {
   }
 
   .footer-right {
-    display: table-cell;
-
+    @include create-box-shadow;
+    float: right;
+    margin: 12px;
+    padding: 8px;
     text-align: right;
 
     .badge {
-      margin-right: 24px;
+      //margin-right: 24px;
     }
   }
 }
