@@ -12,6 +12,11 @@ aside.left {
   padding-left: 8px;
   padding-right: 12px;
 
+  .left-aside-contents {
+    position: sticky;
+    top: 50px;
+  }
+
   .left-aside-card {
     margin-bottom: 12px;
     @include create-box-shadow;
@@ -20,7 +25,30 @@ aside.left {
   .left-aside-card > * {
     margin-left: 4px;
   }
+
+  ol {
+    li {
+      margin-left: 32px;
+
+      a {
+
+      }
+
+      ol {
+        margin-left: -8px;
+
+        li {
+          list-style-type: lower-alpha;
+
+          a {
+
+          }
+        }
+      }
+    }
+  }
 }
+
 
 aside.right {
   padding-left: 12px;
