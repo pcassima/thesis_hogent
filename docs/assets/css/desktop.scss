@@ -11,7 +11,7 @@ body {
   font-family: 'Roboto', sans-serif;
 
   p {
-    margin: 8px;
+    margin: 8px 12px 8px 8px;
     font-size: 16px;
   }
 
@@ -79,7 +79,6 @@ body {
     }
   }
 }
-
 
 .card {
   //  TODO: move to dedicated partial (for general styling)
@@ -166,6 +165,20 @@ blockquote {
   @import 'partials/desktop/_aside';
   @include create-box-shadow;
   padding-bottom: 16px;
+
+  .anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
+  }
+
+  //article::before {
+  //  content: "";
+  //  display: block;
+  //  height: 60px; /* fixed header height*/
+  //  margin: -60px 0 0; /* negative fixed header height */
+  //}
 
   main {
     @include create-box-shadow;

@@ -5,7 +5,7 @@ figure {
   @include create-box-shadow;
   padding: 8px;
   margin: 12px;
-  clear: both;
+  //clear: both;
 
   img {
     object-fit: cover;
@@ -43,7 +43,7 @@ figure {
 
 .center-aligned {
   //text-align: center;
-  margin: 0 auto;
+  margin: 12px auto;
 }
 .right-aligned {
   float: right;
