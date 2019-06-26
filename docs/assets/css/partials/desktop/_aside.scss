@@ -3,12 +3,11 @@
 
 aside {
   display: table-cell;
-  width: 20%;
+  width: 15%;
 }
 
 
 aside.left {
-
   padding-left: 8px;
   padding-right: 12px;
 
@@ -19,7 +18,17 @@ aside.left {
 
   .left-aside-card {
     margin-bottom: 12px;
+    padding: 8px;
     @include create-box-shadow;
+
+    .card-title {
+      border: none;
+      font-size: 32px;
+    }
+
+    .card-title::after {
+      content: ':';
+    }
   }
 
   .left-aside-card > * {
@@ -53,7 +62,8 @@ aside.left {
 aside.right {
   padding-left: 12px;
   padding-right: 12px;
-  .right-aside-card{
+
+  .right-aside-card {
     position: relative;
     margin-bottom: 12px;
     @include create-box-shadow;
