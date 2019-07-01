@@ -4,7 +4,7 @@
 }
 
 nav {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   background-color: #20dce1;
   text-align: center;
   display: block;
@@ -53,8 +53,8 @@ nav .hamburger {
 
 .page-title {
   color: #20dce1;
-  border-left: 6px solid;
-  border-bottom: 3px solid;
+  border-left: 8px solid;
+  border-bottom: 4px solid;
   padding-left: 8px;
   padding-bottom: 2px;
   margin: 4px 8px 8px 12px;
@@ -64,15 +64,17 @@ nav .hamburger {
 .article-title {
   color: #16a5a9;
   border-left: 6px solid;
+  border-bottom: 2px solid;
   padding-left: 6px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 8px;
+  padding-bottom: 2px;
+  margin: 4px 8px;
   font-size: 32px;
 }
 
 .section-title {
   color: #1c5555;
+  border-left: 4px solid;
+  padding-left: 4px;
   margin-top: 6px;
   margin-bottom: 4px;
   margin-left: 8px;
@@ -122,7 +124,7 @@ footer {
   margin-top: 16px;
 }
 footer .footer-left {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   float: left;
   margin: 12px;
   padding: 8px;
@@ -149,7 +151,7 @@ footer .footer-left .social-bar-container .social-bar .fab:hover {
   opacity: 0.7;
 }
 footer .footer-right {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   float: right;
   margin: 12px;
   padding: 8px;
@@ -157,7 +159,7 @@ footer .footer-right {
 }
 .gist-container {
   margin: 12px 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
 }
 .gist-container .gist .gist-file {
   margin-bottom: 0;
@@ -205,7 +207,7 @@ footer .footer-right {
 }
 
 figure {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   padding: 8px;
   margin: 12px;
 }
@@ -276,7 +278,7 @@ body em {
   text-align: center;
 }
 .table-container div {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   display: inline-block;
   padding: 4px;
   margin-bottom: 8px;
@@ -317,7 +319,7 @@ body em {
 }
 
 blockquote {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   color: #a42064;
   margin: 8px 96px;
   padding: 8px;
@@ -333,7 +335,7 @@ blockquote p {
 }
 
 .code-container {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   margin: 16px;
   padding: 8px;
   display: inline-block;
@@ -363,7 +365,7 @@ blockquote p {
   margin-bottom: 4px;
 }
 .formula-container .formula {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   display: inline-block;
 }
 .formula-container p.caption {
@@ -375,7 +377,7 @@ blockquote p {
 .page {
   display: table;
   width: 100%;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   padding-bottom: 16px;
 }
 .page aside {
@@ -393,7 +395,7 @@ blockquote p {
 .page aside.left .left-aside-card {
   margin-bottom: 12px;
   padding: 8px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
 }
 .page aside.left .left-aside-card .card-title {
   border: none;
@@ -421,7 +423,7 @@ blockquote p {
 .page aside.right .right-aside-card {
   position: relative;
   margin-bottom: 12px;
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
 }
 .page aside.right .right-aside-card > * {
   margin-left: 8px;
@@ -433,17 +435,17 @@ blockquote p {
   visibility: hidden;
 }
 .page main {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   padding: 12px 6px 0 6px;
   display: table-cell;
 }
 .page main article {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   margin: 16px 8px;
   padding: 4px;
 }
 .page main article section {
-  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
   margin: 8px;
   overflow: auto;
 }
@@ -473,6 +475,67 @@ blockquote p {
 }
 .page main .bottom-nav .bottom-nav-right a {
   margin-right: 96px;
+}
+
+.folder-tree {
+  box-shadow: 2px 2px 4px 0 rgba(82, 82, 82, 0.48);
+  padding: 6px;
+  margin: 12px;
+  margin-top: 4px;
+  float: left;
+}
+.folder-tree p.caption {
+  margin: 2px;
+  font-size: 14px;
+  font-style: italic;
+  color: #a42064;
+}
+.folder-tree .fas, .folder-tree .fab {
+  margin-right: 3px;
+  color: #1c5555;
+}
+.folder-tree .fa-python {
+  color: #FFD43B;
+}
+.folder-tree ul {
+  margin: 0 0 0 20px;
+  list-style: none;
+  line-height: 1.4em;
+}
+.folder-tree ul li {
+  position: relative;
+}
+.folder-tree ul li:before {
+  position: absolute;
+  left: -15px;
+  top: 0;
+  content: "";
+  display: block;
+  border-left: 1px solid #ddd;
+  height: 1em;
+  border-bottom: 1px solid #ddd;
+  width: 10px;
+}
+.folder-tree ul li:after {
+  position: absolute;
+  left: -15px;
+  bottom: -7px;
+  content: "";
+  display: block;
+  border-left: 1px solid #ddd;
+  height: 100%;
+}
+.folder-tree ul li.root {
+  margin: 0 0 0 -20px;
+}
+.folder-tree ul li.root:before {
+  display: none;
+}
+.folder-tree ul li.root:after {
+  display: none;
+}
+.folder-tree ul li:last-child:after {
+  display: none;
 }
 
 @media screen and (max-width: 950px) {

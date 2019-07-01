@@ -231,3 +231,80 @@ blockquote {
     }
   }
 }
+
+.folder-tree {
+  @include create-box-shadow;
+  padding: 6px;
+  margin: 12px;
+  margin-top: 4px;
+  //width: 50%;
+  float: left;
+
+  p.caption {
+    margin: 2px;
+    font-size: 14px;
+    font-style: italic;
+    color: $dark2;
+  }
+
+  .fas, .fab{
+    margin-right: 3px;
+    color: $darker1;
+  }
+
+  .fa-python {
+    color: #FFD43B;
+  }
+  ul {
+    margin: 0 0 0 20px;
+    list-style: none;
+    line-height: 1.4em;
+
+    li {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: -15px;
+        top: 0;
+        content: '';
+        display: block;
+        border-left: 1px solid #ddd;
+        height: 1em;
+        border-bottom: 1px solid #ddd;
+        width: 10px;
+      }
+
+      &:after {
+        position: absolute;
+        left: -15px;
+        bottom: -7px;
+        content: '';
+        display: block;
+        border-left: 1px solid #ddd;
+        height: 100%;
+      }
+
+      &.root {
+        margin: 0 0 0 -20px;
+
+        &:before {
+          display: none;
+        }
+
+        &:after {
+          display: none;
+        }
+
+
+      }
+
+
+      &:last-child {
+        &:after {
+          display: none
+        }
+      }
+    }
+  }
+}
