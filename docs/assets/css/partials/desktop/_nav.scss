@@ -2,9 +2,9 @@
 @import '_shadow.scss';
 
 nav {
-  text-align: center;
   @include create-box-shadow;
   background-color: $accent1;
+  text-align: center;
   display: block;
   position: sticky;
   top: 0;
@@ -14,7 +14,7 @@ nav {
     display: inline-block;
     margin-bottom: -4px;
 
-    ul {
+    .nav-list {
       list-style: none;
 
       li {

@@ -1,9 +1,9 @@
 @import '../_colors.scss';
 
-// TODO: Fix issues with floats on mobile layout (should be centered)
 footer {
   .footer-left {
     float: none;
+    display: block;
     .social-bar-container {
       .social-bar {
         li {
@@ -15,6 +15,7 @@ footer {
   }
   .footer-right {
     float: none;
+    display: block;
     .badge {
     }
   }

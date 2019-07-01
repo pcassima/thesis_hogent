@@ -4,9 +4,9 @@
 }
 
 nav {
-  text-align: center;
   box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
   background-color: #20dce1;
+  text-align: center;
   display: block;
   position: sticky;
   top: 0;
@@ -16,16 +16,16 @@ nav .top-navbar {
   display: inline-block;
   margin-bottom: -4px;
 }
-nav .top-navbar ul {
+nav .top-navbar .nav-list {
   list-style: none;
 }
-nav .top-navbar ul li {
+nav .top-navbar .nav-list li {
   float: left;
   min-width: 145px;
   margin-right: 4px;
   margin-left: 4px;
 }
-nav .top-navbar ul li a {
+nav .top-navbar .nav-list li a {
   padding-top: 4px;
   padding-bottom: 6px;
   color: white;
@@ -34,17 +34,17 @@ nav .top-navbar ul li a {
   text-decoration: none;
   text-transform: uppercase;
 }
-nav .top-navbar ul li div {
+nav .top-navbar .nav-list li div {
   background-color: #e11c84;
   height: 4px;
   transform-origin: center;
   transform: scaleX(0);
   transition: transform 350ms ease-in-out;
 }
-nav .top-navbar ul .nav-active div {
+nav .top-navbar .nav-list .nav-active div {
   transform: scaleX(1);
 }
-nav .top-navbar ul li:hover div {
+nav .top-navbar .nav-list li:hover div {
   transform: scaleX(1);
 }
 nav .hamburger {
@@ -53,9 +53,9 @@ nav .hamburger {
 
 .page-title {
   color: #20dce1;
-    border-left: 6px solid;
-    border-bottom: 3px solid;
-    padding-left: 8px;
+  border-left: 6px solid;
+  border-bottom: 3px solid;
+  padding-left: 8px;
   padding-bottom: 2px;
   margin: 4px 8px 8px 12px;
   font-size: 48px;
@@ -63,8 +63,8 @@ nav .hamburger {
 
 .article-title {
   color: #16a5a9;
-    border-left: 6px solid;
-    padding-left: 6px;
+  border-left: 6px solid;
+  padding-left: 6px;
   margin-top: 4px;
   margin-bottom: 4px;
   margin-left: 8px;
@@ -75,7 +75,7 @@ nav .hamburger {
   color: #1c5555;
   margin-top: 6px;
   margin-bottom: 4px;
-    margin-left: 8px;
+  margin-left: 8px;
   font-size: 24px;
 }
 
@@ -83,7 +83,7 @@ nav .hamburger {
   color: #a42064;
   margin-top: 6px;
   margin-bottom: 4px;
-    margin-left: 8px;
+  margin-left: 8px;
   font-size: 20px;
 }
 
@@ -119,16 +119,14 @@ h6 {
 
 footer {
   width: 100%;
-    margin-top: 16px;
+  margin-top: 16px;
 }
-
 footer .footer-left {
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-    float: left;
-    margin: 12px;
-    padding: 8px;
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  float: left;
+  margin: 12px;
+  padding: 8px;
 }
-
 footer .footer-left p {
   margin-left: 16px;
 }
@@ -151,10 +149,10 @@ footer .footer-left .social-bar-container .social-bar .fab:hover {
   opacity: 0.7;
 }
 footer .footer-right {
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-    float: right;
-    margin: 12px;
-    padding: 8px;
+  box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
+  float: right;
+  margin: 12px;
+  padding: 8px;
   text-align: right;
 }
 .gist-container {
@@ -177,7 +175,7 @@ footer .footer-right {
 .gist-container .gist .highlight {
   background-color: transparent;
   font-family: "Fira Code", monospace;
-    font-size: 14px;
+  font-size: 14px;
 }
 .gist-container .gist .highlight td {
   padding: 5px 10px !important;
@@ -227,7 +225,7 @@ figure figcaption a {
 }
 
 .full-width {
-    width: 95%;
+  width: 95%;
 }
 
 .half-width {
@@ -243,7 +241,7 @@ figure figcaption a {
 }
 
 .center-aligned {
-    margin: 12px auto;
+  margin: 12px auto;
 }
 
 .right-aligned {
@@ -258,7 +256,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 body p {
-    margin: 8px 12px 8px 8px;
+  margin: 8px 12px 8px 8px;
   font-size: 16px;
 }
 body a {
@@ -382,45 +380,39 @@ blockquote p {
 }
 .page aside {
   display: table-cell;
-    width: 15%;
+  width: 15%;
 }
 .page aside.left {
   padding-left: 8px;
   padding-right: 12px;
 }
-
 .page aside.left .left-aside-contents {
-    position: sticky;
-    top: 50px;
+  position: sticky;
+  top: 50px;
 }
 .page aside.left .left-aside-card {
   margin-bottom: 12px;
-    padding: 8px;
+  padding: 8px;
   box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
 }
-
 .page aside.left .left-aside-card .card-title {
-    border: none;
-    font-size: 32px;
+  border: none;
+  font-size: 32px;
 }
-
 .page aside.left .left-aside-card .card-title::after {
-    content: ":";
+  content: ":";
 }
 .page aside.left .left-aside-card > * {
   margin-left: 4px;
 }
-
 .page aside.left ol li {
-    margin-left: 32px;
+  margin-left: 32px;
 }
-
 .page aside.left ol li ol {
-    margin-left: -8px;
+  margin-left: -8px;
 }
-
 .page aside.left ol li ol li {
-    list-style-type: lower-alpha;
+  list-style-type: lower-alpha;
 }
 .page aside.right {
   padding-left: 12px;
@@ -434,16 +426,15 @@ blockquote p {
 .page aside.right .right-aside-card > * {
   margin-left: 8px;
 }
-
 .page .anchor {
-    display: block;
-    position: relative;
-    top: -50px;
-    visibility: hidden;
+  display: block;
+  position: relative;
+  top: -50px;
+  visibility: hidden;
 }
 .page main {
   box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-  padding: 0 6px;
+  padding: 12px 6px 0 6px;
   display: table-cell;
 }
 .page main article {
@@ -500,10 +491,12 @@ blockquote p {
     list-style: none;
   }
   nav .top-navbar .nav-list li {
+    float: none;
     text-align: center;
     margin: 8px 0;
   }
   nav .top-navbar .nav-list li a {
+    display: block;
     padding: 4px;
     color: white;
     font-weight: bold;
@@ -523,7 +516,7 @@ blockquote p {
     float: right;
     margin-right: 8px;
     margin-top: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     vertical-align: middle;
     cursor: pointer;
   }
@@ -591,10 +584,9 @@ blockquote p {
   body {
     font-family: "Roboto Light", sans-serif;
   }
-
-    blockquote {
-        margin: 8px 48px;
-    }
+  blockquote {
+    margin: 8px 48px;
+  }
 
   .page {
     display: block;
@@ -640,260 +632,20 @@ blockquote p {
   }
 }
 @media screen and (max-width: 500px) {
-  nav {
-    text-align: center;
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-    background-color: #20dce1;
+  footer .footer-left {
+    float: none;
     display: block;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  nav .top-navbar {
-    display: inline-block;
-    margin-bottom: -4px;
-  }
-  nav .top-navbar ul {
-    list-style: none;
-  }
-  nav .top-navbar ul li {
-    float: left;
-    min-width: 145px;
-    margin-right: 4px;
-    margin-left: 4px;
-  }
-  nav .top-navbar ul li a {
-    padding-top: 4px;
-    padding-bottom: 6px;
-    color: white;
-    display: inline-block;
-    font-size: 24px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  nav .top-navbar ul li div {
-    background-color: #e11c84;
-    height: 4px;
-    transform-origin: center;
-    transform: scaleX(0);
-    transition: transform 350ms ease-in-out;
-  }
-  nav .top-navbar ul .nav-active div {
-    transform: scaleX(1);
-  }
-  nav .top-navbar ul li:hover div {
-    transform: scaleX(1);
-  }
-  nav .hamburger {
-    display: none;
-  }
-
-  .page-title {
-    color: #20dce1;
-      border-left: 6px solid;
-      border-bottom: 3px solid;
-      padding-left: 8px;
-    padding-bottom: 2px;
-    margin: 4px 8px 8px 12px;
-    font-size: 48px;
-  }
-
-  .article-title {
-    color: #16a5a9;
-      border-left: 6px solid;
-      padding-left: 6px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 8px;
-    font-size: 32px;
-  }
-
-  .section-title {
-    color: #1c5555;
-    margin-top: 6px;
-    margin-bottom: 4px;
-      margin-left: 8px;
-    font-size: 24px;
-  }
-
-  .section-subtitle {
-    color: #a42064;
-    margin-top: 6px;
-    margin-bottom: 4px;
-      margin-left: 8px;
-    font-size: 20px;
-  }
-
-  h1 {
-    font-size: 40px;
-    margin-left: 4px;
-  }
-
-  h2 {
-    font-size: 32px;
-    margin-left: 4px;
-  }
-
-  h3 {
-    font-size: 24px;
-    margin-left: 4px;
-  }
-
-  h4 {
-    font-size: 20px;
-    margin-left: 4px;
-  }
-
-  h5 {
-    font-size: 18px;
-    margin-left: 4px;
-  }
-
-  h6 {
-    font-size: 16px;
-    margin-left: 4px;
-  }
-
-  footer {
-    width: 100%;
-      margin-top: 16px;
-  }
-
-    footer .footer-left {
-        box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-        float: left;
-        margin: 12px;
-        padding: 8px;
-    }
-
-    footer .footer-left p {
-    margin-left: 16px;
-  }
-  footer .footer-left .social-bar-container .social-bar {
-    list-style-type: none;
-    padding: 0;
-    margin-left: 12px;
-    overflow: hidden;
-  }
-  footer .footer-left .social-bar-container .social-bar .fab {
-    padding: 4px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    float: left;
-    color: #e11c84;
-    font-weight: lighter;
-  }
-  footer .footer-left .social-bar-container .social-bar .fab:hover {
-    opacity: 0.7;
   }
   footer .footer-right {
-      box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-      float: right;
-      margin: 12px;
-      padding: 8px;
-    text-align: right;
+    float: none;
+    display: block;
   }
-  .gist-container {
-    margin: 12px 12px;
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-  }
-  .gist-container .gist .gist-file {
-    margin-bottom: 0;
-    border: none;
-    border-radius: 0;
-  }
-  .gist-container .gist .gist-data {
-    border-bottom: none;
-    border-radius: 0;
-    background-color: #FFF;
-  }
-  .gist-container .gist .blob-wrapper {
-    border-radius: 0;
-  }
-  .gist-container .gist .highlight {
-    background-color: transparent;
-    font-family: "Fira Code", monospace;
-      font-size: 14px;
-  }
-  .gist-container .gist .highlight td {
-    padding: 5px 10px !important;
-    line-height: 1;
-    font-family: inherit;
-    font-size: inherit;
-  }
-  .gist-container .gist tr:first-child td {
-    padding-top: 15px !important;
-  }
-  .gist-container .gist tr:last-child td {
-    padding-bottom: 15px !important;
-  }
-  .gist-container .gist .blob-num {
-    color: #FFF;
-    background-color: #e11c84;
-    pointer-events: none;
-  }
-  .gist-container .gist .gist-meta {
-    color: #FFF;
-    background-color: #a42064;
-    border-radius: 0;
-  }
-  .gist-container .gist .gist-meta a {
-    color: #FFF;
-    font-weight: bold;
-  }
-
   figure {
-    box-shadow: 2px 2px 4px 0 rgba(75, 75, 75, 0.32);
-    padding: 8px;
-    margin: 12px;
+    margin: 8px;
   }
-  figure img {
-    object-fit: cover;
-    max-width: 100%;
+  blockquote {
+    margin: 8px 16px;
   }
-  figure figcaption {
-    text-align: center;
-    font-size: 14px;
-  }
-  figure figcaption a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #e11c84;
-    cursor: pointer;
-  }
-
-    .full-width {
-        width: 95%;
-    }
-
-  .half-width {
-    width: 50%;
-  }
-
-  .third-width {
-    width: 33%;
-  }
-
-  .quarter-width {
-    width: 25%;
-  }
-
-  .center-aligned {
-      margin: 12px auto;
-  }
-
-  .right-aligned {
-    float: right;
-  }
-
-  .left-aligned {
-    float: left;
-  }
-
-    blockquote {
-        margin: 8px 16px;
-    }
 
   .page aside.left {
     display: none;
